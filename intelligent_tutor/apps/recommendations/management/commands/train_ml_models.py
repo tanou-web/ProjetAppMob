@@ -1,19 +1,32 @@
 """
-Commande Django pour entraîner les modèles ML
+Django Management Command: Train ML Models
+Trains all intelligent tutor ML models for Burkina Faso curriculum
 
 Usage:
-  python manage.py train_ml_models [--model-type gradient_boosting] [--version 2.0.0]
   python manage.py train_ml_models --all
-  python manage.py train_ml_models --evaluate-all
-  python manage.py train_ml_models --compare
+  python manage.py train_ml_models --correction
+  python manage.py train_ml_models --error-analysis
+  python manage.py train_ml_models --activate
+  python manage.py train_ml_models --curriculum=path/to/curriculum.json
 """
 
-from django.core.management.base import BaseCommand, CommandError
-from django.utils import timezone
-from apps.recommendations.training import ModelTrainer, ModelEnhancer, DataPreparation
-from apps.recommendations.predict import ModelComparison
-from apps.recommendations.models_ml import MLModelVersion
 import logging
+import json
+from pathlib import Path
+from datetime import datetime
+
+from django.core.management.base import BaseCommand, CommandError
+from django.conf import settings
+from django.utils import timezone
+
+from apps.recommendations.training_pipeline import (
+    TrainingOrchestrator,
+    DatasetPreparer,
+    ExerciseCorrectionTrainer,
+    ErrorAnalysisTrainer,
+    ModelPersistenceManager,
+)
+from apps.recommendations.models_ml import MLModelVersion
 
 logger = logging.getLogger(__name__)
 
@@ -35,215 +48,211 @@ class Command(BaseCommand):
             type=str,
             default='2.0.0',
             help='Numéro de version du modèle'
-        )
-        
+
+
+class Command(BaseCommand):
+    help = 'Train ML models for intelligent tutor system'
+
+    def add_arguments(self, parser):
         parser.add_argument(
             '--all',
             action='store_true',
-            help='Entraîner tous les types de modèles'
+            help='Train all model types'
         )
-        
         parser.add_argument(
-            '--evaluate-all',
+            '--correction',
             action='store_true',
-            help='Évaluer les performances de tous les modèles'
+            help='Train only exercise correction model'
         )
-        
         parser.add_argument(
-            '--compare',
+            '--error-analysis',
             action='store_true',
-            help='Comparer les modèles existants'
+            help='Train only error analysis model'
         )
-        
         parser.add_argument(
-            '--analyze',
-            type=int,
-            help='Analyser un modèle spécifique (par ID)'
+            '--curriculum',
+            type=str,
+            help='Path to curriculum JSON file'
         )
-        
         parser.add_argument(
-            '--check-retraining',
+            '--synthetic-only',
             action='store_true',
-            help='Vérifier si le retraining est nécessaire'
+            help='Use only synthetic data'
         )
-    
+        parser.add_argument(
+            '--activate',
+            action='store_true',
+            help='Set trained model as active'
+        )
+
     def handle(self, *args, **options):
         self.stdout.write(
-            self.style.SUCCESS('╔════════════════════════════════════════════════╗')
+            self.style.SUCCESS('\n' + '='*70)
         )
         self.stdout.write(
-            self.style.SUCCESS('║     GESTIONNAIRE DE MODÈLES ML                  ║')
+            self.style.SUCCESS('🚀 INTELLIGENT TUTOR - ML MODEL TRAINING')
         )
         self.stdout.write(
-            self.style.SUCCESS('╚════════════════════════════════════════════════╝')
+            self.style.SUCCESS('='*70 + '\n')
         )
-        
+
         try:
-            if options['all']:
-                self._train_all_models()
-            elif options['evaluate_all']:
-                self._evaluate_all_models()
-            elif options['compare']:
-                self._compare_models()
-            elif options['analyze']:
-                self._analyze_model(options['analyze'])
-            elif options['check_retraining']:
-                self._check_retraining()
-            else:
-                self._train_single_model(
-                    options['model_type'],
-                    options['version']
+            train_all = options.get('all', False)
+            train_correction = options.get('correction', False) or train_all
+            train_error = options.get('error_analysis', False) or train_all
+
+            if not (train_all or train_correction or train_error):
+                train_all = True
+
+            orchestrator = TrainingOrchestrator()
+
+            self.stdout.write(
+                self.style.HTTP_INFO('\n📊 STEP 1: DATA PREPARATION')
+            )
+            self.stdout.write('-' * 70)
+
+            preparer = DatasetPreparer(curriculum_path=options.get('curriculum'))
+
+            self.stdout.write('Loading curriculum exercises...')
+            exercises_df = preparer.load_curriculum_exercises()
+            self.stdout.write(self.style.SUCCESS(f'✅ Loaded {len(exercises_df)} exercises'))
+
+            if not options.get('synthetic_only', False):
+                self.stdout.write('Generating synthetic error variations...')
+                training_data = preparer.generate_synthetic_errors(exercises_df, num_variations=3)
+                self.stdout.write(
+                    self.style.SUCCESS(f'✅ Generated {len(training_data)} samples')
                 )
+            else:
+                training_data = exercises_df
+
+            train_df, val_df, test_df = preparer.create_splits(training_data)
+
+            self.stdout.write(
+                self.style.SUCCESS(
+                    f'\n✅ Data Split: Train={len(train_df)}, Val={len(val_df)}, Test={len(test_df)}'
+                )
+            )
+
+            results = {
+                'timestamp': datetime.now().isoformat(),
+                'models_trained': []
+            }
+
+            persistence = ModelPersistenceManager()
+
+            # Train correction model
+            if train_correction:
+                self.stdout.write(
+                    self.style.HTTP_INFO('\n🤖 STEP 2: TRAINING CORRECTION MODEL')
+                )
+                self.stdout.write('-' * 70)
+
+                trainer = ExerciseCorrectionTrainer()
+                self.stdout.write('Training...')
+                metrics = trainer.train(train_df, val_df)
+
+                self.stdout.write(self.style.SUCCESS(f'✅ Accuracy: {metrics["accuracy"]:.2%}'))
+                self.stdout.write(self.style.SUCCESS(f'✅ Precision: {metrics["precision"]:.2%}'))
+                self.stdout.write(self.style.SUCCESS(f'✅ Recall: {metrics["recall"]:.2%}'))
+                self.stdout.write(self.style.SUCCESS(f'✅ F1-Score: {metrics["f1"]:.2%}'))
+
+                self.stdout.write('\nSaving model version...')
+                version = persistence.save_model_version(
+                    model=trainer.model,
+                    model_type='correction',
+                    metrics=metrics,
+                    feature_engineer=trainer.feature_engineer,
+                    training_config={'train_samples': len(train_df), 'model': 'RandomForest'}
+                )
+
+                self.stdout.write(
+                    self.style.SUCCESS(f'✅ Model saved: {version.version}')
+                )
+
+                if options.get('activate', False):
+                    MLModelVersion.objects.filter(model_type='correction').exclude(
+                        id=version.id
+                    ).update(status='archived')
+                    version.status = 'active'
+                    version.save()
+                    self.stdout.write(self.style.SUCCESS('✅ Set as ACTIVE'))
+
+                results['models_trained'].append({
+                    'model_type': 'correction',
+                    'version_id': version.id,
+                    'metrics': metrics,
+                })
+
+            # Train error analysis model
+            if train_error:
+                self.stdout.write(
+                    self.style.HTTP_INFO('\n🔍 STEP 3: TRAINING ERROR ANALYSIS MODEL')
+                )
+                self.stdout.write('-' * 70)
+
+                trainer = ErrorAnalysisTrainer()
+                self.stdout.write('Training...')
+                metrics = trainer.train(train_df, val_df)
+
+                self.stdout.write(self.style.SUCCESS(f'✅ Accuracy: {metrics["accuracy"]:.2%}'))
+                self.stdout.write(self.style.SUCCESS(f'✅ Precision: {metrics["precision"]:.2%}'))
+                self.stdout.write(self.style.SUCCESS(f'✅ Recall: {metrics["recall"]:.2%}'))
+                self.stdout.write(self.style.SUCCESS(f'✅ F1-Score: {metrics["f1"]:.2%}'))
+
+                self.stdout.write('\nSaving model version...')
+                version = persistence.save_model_version(
+                    model=trainer.model,
+                    model_type='error_analysis',
+                    metrics=metrics,
+                    feature_engineer=trainer.feature_engineer,
+                    training_config={'train_samples': len(train_df), 'model': 'GradientBoosting'}
+                )
+
+                self.stdout.write(
+                    self.style.SUCCESS(f'✅ Model saved: {version.version}')
+                )
+
+                if options.get('activate', False):
+                    MLModelVersion.objects.filter(model_type='error_analysis').exclude(
+                        id=version.id
+                    ).update(status='archived')
+                    version.status = 'active'
+                    version.save()
+                    self.stdout.write(self.style.SUCCESS('✅ Set as ACTIVE'))
+
+                results['models_trained'].append({
+                    'model_type': 'error_analysis',
+                    'version_id': version.id,
+                    'metrics': metrics,
+                })
+
+            # Save results
+            self.stdout.write(
+                self.style.SUCCESS('\n' + '='*70)
+            )
+            self.stdout.write(
+                self.style.SUCCESS('✅ TRAINING COMPLETED')
+            )
+            self.stdout.write(
+                self.style.SUCCESS('='*70 + '\n')
+            )
+
+            results_path = Path(settings.BASE_DIR) / 'training_results.json'
+            with open(results_path, 'w') as f:
+                json.dump(results, f, indent=2, default=str)
+
+            self.stdout.write(
+                self.style.HTTP_INFO(f'Results saved: {results_path}\n')
+            )
+
         except Exception as e:
-            raise CommandError(f"Erreur: {e}")
-    
-    def _train_single_model(self, model_type, version):
-        """Entraîner un modèle unique"""
-        self.stdout.write(
-            f"\n📚 Entraînement du modèle {model_type} v{version}..."
-        )
-        
-        # Vérifier les données
-        df = DataPreparation.get_training_data()
-        if df is None:
-            raise CommandError("Données insuffisantes pour l'entraînement")
-        
-        self.stdout.write(f"  ✓ {len(df)} échantillons d'entraînement trouvés")
-        
-        # Entraîner
-        model = ModelTrainer.train_recommendation_model(
-            model_type=model_type,
-            version=version
-        )
-        
-        if model.status == 'active':
             self.stdout.write(
-                self.style.SUCCESS(f"\n✅ Modèle entraîné avec succès!")
+                self.style.ERROR(f'\n❌ ERROR: {str(e)}')
             )
-            self._print_metrics(model)
-        else:
-            raise CommandError(f"L'entraînement a échoué: {model.status}")
-    
-    def _train_all_models(self):
-        """Entraîner tous les modèles"""
-        self.stdout.write("\n📚 Entraînement de tous les modèles...")
-        
-        models = ModelTrainer.train_all_models()
-        
-        self.stdout.write(
-            self.style.SUCCESS(f"\n✅ {len(models)} modèles entraînés!")
-        )
-        
-        for model in models:
-            self._print_metrics(model)
-    
-    def _evaluate_all_models(self):
-        """Évaluer tous les modèles"""
-        self.stdout.write("\n📊 Évaluation de tous les modèles...")
-        
-        models = MLModelVersion.objects.filter(
-            model_type='recommendation'
-        ).order_by('-trained_at')
-        
-        if not models.exists():
-            raise CommandError("Aucun modèle trouvé")
-        
-        for model in models:
-            self.stdout.write(f"\n📈 {model.version} ({model.status}):")
-            if hasattr(model, 'evaluation'):
-                eval_data = model.evaluation.to_dict()
-                self.stdout.write(f"  CV Mean: {eval_data['cv_mean']:.4f}")
-                self.stdout.write(f"  CV Std: {eval_data['cv_std']:.4f}")
-    
-    def _compare_models(self):
-        """Comparer les modèles"""
-        self.stdout.write("\n📊 Comparaison des modèles...")
-        
-        comparison = ModelComparison.compare_models()
-        
-        if not comparison:
-            raise CommandError("Aucun modèle à comparer")
-        
-        self.stdout.write(
-            f"\n{'Version':<20} {'Status':<12} {'R²':<10} {'RMSE':<10}"
-        )
-        self.stdout.write("-" * 52)
-        
-        for model_data in comparison:
-            r2 = f"{model_data['r2']:.4f}" if model_data['r2'] else "N/A"
-            rmse = f"{model_data['rmse']:.4f}" if model_data['rmse'] else "N/A"
-            
-            self.stdout.write(
-                f"{model_data['version']:<20} "
-                f"{model_data['status']:<12} "
-                f"{r2:<10} "
-                f"{rmse:<10}"
-            )
-        
-        best = ModelComparison.select_best_model()
-        if best:
-            self.stdout.write(
-                self.style.SUCCESS(f"\n🏆 Meilleur modèle: {best.version}")
-            )
-    
-    def _analyze_model(self, model_id):
-        """Analyser un modèle spécifique"""
-        try:
-            model = MLModelVersion.objects.get(id=model_id)
-        except MLModelVersion.DoesNotExist:
-            raise CommandError(f"Modèle {model_id} non trouvé")
-        
-        self.stdout.write(f"\n📋 Analyse du modèle {model.version}:")
-        self._print_metrics(model)
-        
-        # Domaines d'amélioration
-        improvements = ModelEnhancer.identify_improvement_areas(model)
-        if improvements:
-            self.stdout.write("\n🔧 Domaines d'amélioration:")
-            for improvement in improvements:
-                self.stdout.write(f"  • {improvement}")
-        
-        # Suggestions
-        suggestions = ModelEnhancer.suggest_next_version(model)
-        self.stdout.write("\n💡 Suggestions pour la prochaine version:")
-        for category, items in suggestions.items():
-            self.stdout.write(f"  {category}:")
-            for key, suggestion in items.items():
-                self.stdout.write(f"    • {suggestion}")
-    
-    def _check_retraining(self):
-        """Vérifier si le retraining est nécessaire"""
-        from apps.recommendations.predict import ModelComparison
-        
-        self.stdout.write("\n🔄 Vérification du retraining...")
-        
-        needed, reason = ModelComparison.recommend_retraining()
-        
-        if needed:
-            self.stdout.write(
-                self.style.WARNING(f"⚠️  Retraining recommandé: {reason}")
-            )
-        else:
-            self.stdout.write(
-                self.style.SUCCESS(f"✓ {reason}")
-            )
-    
-    def _print_metrics(self, model):
-        """Afficher les métriques d'un modèle"""
-        self.stdout.write(f"\n  Modèle: {model.version}")
-        self.stdout.write(f"  Status: {model.status}")
-        
-        if model.trained_at:
-            self.stdout.write(f"  Entraîné: {model.trained_at.strftime('%Y-%m-%d %H:%M:%S')}")
-        
-        self.stdout.write(f"\n  📊 Métriques:")
-        
-        if model.r2 is not None:
-            self.stdout.write(f"    R²: {model.r2:.4f}")
-        if model.rmse is not None:
-            self.stdout.write(f"    RMSE: {model.rmse:.4f}")
-        if model.mae is not None:
-            self.stdout.write(f"    MAE: {model.mae:.4f}")
+            import traceback
+            traceback.print_exc()
+            raise CommandError(f'Training failed: {str(e)}')
         
         self.stdout.write(f"    Échantillons: {model.training_samples}")
         self.stdout.write(f"    Features: {model.feature_count}")

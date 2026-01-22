@@ -14,6 +14,7 @@ import logging
 import json
 from pathlib import Path
 from datetime import datetime
+from pyexpat import model
 
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
@@ -48,6 +49,7 @@ class Command(BaseCommand):
             type=str,
             default='2.0.0',
             help='Numéro de version du modèle'
+        )
 
 
 class Command(BaseCommand):

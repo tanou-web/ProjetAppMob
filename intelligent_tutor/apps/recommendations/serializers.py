@@ -112,20 +112,30 @@ class IntelligentRevisionItemSerializer(serializers.ModelSerializer):
     """Serializer for intelligent revision items."""
     
     student_email = serializers.StringRelatedField(source='student', read_only=True)
+    priority = serializers.IntegerField(source='priority_score', read_only=True)
     days_since_error = serializers.SerializerMethodField(read_only=True)
+    next_review_date = serializers.SerializerMethodField(read_only=True)
     
     class Meta:
         model = IntelligentRevisionItem
         fields = [
-            'id', 'student_email', 'concept', 'reason', 'priority_score',
+            'id', 'student_email', 'concept', 'reason', 'priority_score', 'priority',
             'error_count', 'last_error', 'related_exercises', 'related_lessons',
             'custom_tips', 'status', 'revision_attempts', 'mastery_score',
-            'created_at', 'updated_at', 'completed_at', 'days_since_error'
+            'created_at', 'updated_at', 'completed_at', 'days_since_error', 'next_review_date'
         ]
         read_only_fields = ['id', 'created_at', 'updated_at', 'completed_at']
     
     def get_days_since_error(self, obj):
-        from datetime import datetime
+        from datetime import datetime, timezone
         if obj.last_error:
-            return (datetime.now() - obj.last_error).days
+            # Use timezone aware comparison
+            from django.utils import timezone as django_tz
+            return (django_tz.now() - obj.last_error).days
         return None
+
+    def get_next_review_date(self, obj):
+        from django.utils import timezone
+        import datetime
+        # Simple logic: next review in 1 day
+        return (timezone.now() + datetime.timedelta(days=1)).isoformat()

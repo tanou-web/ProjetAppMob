@@ -1,0 +1,451 @@
+INFO 2026-01-25 18:04:41,413 autoreload 21468 3956 Watching for file changes with StatReloader
+INFO 2026-01-25 18:08:02,476 autoreload 21468 3956 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:08:03,659 autoreload 16368 8240 Watching for file changes with StatReloader
+INFO 2026-01-25 18:09:26,592 autoreload 16368 8240 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:09:28,407 autoreload 12840 20808 Watching for file changes with StatReloader
+INFO 2026-01-25 18:09:40,563 autoreload 12840 20808 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:09:42,134 autoreload 17016 1936 Watching for file changes with StatReloader
+INFO 2026-01-25 18:09:45,834 autoreload 17016 1936 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\progress\admin.py changed, reloading.
+INFO 2026-01-25 18:09:47,305 autoreload 17604 19752 Watching for file changes with StatReloader
+INFO 2026-01-25 18:10:27,780 autoreload 17604 19752 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:10:28,905 autoreload 10536 1208 Watching for file changes with StatReloader
+INFO 2026-01-25 18:11:03,436 autoreload 10536 1208 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:11:04,647 autoreload 8596 3964 Watching for file changes with StatReloader
+INFO 2026-01-25 18:13:13,365 autoreload 8596 3964 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:13:15,593 autoreload 8016 12460 Watching for file changes with StatReloader
+INFO 2026-01-25 18:13:25,222 autoreload 8016 12460 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:13:26,474 autoreload 11168 19612 Watching for file changes with StatReloader
+INFO 2026-01-25 18:13:29,052 autoreload 11168 19612 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:13:30,567 autoreload 7420 10608 Watching for file changes with StatReloader
+INFO 2026-01-25 18:14:06,534 autoreload 7420 10608 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:14:07,970 autoreload 5892 9680 Watching for file changes with StatReloader
+INFO 2026-01-25 18:14:12,775 autoreload 5892 9680 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:14:14,037 autoreload 13888 12356 Watching for file changes with StatReloader
+INFO 2026-01-25 18:17:07,066 autoreload 13888 12356 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\venv\Lib\site-packages\pymysql\constants\CLIENT.py changed, reloading.
+INFO 2026-01-25 18:17:09,665 autoreload 13452 15516 Watching for file changes with StatReloader
+INFO 2026-01-25 18:17:29,705 autoreload 13452 15516 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:17:31,851 autoreload 16884 11448 Watching for file changes with StatReloader
+INFO 2026-01-25 18:18:59,825 autoreload 16884 11448 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:19:01,260 autoreload 17352 16112 Watching for file changes with StatReloader
+INFO 2026-01-25 18:19:20,206 autoreload 17352 16112 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:19:21,593 autoreload 8568 1408 Watching for file changes with StatReloader
+INFO 2026-01-25 18:20:57,653 autoreload 8568 1408 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:20:59,070 autoreload 17336 7708 Watching for file changes with StatReloader
+INFO 2026-01-25 18:21:01,485 autoreload 17336 7708 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:21:02,937 autoreload 15832 7272 Watching for file changes with StatReloader
+INFO 2026-01-25 18:21:05,644 autoreload 15832 7272 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:21:07,625 autoreload 2552 1220 Watching for file changes with StatReloader
+INFO 2026-01-25 18:21:55,056 autoreload 2552 1220 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:21:56,296 autoreload 17348 21000 Watching for file changes with StatReloader
+INFO 2026-01-25 18:27:52,035 autoreload 17348 21000 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:27:53,970 autoreload 2436 12588 Watching for file changes with StatReloader
+INFO 2026-01-25 18:30:04,488 autoreload 2436 12588 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:30:06,969 autoreload 14164 8556 Watching for file changes with StatReloader
+INFO 2026-01-25 18:30:26,594 autoreload 14164 8556 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:30:28,256 autoreload 18564 19408 Watching for file changes with StatReloader
+INFO 2026-01-25 18:34:48,277 autoreload 18564 19408 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\manage.py changed, reloading.
+INFO 2026-01-25 18:34:52,455 autoreload 8364 7004 Watching for file changes with StatReloader
+INFO 2026-01-25 18:35:20,952 autoreload 8364 7004 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-25 18:35:23,818 autoreload 5512 20924 Watching for file changes with StatReloader
+INFO 2026-01-25 21:39:57,178 autoreload 5512 20924 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\courses\models.py changed, reloading.
+INFO 2026-01-26 11:02:33,796 training_pipeline 16844 17532 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:02:33,802 training_pipeline 16844 17532 [OK] Generated 18 augmented training samples
+INFO 2026-01-26 11:02:33,819 training_pipeline 16844 17532 [OK] Train: 12, Val: 3, Test: 3
+INFO 2026-01-26 11:02:33,878 training_pipeline 16844 17532 [OK] Feature matrix shape: (12, 43), Class distribution: [4 8]
+INFO 2026-01-26 11:02:33,885 training_pipeline 16844 17532 [OK] Feature matrix shape: (3, 28), Class distribution: [2 1]
+INFO 2026-01-26 11:03:33,988 training_pipeline 8788 16332 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:03:33,994 training_pipeline 8788 16332 [OK] Generated 18 augmented training samples
+INFO 2026-01-26 11:03:34,011 training_pipeline 8788 16332 [OK] Train: 12, Val: 3, Test: 3
+INFO 2026-01-26 11:03:34,013 training_pipeline 8788 16332 Training Exercise Correction Model...
+INFO 2026-01-26 11:03:34,028 training_pipeline 8788 16332 [OK] Feature matrix shape: (12, 43), Class distribution: [4 8]
+INFO 2026-01-26 11:03:34,029 training_pipeline 8788 16332 Validation data shape: (3, 14)
+INFO 2026-01-26 11:03:34,029 training_pipeline 8788 16332 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 11:03:34,031 training_pipeline 8788 16332 Validation texts sample: Additions et soustractions See lesson content for answer
+INFO 2026-01-26 11:03:34,035 training_pipeline 8788 16332 [OK] Validation feature matrix shape: (3, 43), Class distribution: [2 1]
+INFO 2026-01-26 11:03:34,900 training_pipeline 8788 16332 [OK] Validation Metrics: {'accuracy': 0.3333333333333333, 'precision': 0.3333333333333333, 'recall': 1.0, 'f1': 0.5}
+INFO 2026-01-26 11:04:13,358 training_pipeline 17856 9268 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:04:13,365 training_pipeline 17856 9268 [OK] Generated 18 augmented training samples
+INFO 2026-01-26 11:04:13,385 training_pipeline 17856 9268 [OK] Train: 12, Val: 3, Test: 3
+INFO 2026-01-26 11:04:13,387 training_pipeline 17856 9268 Training Exercise Correction Model...
+INFO 2026-01-26 11:04:13,397 training_pipeline 17856 9268 [OK] Feature matrix shape: (12, 43), Class distribution: [4 8]
+INFO 2026-01-26 11:04:13,397 training_pipeline 17856 9268 Validation data shape: (3, 14)
+INFO 2026-01-26 11:04:13,397 training_pipeline 17856 9268 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 11:04:13,399 training_pipeline 17856 9268 Validation texts sample: Additions et soustractions See lesson content for answer
+INFO 2026-01-26 11:04:13,404 training_pipeline 17856 9268 [OK] Validation feature matrix shape: (3, 43), Class distribution: [2 1]
+INFO 2026-01-26 11:04:14,232 training_pipeline 17856 9268 [OK] Validation Metrics: {'accuracy': 0.3333333333333333, 'precision': 0.3333333333333333, 'recall': 1.0, 'f1': 0.5}
+INFO 2026-01-26 11:06:08,947 training_pipeline 13364 16592 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:06:08,952 training_pipeline 13364 16592 [OK] Generated 18 augmented training samples
+INFO 2026-01-26 11:06:08,968 training_pipeline 13364 16592 [OK] Train: 12, Val: 3, Test: 3
+INFO 2026-01-26 11:06:08,971 training_pipeline 13364 16592 Training Exercise Correction Model...
+INFO 2026-01-26 11:06:08,980 training_pipeline 13364 16592 [OK] Feature matrix shape: (12, 43), Class distribution: [4 8]
+INFO 2026-01-26 11:06:08,981 training_pipeline 13364 16592 Validation data shape: (3, 14)
+INFO 2026-01-26 11:06:08,981 training_pipeline 13364 16592 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 11:06:08,983 training_pipeline 13364 16592 Validation texts sample: Additions et soustractions See lesson content for answer
+INFO 2026-01-26 11:06:08,989 training_pipeline 13364 16592 [OK] Validation feature matrix shape: (3, 43), Class distribution: [2 1]
+INFO 2026-01-26 11:06:09,879 training_pipeline 13364 16592 [OK] Validation Metrics: {'accuracy': 0.3333333333333333, 'precision': 0.3333333333333333, 'recall': 1.0, 'f1': 0.5}
+INFO 2026-01-26 11:06:10,079 training_pipeline 13364 16592 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260126_110609.pkl
+INFO 2026-01-26 11:06:10,080 training_pipeline 13364 16592 [OK] Version record created: 1
+INFO 2026-01-26 11:06:41,455 training_pipeline 8924 10504 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:06:41,461 training_pipeline 8924 10504 [OK] Generated 18 augmented training samples
+INFO 2026-01-26 11:06:41,479 training_pipeline 8924 10504 [OK] Train: 12, Val: 3, Test: 3
+INFO 2026-01-26 11:06:41,481 training_pipeline 8924 10504 Training Exercise Correction Model...
+INFO 2026-01-26 11:06:41,491 training_pipeline 8924 10504 [OK] Feature matrix shape: (12, 43), Class distribution: [4 8]
+INFO 2026-01-26 11:06:41,491 training_pipeline 8924 10504 Validation data shape: (3, 14)
+INFO 2026-01-26 11:06:41,492 training_pipeline 8924 10504 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 11:06:41,493 training_pipeline 8924 10504 Validation texts sample: Additions et soustractions See lesson content for answer
+INFO 2026-01-26 11:06:41,499 training_pipeline 8924 10504 [OK] Validation feature matrix shape: (3, 43), Class distribution: [2 1]
+INFO 2026-01-26 11:06:42,308 training_pipeline 8924 10504 [OK] Validation Metrics: {'accuracy': 0.3333333333333333, 'precision': 0.3333333333333333, 'recall': 1.0, 'f1': 0.5}
+INFO 2026-01-26 11:06:42,556 training_pipeline 8924 10504 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260126_110642.pkl
+INFO 2026-01-26 11:06:42,557 training_pipeline 8924 10504 [OK] Version record created: 2
+INFO 2026-01-26 11:07:49,763 training_pipeline 16608 10764 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:07:49,766 training_pipeline 16608 10764 [OK] Generated 18 augmented training samples
+INFO 2026-01-26 11:07:49,779 training_pipeline 16608 10764 [OK] Train: 12, Val: 3, Test: 3
+INFO 2026-01-26 11:07:49,780 training_pipeline 16608 10764 Training Exercise Correction Model...
+INFO 2026-01-26 11:07:49,788 training_pipeline 16608 10764 [OK] Feature matrix shape: (12, 43), Class distribution: [4 8]
+INFO 2026-01-26 11:07:49,788 training_pipeline 16608 10764 Validation data shape: (3, 14)
+INFO 2026-01-26 11:07:49,788 training_pipeline 16608 10764 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 11:07:49,789 training_pipeline 16608 10764 Validation texts sample: Additions et soustractions See lesson content for answer
+INFO 2026-01-26 11:07:49,795 training_pipeline 16608 10764 [OK] Validation feature matrix shape: (3, 43), Class distribution: [2 1]
+INFO 2026-01-26 11:07:50,614 training_pipeline 16608 10764 [OK] Validation Metrics: {'accuracy': 0.3333333333333333, 'precision': 0.3333333333333333, 'recall': 1.0, 'f1': 0.5}
+INFO 2026-01-26 11:07:50,849 training_pipeline 16608 10764 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260126_110750.pkl
+INFO 2026-01-26 11:07:50,850 training_pipeline 16608 10764 [OK] Version record created: 3
+INFO 2026-01-26 11:07:50,878 training_pipeline 16608 10764 Training Error Analysis Model...
+INFO 2026-01-26 11:08:32,653 training_pipeline 18236 18284 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:08:32,657 training_pipeline 18236 18284 [OK] Generated 18 augmented training samples
+INFO 2026-01-26 11:08:32,674 training_pipeline 18236 18284 [OK] Train: 12, Val: 3, Test: 3
+INFO 2026-01-26 11:08:32,675 training_pipeline 18236 18284 Training Exercise Correction Model...
+INFO 2026-01-26 11:08:32,686 training_pipeline 18236 18284 [OK] Feature matrix shape: (12, 43), Class distribution: [4 8]
+INFO 2026-01-26 11:08:32,687 training_pipeline 18236 18284 Validation data shape: (3, 14)
+INFO 2026-01-26 11:08:32,687 training_pipeline 18236 18284 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 11:08:32,688 training_pipeline 18236 18284 Validation texts sample: Additions et soustractions See lesson content for answer
+INFO 2026-01-26 11:08:32,692 training_pipeline 18236 18284 [OK] Validation feature matrix shape: (3, 43), Class distribution: [2 1]
+INFO 2026-01-26 11:08:33,523 training_pipeline 18236 18284 [OK] Validation Metrics: {'accuracy': 0.3333333333333333, 'precision': 0.3333333333333333, 'recall': 1.0, 'f1': 0.5}
+INFO 2026-01-26 11:08:33,751 training_pipeline 18236 18284 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260126_110833.pkl
+INFO 2026-01-26 11:08:33,752 training_pipeline 18236 18284 [OK] Version record created: 4
+INFO 2026-01-26 11:08:33,783 training_pipeline 18236 18284 Training Error Analysis Model...
+INFO 2026-01-26 11:09:46,402 training_pipeline 5984 15820 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:09:46,405 training_pipeline 5984 15820 [OK] Generated 18 augmented training samples
+INFO 2026-01-26 11:09:46,420 training_pipeline 5984 15820 [OK] Train: 12, Val: 3, Test: 3
+INFO 2026-01-26 11:09:46,420 training_pipeline 5984 15820 Training Exercise Correction Model...
+INFO 2026-01-26 11:09:46,468 training_pipeline 5984 15820 [OK] Feature matrix shape: (12, 43), Class distribution: [4 8]
+INFO 2026-01-26 11:09:46,470 training_pipeline 5984 15820 Validation data shape: (3, 14)
+INFO 2026-01-26 11:09:46,470 training_pipeline 5984 15820 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 11:09:46,470 training_pipeline 5984 15820 Validation texts sample: Additions et soustractions See lesson content for answer
+INFO 2026-01-26 11:09:46,476 training_pipeline 5984 15820 [OK] Validation feature matrix shape: (3, 43), Class distribution: [2 1]
+INFO 2026-01-26 11:09:47,092 training_pipeline 5984 15820 [OK] Validation Metrics: {'accuracy': 0.3333333333333333, 'precision': 0.3333333333333333, 'recall': 1.0, 'f1': 0.5}
+INFO 2026-01-26 11:09:47,292 training_pipeline 5984 15820 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260126_110947.pkl
+INFO 2026-01-26 11:09:47,292 training_pipeline 5984 15820 [OK] Version record created: 5
+INFO 2026-01-26 11:09:47,315 training_pipeline 5984 15820 Training Error Analysis Model...
+INFO 2026-01-26 11:11:01,172 training_pipeline 17860 2696 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:11:01,180 training_pipeline 17860 2696 [OK] Generated 18 augmented training samples
+INFO 2026-01-26 11:11:01,184 training_pipeline 17860 2696 [OK] Train: 12, Val: 3, Test: 3
+INFO 2026-01-26 11:11:01,188 training_pipeline 17860 2696 Training Exercise Correction Model...
+INFO 2026-01-26 11:11:01,193 training_pipeline 17860 2696 [OK] Feature matrix shape: (12, 43), Class distribution: [4 8]
+INFO 2026-01-26 11:11:01,193 training_pipeline 17860 2696 Validation data shape: (3, 14)
+INFO 2026-01-26 11:11:01,193 training_pipeline 17860 2696 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 11:11:01,193 training_pipeline 17860 2696 Validation texts sample: Additions et soustractions See lesson content for answer
+INFO 2026-01-26 11:11:01,197 training_pipeline 17860 2696 [OK] Validation feature matrix shape: (3, 43), Class distribution: [2 1]
+INFO 2026-01-26 11:11:01,746 training_pipeline 17860 2696 [OK] Validation Metrics: {'accuracy': 0.3333333333333333, 'precision': 0.3333333333333333, 'recall': 1.0, 'f1': 0.5}
+INFO 2026-01-26 11:11:01,910 training_pipeline 17860 2696 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260126_111101.pkl
+INFO 2026-01-26 11:11:01,910 training_pipeline 17860 2696 [OK] Version record created: 6
+INFO 2026-01-26 11:11:01,936 training_pipeline 17860 2696 Training Error Analysis Model...
+INFO 2026-01-26 11:14:33,823 training_pipeline 17480 7280 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:14:33,827 training_pipeline 17480 7280 [OK] Generated 18 augmented training samples
+INFO 2026-01-26 11:15:43,677 training_pipeline 16560 3164 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:15:43,685 training_pipeline 16560 3164 [OK] Generated 36 augmented training samples
+INFO 2026-01-26 11:16:09,316 training_pipeline 11452 17856 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:16:09,327 training_pipeline 11452 17856 [OK] Generated 36 augmented training samples
+INFO 2026-01-26 11:16:09,355 training_pipeline 11452 17856 [OK] Train: 25, Val: 5, Test: 6
+INFO 2026-01-26 11:16:09,357 training_pipeline 11452 17856 Training Exercise Correction Model...
+INFO 2026-01-26 11:16:09,371 training_pipeline 11452 17856 [OK] Feature matrix shape: (25, 75), Class distribution: [19  6]
+INFO 2026-01-26 11:16:09,371 training_pipeline 11452 17856 Validation data shape: (5, 14)
+INFO 2026-01-26 11:16:09,371 training_pipeline 11452 17856 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 11:16:09,374 training_pipeline 11452 17856 Validation texts sample: Fractions See lesson con...
+INFO 2026-01-26 11:16:09,379 training_pipeline 11452 17856 [OK] Validation feature matrix shape: (5, 75), Class distribution: [5]
+INFO 2026-01-26 11:16:10,430 training_pipeline 11452 17856 [OK] Validation Metrics: {'accuracy': 1.0, 'precision': 0.0, 'recall': 0.0, 'f1': 0.0}
+INFO 2026-01-26 11:16:10,661 training_pipeline 11452 17856 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260126_111610.pkl
+INFO 2026-01-26 11:16:10,662 training_pipeline 11452 17856 [OK] Version record created: 7
+INFO 2026-01-26 11:16:10,693 training_pipeline 11452 17856 Training Error Analysis Model...
+INFO 2026-01-26 11:16:12,613 training_pipeline 11452 17856 [OK] Error Analysis Metrics: {'accuracy': 0.8, 'precision': 0.6666666666666666, 'recall': 0.8, 'f1': 0.72}
+INFO 2026-01-26 11:16:12,714 training_pipeline 11452 17856 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\error_analysis_20260126_111612.pkl
+INFO 2026-01-26 11:16:12,715 training_pipeline 11452 17856 [OK] Version record created: 8
+INFO 2026-01-26 11:23:51,627 training_pipeline 18356 18300 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:23:51,638 training_pipeline 18356 18300 [OK] Generated 36 augmented training samples
+INFO 2026-01-26 11:23:51,665 training_pipeline 18356 18300 [OK] Train: 25, Val: 5, Test: 6
+INFO 2026-01-26 11:23:51,665 training_pipeline 18356 18300 Training Exercise Correction Model...
+INFO 2026-01-26 11:23:51,699 training_pipeline 18356 18300 [OK] Feature matrix shape: (25, 75), Class distribution: [19  6]
+INFO 2026-01-26 11:23:51,699 training_pipeline 18356 18300 Validation data shape: (5, 14)
+INFO 2026-01-26 11:23:51,699 training_pipeline 18356 18300 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 11:23:51,699 training_pipeline 18356 18300 Validation texts sample: Fractions See lesson con...
+INFO 2026-01-26 11:23:51,715 training_pipeline 18356 18300 [OK] Validation feature matrix shape: (5, 75), Class distribution: [5]
+INFO 2026-01-26 11:23:52,759 training_pipeline 18356 18300 [OK] Validation Metrics: {'accuracy': 1.0, 'precision': 0.0, 'recall': 0.0, 'f1': 0.0}
+INFO 2026-01-26 11:23:53,033 training_pipeline 18356 18300 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260126_112352.pkl
+INFO 2026-01-26 11:23:53,033 training_pipeline 18356 18300 [OK] Version record created: 9
+INFO 2026-01-26 11:23:53,068 training_pipeline 18356 18300 Training Error Analysis Model...
+INFO 2026-01-26 11:23:54,742 training_pipeline 18356 18300 [OK] Error Analysis Metrics: {'accuracy': 0.8, 'precision': 0.6666666666666666, 'recall': 0.8, 'f1': 0.72}
+INFO 2026-01-26 11:23:54,833 training_pipeline 18356 18300 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\error_analysis_20260126_112354.pkl
+INFO 2026-01-26 11:23:54,833 training_pipeline 18356 18300 [OK] Version record created: 10
+INFO 2026-01-26 11:57:22,635 training_pipeline 17000 20228 Loaded 9 exercises from curriculum
+INFO 2026-01-26 11:57:22,638 training_pipeline 17000 20228 [OK] Generated 36 augmented training samples
+INFO 2026-01-26 11:57:22,645 training_pipeline 17000 20228 [OK] Train: 25, Val: 5, Test: 6
+INFO 2026-01-26 11:57:22,646 training_pipeline 17000 20228 Training Exercise Correction Model...
+INFO 2026-01-26 11:57:22,648 training_pipeline 17000 20228 [OK] Feature matrix shape: (25, 75), Class distribution: [19  6]
+INFO 2026-01-26 11:57:22,648 training_pipeline 17000 20228 Validation data shape: (5, 14)
+INFO 2026-01-26 11:57:22,648 training_pipeline 17000 20228 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 11:57:22,652 training_pipeline 17000 20228 Validation texts sample: Fractions See lesson con...
+INFO 2026-01-26 11:57:22,653 training_pipeline 17000 20228 [OK] Validation feature matrix shape: (5, 75), Class distribution: [5]
+INFO 2026-01-26 11:57:22,865 training_pipeline 17000 20228 [OK] Validation Metrics: {'accuracy': 1.0, 'precision': 0.0, 'recall': 0.0, 'f1': 0.0}
+INFO 2026-01-26 12:00:56,163 training_pipeline 2520 3020 Loaded 9 exercises from curriculum
+INFO 2026-01-26 12:00:56,165 training_pipeline 2520 3020 [OK] Generated 36 augmented training samples
+INFO 2026-01-26 12:00:56,165 training_pipeline 2520 3020 [OK] Train: 25, Val: 5, Test: 6
+INFO 2026-01-26 12:00:56,170 training_pipeline 2520 3020 Training Exercise Correction Model...
+INFO 2026-01-26 12:00:56,174 training_pipeline 2520 3020 [OK] Feature matrix shape: (25, 75), Class distribution: [19  6]
+INFO 2026-01-26 12:00:56,175 training_pipeline 2520 3020 Validation data shape: (5, 14)
+INFO 2026-01-26 12:00:56,175 training_pipeline 2520 3020 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 12:00:56,175 training_pipeline 2520 3020 Validation texts sample: Fractions See lesson con...
+INFO 2026-01-26 12:00:56,175 training_pipeline 2520 3020 [OK] Validation feature matrix shape: (5, 75), Class distribution: [5]
+INFO 2026-01-26 12:00:56,384 training_pipeline 2520 3020 [OK] Validation Metrics: {'accuracy': 1.0, 'precision': 0.0, 'recall': 0.0, 'f1': 0.0}
+INFO 2026-01-26 12:04:32,665 training_pipeline 18276 17608 Loaded 9 exercises from curriculum
+INFO 2026-01-26 12:04:32,672 training_pipeline 18276 17608 [OK] Generated 36 augmented training samples
+INFO 2026-01-26 12:04:32,674 training_pipeline 18276 17608 [OK] Train: 25, Val: 5, Test: 6
+INFO 2026-01-26 12:04:32,679 training_pipeline 18276 17608 Training Exercise Correction Model...
+INFO 2026-01-26 12:04:32,680 training_pipeline 18276 17608 [OK] Feature matrix shape: (25, 75), Class distribution: [19  6]
+INFO 2026-01-26 12:04:32,680 training_pipeline 18276 17608 Validation data shape: (5, 14)
+INFO 2026-01-26 12:04:32,680 training_pipeline 18276 17608 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 12:04:32,680 training_pipeline 18276 17608 Validation texts sample: Fractions See lesson con...
+INFO 2026-01-26 12:04:32,680 training_pipeline 18276 17608 [OK] Validation feature matrix shape: (5, 75), Class distribution: [5]
+INFO 2026-01-26 12:04:32,886 training_pipeline 18276 17608 [OK] Validation Metrics: {'accuracy': 1.0, 'precision': 0.0, 'recall': 0.0, 'f1': 0.0}
+INFO 2026-01-26 12:09:48,784 training_pipeline 16060 19692 Loaded 9 exercises from curriculum
+INFO 2026-01-26 12:09:48,788 training_pipeline 16060 19692 [OK] Generated 36 augmented training samples
+INFO 2026-01-26 12:09:48,788 training_pipeline 16060 19692 [OK] Train: 25, Val: 5, Test: 6
+INFO 2026-01-26 12:09:48,794 training_pipeline 16060 19692 Training Exercise Correction Model...
+INFO 2026-01-26 12:09:48,798 training_pipeline 16060 19692 [OK] Feature matrix shape: (25, 75), Class distribution: [19  6]
+INFO 2026-01-26 12:09:48,798 training_pipeline 16060 19692 Validation data shape: (5, 14)
+INFO 2026-01-26 12:09:48,798 training_pipeline 16060 19692 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 12:09:48,798 training_pipeline 16060 19692 Validation texts sample: Fractions See lesson con...
+INFO 2026-01-26 12:09:48,798 training_pipeline 16060 19692 [OK] Validation feature matrix shape: (5, 75), Class distribution: [5]
+INFO 2026-01-26 12:09:49,018 training_pipeline 16060 19692 [OK] Validation Metrics: {'accuracy': 1.0, 'precision': 0.0, 'recall': 0.0, 'f1': 0.0}
+INFO 2026-01-26 12:10:43,582 training_pipeline 6048 5984 Loaded 9 exercises from curriculum
+INFO 2026-01-26 12:10:43,586 training_pipeline 6048 5984 [OK] Generated 36 augmented training samples
+INFO 2026-01-26 12:10:43,590 training_pipeline 6048 5984 [OK] Train: 25, Val: 5, Test: 6
+INFO 2026-01-26 12:10:43,590 training_pipeline 6048 5984 Training Exercise Correction Model...
+INFO 2026-01-26 12:10:43,595 training_pipeline 6048 5984 [OK] Feature matrix shape: (25, 75), Class distribution: [19  6]
+INFO 2026-01-26 12:10:43,595 training_pipeline 6048 5984 Validation data shape: (5, 14)
+INFO 2026-01-26 12:10:43,595 training_pipeline 6048 5984 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 12:10:43,595 training_pipeline 6048 5984 Validation texts sample: Fractions See lesson con...
+INFO 2026-01-26 12:10:43,598 training_pipeline 6048 5984 [OK] Validation feature matrix shape: (5, 75), Class distribution: [5]
+INFO 2026-01-26 12:10:43,803 training_pipeline 6048 5984 [OK] Validation Metrics: {'accuracy': 1.0, 'precision': 0.0, 'recall': 0.0, 'f1': 0.0}
+INFO 2026-01-26 12:14:18,800 training_pipeline 19868 8956 Loaded 9 exercises from curriculum
+INFO 2026-01-26 12:14:18,803 training_pipeline 19868 8956 [OK] Generated 36 augmented training samples
+INFO 2026-01-26 12:14:18,808 training_pipeline 19868 8956 [OK] Train: 25, Val: 5, Test: 6
+INFO 2026-01-26 12:14:18,809 training_pipeline 19868 8956 Training Exercise Correction Model...
+INFO 2026-01-26 12:14:18,814 training_pipeline 19868 8956 [OK] Feature matrix shape: (25, 75), Class distribution: [19  6]
+INFO 2026-01-26 12:14:18,814 training_pipeline 19868 8956 Validation data shape: (5, 14)
+INFO 2026-01-26 12:14:18,814 training_pipeline 19868 8956 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 12:14:18,815 training_pipeline 19868 8956 Validation texts sample: Fractions See lesson con...
+INFO 2026-01-26 12:14:18,815 training_pipeline 19868 8956 [OK] Validation feature matrix shape: (5, 75), Class distribution: [5]
+INFO 2026-01-26 12:14:18,989 training_pipeline 19868 8956 [OK] Validation Metrics: {'accuracy': 1.0, 'precision': 0.0, 'recall': 0.0, 'f1': 0.0}
+INFO 2026-01-26 12:20:58,174 training_pipeline 15728 16176 Loaded 9 exercises from curriculum
+INFO 2026-01-26 12:20:58,177 training_pipeline 15728 16176 [OK] Generated 36 augmented training samples
+INFO 2026-01-26 12:20:58,183 training_pipeline 15728 16176 [OK] Train: 25, Val: 5, Test: 6
+INFO 2026-01-26 12:20:58,185 training_pipeline 15728 16176 Training Exercise Correction Model...
+INFO 2026-01-26 12:20:58,192 training_pipeline 15728 16176 [OK] Feature matrix shape: (25, 75), Class distribution: [19  6]
+INFO 2026-01-26 12:20:58,193 training_pipeline 15728 16176 Validation data shape: (5, 14)
+INFO 2026-01-26 12:20:58,193 training_pipeline 15728 16176 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 12:20:58,194 training_pipeline 15728 16176 Validation texts sample: Fractions See lesson con...
+INFO 2026-01-26 12:20:58,196 training_pipeline 15728 16176 [OK] Validation feature matrix shape: (5, 75), Class distribution: [5]
+INFO 2026-01-26 12:20:58,430 training_pipeline 15728 16176 [OK] Validation Metrics: {'accuracy': 1.0, 'precision': 0.0, 'recall': 0.0, 'f1': 0.0}
+INFO 2026-01-26 12:21:27,734 training_pipeline 22088 20080 Loaded 9 exercises from curriculum
+INFO 2026-01-26 12:21:27,737 training_pipeline 22088 20080 [OK] Generated 36 augmented training samples
+INFO 2026-01-26 12:21:27,743 training_pipeline 22088 20080 [OK] Train: 25, Val: 5, Test: 6
+INFO 2026-01-26 12:21:27,744 training_pipeline 22088 20080 Training Exercise Correction Model...
+INFO 2026-01-26 12:21:27,748 training_pipeline 22088 20080 [OK] Feature matrix shape: (25, 75), Class distribution: [19  6]
+INFO 2026-01-26 12:21:27,749 training_pipeline 22088 20080 Validation data shape: (5, 14)
+INFO 2026-01-26 12:21:27,749 training_pipeline 22088 20080 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 12:21:27,750 training_pipeline 22088 20080 Validation texts sample: Fractions See lesson con...
+INFO 2026-01-26 12:21:27,752 training_pipeline 22088 20080 [OK] Validation feature matrix shape: (5, 75), Class distribution: [5]
+INFO 2026-01-26 12:21:27,986 training_pipeline 22088 20080 [OK] Validation Metrics: {'accuracy': 1.0, 'precision': 0.0, 'recall': 0.0, 'f1': 0.0}
+INFO 2026-01-26 12:24:22,387 training_pipeline 21732 7292 Loaded 9 exercises from curriculum
+INFO 2026-01-26 12:24:22,390 training_pipeline 21732 7292 [OK] Generated 36 augmented training samples
+INFO 2026-01-26 12:24:22,397 training_pipeline 21732 7292 [OK] Train: 25, Val: 5, Test: 6
+INFO 2026-01-26 12:24:22,398 training_pipeline 21732 7292 Training Exercise Correction Model...
+INFO 2026-01-26 12:24:22,402 training_pipeline 21732 7292 [OK] Feature matrix shape: (25, 75), Class distribution: [19  6]
+INFO 2026-01-26 12:24:22,403 training_pipeline 21732 7292 Validation data shape: (5, 14)
+INFO 2026-01-26 12:24:22,403 training_pipeline 21732 7292 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 12:24:22,404 training_pipeline 21732 7292 Validation texts sample: Fractions See lesson con...
+INFO 2026-01-26 12:24:22,405 training_pipeline 21732 7292 [OK] Validation feature matrix shape: (5, 75), Class distribution: [5]
+INFO 2026-01-26 12:24:22,622 training_pipeline 21732 7292 [OK] Validation Metrics: {'accuracy': 1.0, 'precision': 0.0, 'recall': 0.0, 'f1': 0.0}
+INFO 2026-01-26 12:24:22,702 training_pipeline 21732 7292 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260126_122422.pkl
+INFO 2026-01-26 12:24:22,703 training_pipeline 21732 7292 [OK] Version record created: 1
+INFO 2026-01-26 12:24:22,704 training_pipeline 21732 7292 Training Error Analysis Model...
+INFO 2026-01-26 12:24:23,178 training_pipeline 21732 7292 [OK] Error Analysis Metrics: {'accuracy': 0.8, 'precision': 0.6666666666666666, 'recall': 0.8, 'f1': 0.72}
+INFO 2026-01-26 12:24:23,212 training_pipeline 21732 7292 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\error_analysis_20260126_122423.pkl
+INFO 2026-01-26 12:24:23,213 training_pipeline 21732 7292 [OK] Version record created: 2
+INFO 2026-01-26 19:52:46,037 training_pipeline 10064 10740 Loaded 0 exercises from curriculum
+INFO 2026-01-26 19:52:46,039 training_pipeline 10064 10740 [OK] Generated 0 augmented training samples
+WARNING 2026-01-26 19:56:36,203 training_pipeline 5468 16180 No exercises found in DB. Generating dummy data for training demonstration...
+INFO 2026-01-26 19:56:36,205 training_pipeline 5468 16180 Loaded 50 exercises from curriculum
+INFO 2026-01-26 19:56:36,218 training_pipeline 5468 16180 [OK] Generated 200 augmented training samples
+INFO 2026-01-26 19:56:36,232 training_pipeline 5468 16180 [OK] Train: 139, Val: 30, Test: 31
+INFO 2026-01-26 19:56:36,233 training_pipeline 5468 16180 Training Exercise Correction Model...
+INFO 2026-01-26 19:56:36,249 training_pipeline 5468 16180 [OK] Feature matrix shape: (139, 103), Class distribution: [106  33]
+INFO 2026-01-26 19:56:36,250 training_pipeline 5468 16180 Validation data shape: (30, 14)
+INFO 2026-01-26 19:56:36,250 training_pipeline 5468 16180 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 19:56:36,251 training_pipeline 5468 16180 Validation texts sample: Question dummy 30 for math Answ...
+INFO 2026-01-26 19:56:36,254 training_pipeline 5468 16180 [OK] Validation feature matrix shape: (30, 103), Class distribution: [23  7]
+INFO 2026-01-26 19:56:36,581 training_pipeline 5468 16180 [OK] Validation Metrics: {'accuracy': 0.8666666666666667, 'precision': 0.7142857142857143, 'recall': 0.7142857142857143, 'f1': 0.7142857142857143}
+INFO 2026-01-26 19:56:36,633 training_pipeline 5468 16180 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260126_195636.pkl
+INFO 2026-01-26 19:56:36,634 training_pipeline 5468 16180 [OK] Version record created: 1
+INFO 2026-01-26 19:56:36,639 training_pipeline 5468 16180 Training Error Analysis Model...
+INFO 2026-01-26 19:56:37,423 training_pipeline 5468 16180 [OK] Error Analysis Metrics: {'accuracy': 0.9333333333333333, 'precision': 0.874074074074074, 'recall': 0.9333333333333333, 'f1': 0.9019607843137255}
+INFO 2026-01-26 19:56:37,462 training_pipeline 5468 16180 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\error_analysis_20260126_195637.pkl
+INFO 2026-01-26 19:56:37,463 training_pipeline 5468 16180 [OK] Version record created: 2
+WARNING 2026-01-26 19:57:28,523 training_pipeline 15716 4228 No exercises found in DB. Generating dummy data for training demonstration...
+INFO 2026-01-26 19:57:28,536 training_pipeline 15716 4228 Loaded 50 exercises from curriculum
+INFO 2026-01-26 19:57:28,548 training_pipeline 15716 4228 [OK] Generated 200 augmented training samples
+INFO 2026-01-26 19:57:28,557 training_pipeline 15716 4228 [OK] Train: 139, Val: 30, Test: 31
+INFO 2026-01-26 19:57:28,560 training_pipeline 15716 4228 Training Exercise Correction Model...
+INFO 2026-01-26 19:57:28,577 training_pipeline 15716 4228 [OK] Feature matrix shape: (139, 103), Class distribution: [106  33]
+INFO 2026-01-26 19:57:28,578 training_pipeline 15716 4228 Validation data shape: (30, 14)
+INFO 2026-01-26 19:57:28,578 training_pipeline 15716 4228 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-26 19:57:28,579 training_pipeline 15716 4228 Validation texts sample: Question dummy 30 for math Answ...
+INFO 2026-01-26 19:57:28,583 training_pipeline 15716 4228 [OK] Validation feature matrix shape: (30, 103), Class distribution: [23  7]
+INFO 2026-01-26 19:57:28,801 training_pipeline 15716 4228 [OK] Validation Metrics: {'accuracy': 0.8666666666666667, 'precision': 0.7142857142857143, 'recall': 0.7142857142857143, 'f1': 0.7142857142857143}
+INFO 2026-01-26 19:57:28,854 training_pipeline 15716 4228 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260126_195728.pkl
+INFO 2026-01-26 19:57:28,854 training_pipeline 15716 4228 [OK] Version record created: 3
+INFO 2026-01-26 19:57:28,863 training_pipeline 15716 4228 Training Error Analysis Model...
+INFO 2026-01-26 19:57:29,680 training_pipeline 15716 4228 [OK] Error Analysis Metrics: {'accuracy': 0.9333333333333333, 'precision': 0.874074074074074, 'recall': 0.9333333333333333, 'f1': 0.9019607843137255}
+INFO 2026-01-26 19:57:29,716 training_pipeline 15716 4228 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\error_analysis_20260126_195729.pkl
+INFO 2026-01-26 19:57:29,716 training_pipeline 15716 4228 [OK] Version record created: 4
+INFO 2026-01-26 20:00:32,265 autoreload 18212 4148 Watching for file changes with StatReloader
+WARNING 2026-01-26 20:00:41,638 log 18212 3408 Not Found: /
+WARNING 2026-01-26 20:00:41,707 log 18212 3408 Not Found: /favicon.ico
+WARNING 2026-01-26 20:00:56,885 log 18212 8772 Not Found: /api/correction/
+WARNING 2026-01-26 20:02:30,749 log 18212 4324 Not Found: /api/exercise-analysis/
+WARNING 2026-01-26 20:02:45,917 log 18212 8332 Not Found: /api/exercise-analysis/
+INFO 2026-01-26 20:06:32,908 training 10144 17816 Démarrage entraînement modèle: random_forest vrec_20260126_2006
+ERROR 2026-01-26 20:06:32,917 training 10144 17816 Erreur entraînement: Cannot resolve keyword 'created_at' into field. Choices are: error_analysis, exercise, exercise_id, feedback, graded_at, graded_by, graded_by_id, hints_used, id, is_correct, score, smart_explanations, started_at, status, student, student_answer, student_id, submitted_at, time_spent_seconds
+INFO 2026-01-26 20:10:51,202 autoreload 18212 4148 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\users\serializers.py changed, reloading.
+INFO 2026-01-26 20:10:52,378 autoreload 9984 3156 Watching for file changes with StatReloader
+INFO 2026-01-26 20:39:44,699 autoreload 9984 3156 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\users\models.py changed, reloading.
+INFO 2026-01-26 20:39:45,957 autoreload 9080 14700 Watching for file changes with StatReloader
+INFO 2026-01-26 20:44:40,246 autoreload 9080 14700 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\users\views.py changed, reloading.
+INFO 2026-01-26 20:44:41,321 autoreload 18244 7688 Watching for file changes with StatReloader
+INFO 2026-01-26 21:41:32,021 autoreload 360 10208 Watching for file changes with StatReloader
+INFO 2026-01-26 23:43:10,146 autoreload 18220 7268 Watching for file changes with StatReloader
+INFO 2026-01-27 00:43:49,626 autoreload 18220 7268 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\settings.py changed, reloading.
+INFO 2026-01-27 00:43:52,916 autoreload 700 3012 Watching for file changes with StatReloader
+INFO 2026-01-27 00:50:37,252 autoreload 700 3012 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\users\models.py changed, reloading.
+INFO 2026-01-27 00:50:39,427 autoreload 13136 19844 Watching for file changes with StatReloader
+WARNING 2026-01-27 00:53:22,888 log 13136 332 Bad Request: /api/users/
+INFO 2026-01-27 00:56:38,651 autoreload 13136 19844 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\users\serializers.py changed, reloading.
+INFO 2026-01-27 00:56:40,953 autoreload 20356 15084 Watching for file changes with StatReloader
+INFO 2026-01-27 01:00:41,891 autoreload 20356 15084 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\config\urls.py changed, reloading.
+INFO 2026-01-27 01:00:44,267 autoreload 640 17948 Watching for file changes with StatReloader
+WARNING 2026-01-27 01:02:07,634 log 640 100 Not Found: /api/courses/my-courses/
+WARNING 2026-01-27 01:02:19,821 log 640 100 Not Found: /api/revisions/revision_plan/
+WARNING 2026-01-27 01:02:24,371 log 640 100 Not Found: /api/courses/my-courses/
+INFO 2026-01-27 01:05:43,986 autoreload 640 17948 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\progress\views.py changed, reloading.
+INFO 2026-01-27 01:05:46,433 autoreload 9808 13332 Watching for file changes with StatReloader
+INFO 2026-01-27 01:05:55,555 autoreload 9808 13332 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\recommendations\serializers.py changed, reloading.
+INFO 2026-01-27 01:05:58,149 autoreload 8184 13020 Watching for file changes with StatReloader
+INFO 2026-01-27 01:06:09,037 autoreload 8184 13020 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\recommendations\serializers.py changed, reloading.
+INFO 2026-01-27 01:06:11,214 autoreload 19668 8868 Watching for file changes with StatReloader
+INFO 2026-01-27 01:06:25,901 autoreload 19668 8868 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\recommendations\views.py changed, reloading.
+INFO 2026-01-27 01:06:28,534 autoreload 18896 9096 Watching for file changes with StatReloader
+INFO 2026-01-27 01:09:00,652 revision_system 18896 4136 Created revision plan for tanouahmadou043@gmail.com with 0 items
+WARNING 2026-01-27 01:09:02,449 log 18896 4136 Not Found: /api/progress/learning-paths/statistics/
+WARNING 2026-01-27 01:12:46,407 training_pipeline 9680 18440 No exercises found in DB. Generating dummy data for training demonstration...
+INFO 2026-01-27 01:12:46,454 training_pipeline 9680 18440 Loaded 50 exercises from curriculum
+INFO 2026-01-27 01:12:46,504 training_pipeline 9680 18440 [OK] Generated 200 augmented training samples
+INFO 2026-01-27 01:12:46,530 training_pipeline 9680 18440 [OK] Train: 139, Val: 30, Test: 31
+INFO 2026-01-27 01:12:46,531 training_pipeline 9680 18440 Training Exercise Correction Model...
+INFO 2026-01-27 01:12:46,567 training_pipeline 9680 18440 [OK] Feature matrix shape: (139, 103), Class distribution: [106  33]
+INFO 2026-01-27 01:12:46,567 training_pipeline 9680 18440 Validation data shape: (30, 14)
+INFO 2026-01-27 01:12:46,567 training_pipeline 9680 18440 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-27 01:12:46,570 training_pipeline 9680 18440 Validation texts sample: Question dummy 30 for math Answ...
+INFO 2026-01-27 01:12:46,576 training_pipeline 9680 18440 [OK] Validation feature matrix shape: (30, 103), Class distribution: [23  7]
+INFO 2026-01-27 01:12:47,115 training_pipeline 9680 18440 [OK] Validation Metrics: {'accuracy': 0.8666666666666667, 'precision': 0.7142857142857143, 'recall': 0.7142857142857143, 'f1': 0.7142857142857143}
+INFO 2026-01-27 01:12:47,343 training_pipeline 9680 18440 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260127_011247.pkl
+INFO 2026-01-27 01:12:47,343 training_pipeline 9680 18440 [OK] Version record created: 6
+INFO 2026-01-27 01:12:47,344 training_pipeline 9680 18440 Training Error Analysis Model...
+INFO 2026-01-27 01:12:48,807 training_pipeline 9680 18440 [OK] Error Analysis Metrics: {'accuracy': 0.9333333333333333, 'precision': 0.874074074074074, 'recall': 0.9333333333333333, 'f1': 0.9019607843137255}
+INFO 2026-01-27 01:12:48,867 training_pipeline 9680 18440 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\error_analysis_20260127_011248.pkl
+INFO 2026-01-27 01:12:48,867 training_pipeline 9680 18440 [OK] Version record created: 7
+INFO 2026-01-27 01:17:12,714 autoreload 5652 16844 Watching for file changes with StatReloader
+INFO 2026-01-27 01:20:19,575 revision_system 5652 13828 Created revision plan for tanouahmadou043@gmail.com with 0 items
+INFO 2026-01-27 01:23:04,463 revision_system 5652 13828 Created revision plan for tanouahmadou043@gmail.com with 0 items
+INFO 2026-01-27 01:25:52,996 autoreload 5652 16844 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\courses\views.py changed, reloading.
+INFO 2026-01-27 01:25:55,729 autoreload 18340 14096 Watching for file changes with StatReloader
+INFO 2026-01-27 01:26:09,194 autoreload 18340 14096 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\courses\models.py changed, reloading.
+INFO 2026-01-27 01:26:11,830 autoreload 16468 16512 Watching for file changes with StatReloader
+INFO 2026-01-27 01:27:20,054 autoreload 16468 16512 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\courses\views.py changed, reloading.
+INFO 2026-01-27 01:27:22,789 autoreload 19700 19000 Watching for file changes with StatReloader
+INFO 2026-01-27 01:27:44,903 autoreload 19700 19000 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\users\models.py changed, reloading.
+INFO 2026-01-27 01:27:47,121 autoreload 5148 20312 Watching for file changes with StatReloader
+INFO 2026-01-27 01:27:57,452 views 5148 13804 Filtering courses for user tanouahmadou043@gmail.com with level secondary_6eme
+INFO 2026-01-27 01:27:57,508 views 5148 13804 Found 17 courses
+WARNING 2026-01-27 01:27:57,589 log 5148 13804 Not Found: /api/courses/courses/4/
+INFO 2026-01-27 01:28:43,603 views 5148 13804 Filtering courses for user tanouahmadou043@gmail.com with level secondary_6eme
+INFO 2026-01-27 01:28:43,607 views 5148 13804 Found 17 courses
+INFO 2026-01-27 01:28:52,307 views 5148 13804 Filtering courses for user tanouahmadou043@gmail.com with level secondary_6eme
+INFO 2026-01-27 01:28:52,310 views 5148 13804 Found 17 courses
+INFO 2026-01-27 01:28:57,863 views 5148 13804 Filtering courses for user tanouahmadou043@gmail.com with level secondary_6eme
+INFO 2026-01-27 01:28:57,864 views 5148 13804 Found 17 courses
+INFO 2026-01-27 01:30:02,176 views 5148 13804 Filtering courses for user tanouahmadou043@gmail.com with level secondary_6eme
+INFO 2026-01-27 01:30:02,182 views 5148 13804 Found 17 courses
+INFO 2026-01-27 01:30:16,106 views 5148 13804 Filtering courses for user tanouahmadou043@gmail.com with level secondary_6eme
+INFO 2026-01-27 01:30:16,111 views 5148 13804 Found 17 courses
+INFO 2026-01-27 01:30:50,674 views 5148 13804 Filtering courses for user tanouahmadou043@gmail.com with level secondary_6eme
+INFO 2026-01-27 01:30:50,679 views 5148 13804 Found 17 courses
+INFO 2026-01-27 01:33:52,625 views 5148 13804 Filtering courses for user tanouahmadou043@gmail.com with level secondary_6eme
+INFO 2026-01-27 01:33:52,630 views 5148 13804 Found 17 courses
+WARNING 2026-01-27 01:33:54,510 log 5148 13804 Not Found: /api/exercises/exercises/undefined/
+WARNING 2026-01-27 01:33:59,753 log 5148 13804 Not Found: /api/exercises/exercises/undefined/
+INFO 2026-01-27 01:34:47,407 views 5148 13804 Filtering courses for user tanouahmadou043@gmail.com with level secondary_6eme
+INFO 2026-01-27 01:34:47,412 views 5148 13804 Found 17 courses
+WARNING 2026-01-27 01:34:47,413 log 5148 13804 Not Found: /api/courses/courses/20/
+INFO 2026-01-27 01:34:53,131 views 5148 13804 Filtering courses for user tanouahmadou043@gmail.com with level secondary_6eme
+INFO 2026-01-27 01:34:53,134 views 5148 13804 Found 17 courses
+INFO 2026-01-27 01:34:58,820 autoreload 5148 20312 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\courses\serializers.py changed, reloading.
+INFO 2026-01-27 01:35:01,367 autoreload 10772 10552 Watching for file changes with StatReloader
+INFO 2026-01-27 01:35:39,060 views 10772 17564 Filtering courses for user tanouahmadou043@gmail.com with level secondary_6eme
+INFO 2026-01-27 01:35:39,064 views 10772 17564 Found 17 courses
+WARNING 2026-01-27 01:35:49,089 log 10772 17564 Method Not Allowed: /api/exercises/attempts/submit/
+WARNING 2026-01-27 01:36:08,040 log 10772 17564 Method Not Allowed: /api/exercises/attempts/submit/
+INFO 2026-01-27 01:37:41,908 autoreload 10772 10552 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\exercises\views.py changed, reloading.
+INFO 2026-01-27 01:37:44,380 autoreload 9908 12140 Watching for file changes with StatReloader
+WARNING 2026-01-27 08:31:36,537 log 9908 21196 Unauthorized: /api/courses/courses/my_courses/
+WARNING 2026-01-27 08:31:36,590 log 9908 21196 Not Found: /apitoken/refresh/
+WARNING 2026-01-27 08:31:42,367 log 9908 21324 Unauthorized: /api/courses/courses/12/enroll/
+WARNING 2026-01-27 08:31:42,605 log 9908 21324 Unauthorized: /api/courses/courses/my_courses/
+INFO 2026-01-27 08:43:33,979 autoreload 9908 12140 C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\apps\courses\views.py changed, reloading.
+INFO 2026-01-27 08:43:38,648 autoreload 4108 6712 Watching for file changes with StatReloader
+INFO 2026-01-27 08:45:46,902 training_pipeline 23012 22412 Loaded 181 exercises from curriculum
+INFO 2026-01-27 08:45:46,950 training_pipeline 23012 22412 [OK] Generated 724 augmented training samples
+INFO 2026-01-27 08:45:46,975 training_pipeline 23012 22412 [OK] Train: 506, Val: 109, Test: 109
+INFO 2026-01-27 08:45:46,977 training_pipeline 23012 22412 Training Exercise Correction Model...
+INFO 2026-01-27 08:45:47,055 training_pipeline 23012 22412 [OK] Feature matrix shape: (506, 103), Class distribution: [383 123]
+INFO 2026-01-27 08:45:47,056 training_pipeline 23012 22412 Validation data shape: (109, 14)
+INFO 2026-01-27 08:45:47,056 training_pipeline 23012 22412 Validation columns: ['exercise_id', 'level', 'subject', 'question', 'correct_answer', 'explanation', 'difficulty', 'curriculum_ref', 'learning_objectives', 'context', 'student_answer', 'is_correct', 'error_type', 'synthetic']
+INFO 2026-01-27 08:45:47,058 training_pipeline 23012 22412 Validation texts sample: Introduction à Mathématiques CP1 : vocabulaire mathématiques See lesson content for answer
+INFO 2026-01-27 08:45:47,073 training_pipeline 23012 22412 [OK] Validation feature matrix shape: (109, 103), Class distribution: [78 31]
+INFO 2026-01-27 08:45:47,683 training_pipeline 23012 22412 [OK] Validation Metrics: {'accuracy': 0.9541284403669725, 'precision': 0.8823529411764706, 'recall': 0.967741935483871, 'f1': 0.9230769230769231}
+INFO 2026-01-27 08:45:47,848 training_pipeline 23012 22412 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\correction_20260127_084547.pkl
+INFO 2026-01-27 08:45:47,848 training_pipeline 23012 22412 [OK] Version record created: 8
+INFO 2026-01-27 08:45:47,862 training_pipeline 23012 22412 Training Error Analysis Model...
+INFO 2026-01-27 08:45:50,462 training_pipeline 23012 22412 [OK] Error Analysis Metrics: {'accuracy': 0.981651376146789, 'precision': 1.0, 'recall': 0.981651376146789, 'f1': 0.9906262465097726}
+INFO 2026-01-27 08:45:50,513 training_pipeline 23012 22412 [OK] Model saved: C:\D.Pratique de Wb av\ProjetAppMob\intelligent_tutor\trained_models\error_analysis_20260127_084550.pkl
+INFO 2026-01-27 08:45:50,513 training_pipeline 23012 22412 [OK] Version record created: 9
+INFO 2026-01-27 08:45:50,530 training 23012 22412 Démarrage entraînement modèle: random_forest vrec_20260127_0845
+ERROR 2026-01-27 08:45:50,538 training 23012 22412 Erreur entraînement: Cannot resolve keyword 'created_at' into field. Choices are: error_analysis, exercise, exercise_id, feedback, graded_at, graded_by, graded_by_id, hints_used, id, is_correct, score, smart_explanations, started_at, status, student, student_answer, student_id, submitted_at, time_spent_seconds
+INFO 2026-01-27 20:11:34,154 autoreload 8176 12232 Watching for file changes with StatReloader
+WARNING 2026-01-27 20:12:29,595 log 8176 5108 Unauthorized: /api/courses/courses/my_courses/
+WARNING 2026-01-27 20:12:40,092 log 8176 5108 Unauthorized: /api/courses/courses/4/enroll/
+WARNING 2026-01-27 20:12:40,207 log 8176 5108 Unauthorized: /api/courses/courses/my_courses/
+WARNING 2026-01-27 20:12:50,041 log 8176 5108 Unauthorized: /api/courses/courses/my_courses/
+WARNING 2026-01-27 20:12:56,343 log 8176 5108 Unauthorized: /api/courses/courses/4/enroll/
+WARNING 2026-01-27 20:12:56,446 log 8176 5108 Unauthorized: /api/courses/courses/my_courses/
+WARNING 2026-01-27 20:13:57,194 log 8176 5108 Unauthorized: /api/courses/courses/my_courses/
+WARNING 2026-01-27 20:14:01,424 log 8176 5108 Unauthorized: /api/courses/courses/4/enroll/
+WARNING 2026-01-27 20:14:01,572 log 8176 5108 Unauthorized: /api/courses/courses/my_courses/

@@ -1,8 +1,33 @@
 import axios, { AxiosInstance, AxiosError } from 'axios';
 import * as SecureStore from 'expo-secure-store';
 import Constants from 'expo-constants';
+import { Platform } from 'react-native';
 
-const API_BASE_URL = Constants.expoConfig?.extra?.API_URL || 'http://localhost:8000/api';
+const API_BASE_URL = Constants.expoConfig?.extra?.API_URL || 'http://127.0.0.1:8000/api/';
+
+// Helper pour le stockage compatible Web/Mobile
+const storage = {
+  getItem: async (key: string) => {
+    if (Platform.OS === 'web') {
+      return localStorage.getItem(key);
+    }
+    return await SecureStore.getItemAsync(key);
+  },
+  setItem: async (key: string, value: string) => {
+    if (Platform.OS === 'web') {
+      localStorage.setItem(key, value);
+    } else {
+      await SecureStore.setItemAsync(key, value);
+    }
+  },
+  deleteItem: async (key: string) => {
+    if (Platform.OS === 'web') {
+      localStorage.removeItem(key);
+    } else {
+      await SecureStore.deleteItemAsync(key);
+    }
+  }
+};
 
 let authStore = {
   token: null as string | null,
@@ -21,7 +46,7 @@ const apiClient: AxiosInstance = axios.create({
 // Interceptor pour ajouter le token
 apiClient.interceptors.request.use(
   async (config) => {
-    const token = authStore.token || (await SecureStore.getItemAsync('authToken'));
+    const token = authStore.token || (await storage.getItem('authToken'));
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
       authStore.token = token;
@@ -41,14 +66,14 @@ apiClient.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        const refreshToken = authStore.refreshToken || (await SecureStore.getItemAsync('refreshToken'));
+        const refreshToken = authStore.refreshToken || (await storage.getItem('refreshToken'));
         if (refreshToken) {
-          const response = await axios.post(`${API_BASE_URL}/token/refresh/`, {
+          const response = await axios.post(`${API_BASE_URL}token/refresh/`, {
             refresh: refreshToken,
           });
 
           const { access } = response.data;
-          await SecureStore.setItemAsync('authToken', access);
+          await storage.setItem('authToken', access);
           authStore.token = access;
 
           originalRequest.headers.Authorization = `Bearer ${access}`;
@@ -65,24 +90,24 @@ apiClient.interceptors.response.use(
 );
 
 export const setAuthTokens = async (accessToken: string, refreshToken?: string) => {
-  await SecureStore.setItemAsync('authToken', accessToken);
+  await storage.setItem('authToken', accessToken);
   authStore.token = accessToken;
 
   if (refreshToken) {
-    await SecureStore.setItemAsync('refreshToken', refreshToken);
+    await storage.setItem('refreshToken', refreshToken);
     authStore.refreshToken = refreshToken;
   }
 };
 
 export const clearAuth = async () => {
-  await SecureStore.deleteItemAsync('authToken');
-  await SecureStore.deleteItemAsync('refreshToken');
+  await storage.deleteItem('authToken');
+  await storage.deleteItem('refreshToken');
   authStore.token = null;
   authStore.refreshToken = null;
 };
 
 export const getStoredToken = async () => {
-  return await SecureStore.getItemAsync('authToken');
+  return await storage.getItem('authToken');
 };
 
 export default apiClient;

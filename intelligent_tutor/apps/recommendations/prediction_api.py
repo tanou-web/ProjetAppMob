@@ -12,7 +12,6 @@ from django.http import JsonResponse
 from apps.recommendations.training_pipeline import PredictionService
 from apps.recommendations.models_ml import MLModelVersion
 from apps.courses.models import Subject, Course
-from .serializers import MLModelVersionSerializer
 
 
 class CorrectionAPIView(APIView):

@@ -64,48 +64,71 @@ class ExerciseAttemptViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    @action(detail=True, methods=['post'])
-    def submit(self, request, pk=None):
-        """Submit an exercise attempt."""
+    @action(detail=False, methods=['post'])
+    def submit(self, request):
+        """Submit an exercise attempt (creates or updates)."""
         from apps.recommendations.error_analysis import ErrorAnalyzer
         from apps.recommendations.explanation_generator import ExplanationGenerator
         
-        attempt = self.get_object()
+        exercise_id = request.data.get('exercise')
+        student_answer = request.data.get('student_answer')
         
-        if attempt.student != request.user:
-            return Response({'detail': 'Not authorized.'}, status=status.HTTP_403_FORBIDDEN)
+        if not exercise_id:
+            return Response({'detail': 'Exercise ID is required.'}, status=status.HTTP_400_BAD_REQUEST)
+            
+        try:
+            exercise = Exercise.objects.get(id=exercise_id)
+        except Exercise.DoesNotExist:
+            return Response({'detail': 'Exercise not found.'}, status=status.HTTP_404_NOT_FOUND)
+            
+        # Get or create the attempt
+        attempt, created = ExerciseAttempt.objects.get_or_create(
+            student=request.user,
+            exercise=exercise,
+            defaults={'status': 'submitted', 'submitted_at': timezone.now()}
+        )
         
         attempt.status = 'submitted'
         attempt.submitted_at = timezone.now()
-        attempt.student_answer = request.data.get('student_answer')
+        attempt.student_answer = student_answer
         
-        # Auto-grade if applicable
-        if attempt.exercise.type in ['multiple_choice', 'true_false']:
-            attempt.is_correct = attempt.student_answer == attempt.exercise.correct_answer
-            attempt.score = attempt.exercise.points if attempt.is_correct else 0
+        # Auto-grade
+        if exercise.type in ['multiple_choice', 'true_false', 'short_answer']:
+            # Normaliser les réponses pour comparaison
+            correct = str(exercise.correct_answer).strip().lower()
+            provided = str(student_answer).strip().lower()
+            attempt.is_correct = provided == correct
+            attempt.score = exercise.points if attempt.is_correct else 0
         
         attempt.save()
         
         # Analyser l'erreur si la réponse est incorrecte
         if not attempt.is_correct:
-            error_analysis = ErrorAnalyzer.analyze_attempt(attempt)
-            # Générer une explication intelligente
-            explanation = ExplanationGenerator.generate_explanation(attempt, error_analysis)
+            try:
+                error_analysis = ErrorAnalyzer.analyze_attempt(attempt)
+                # Générer une explication intelligente
+                explanation = ExplanationGenerator.generate_explanation(attempt, error_analysis)
+            except Exception as e:
+                import logging
+                logging.error(f"Error during AI analysis: {str(e)}")
         
         serializer = self.get_serializer(attempt)
         response_data = serializer.data
         
         # Ajouter les analyses si disponibles
         if not attempt.is_correct:
-            from apps.recommendations.serializers import ErrorAnalysisSerializer, SmartExplanationSerializer
-            
-            error_analysis = ErrorAnalysis.objects.filter(exercise_attempt=attempt).first()
-            if error_analysis:
-                response_data['error_analysis'] = ErrorAnalysisSerializer(error_analysis).data
-            
-            explanation = SmartExplanation.objects.filter(exercise_attempt=attempt).first()
-            if explanation:
-                response_data['smart_explanation'] = SmartExplanationSerializer(explanation).data
+            try:
+                from apps.recommendations.serializers import ErrorAnalysisSerializer, SmartExplanationSerializer
+                
+                error_analysis = ErrorAnalysis.objects.filter(exercise_attempt=attempt).first()
+                if error_analysis:
+                    response_data['error_analysis'] = ErrorAnalysisSerializer(error_analysis).data
+                
+                explanation = SmartExplanation.objects.filter(exercise_attempt=attempt).first()
+                if explanation:
+                    response_data['smart_explanation'] = SmartExplanationSerializer(explanation).data
+            except ImportError:
+                pass
         
         return Response(response_data)
     

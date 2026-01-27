@@ -30,7 +30,7 @@ from django.db import models
 from django.utils import timezone
 from django.conf import settings
 
-from .models import MLModelVersion
+from .models_ml import MLModelVersion
 from apps.courses.models import Course, Lesson, Subject
 from apps.users.models import User
 
@@ -61,7 +61,7 @@ class DatasetPreparer:
         
         # Template for curriculum exercise
         for course in Course.objects.filter(status='published'):
-            for lesson in course.lesson_set.all():
+            for lesson in course.lessons.all():
                 # Parse lesson content for exercises
                 exercise_data = {
                     'exercise_id': f"ex_{course.id}_{lesson.id}",
@@ -71,14 +71,39 @@ class DatasetPreparer:
                     'correct_answer': self._extract_answer_from_lesson(lesson),
                     'explanation': lesson.content,
                     'difficulty': course.difficulty_level,
-                    'curriculum_ref': course.curriculum_reference,
-                    'learning_objectives': course.learning_objectives,
+                    'curriculum_ref': f"{course.subject.name}_{course.level}",
+                    'learning_objectives': course.learning_objectives or [],
                     'context': 'burkina_faso',
                 }
                 exercises.append(exercise_data)
         
         self.dataset = pd.DataFrame(exercises)
-        self.logger.info(f"✅ Loaded {len(self.dataset)} exercises from curriculum")
+        
+        # Fallback if no exercises found (for testing/dev)
+        if len(self.dataset) == 0:
+            self.logger.warning("No exercises found in DB. Generating dummy data for training demonstration...")
+            dummy_exercises = []
+            subjects = ['math', 'french', 'science', 'history', 'geography']
+            levels = ['primary_cp1', 'primary_cp2', 'primary_p3', 'primary_p4', 'primary_p5', 'primary_p6']
+            
+            for i in range(50):
+                subj = subjects[i % len(subjects)]
+                lvl = levels[i % len(levels)]
+                dummy_exercises.append({
+                    'exercise_id': f"dummy_{i}",
+                    'level': lvl,
+                    'subject': subj,
+                    'question': f"Question dummy {i} for {subj}",
+                    'correct_answer': f"Answer {i}",
+                    'explanation': f"Explanation for dummy {i}",
+                    'difficulty': 'medium',
+                    'curriculum_ref': f"{subj}_{lvl}",
+                    'learning_objectives': ['dummy_objective'],
+                    'context': 'burkina_faso',
+                })
+            self.dataset = pd.DataFrame(dummy_exercises)
+
+        self.logger.info(f"Loaded {len(self.dataset)} exercises from curriculum")
         return self.dataset
     
     def load_student_answers(self) -> pd.DataFrame:
@@ -140,20 +165,58 @@ class DatasetPreparer:
         augmented = []
         for idx, row in exercises_df.iterrows():
             subject = row['subject'].lower()
-            patterns = error_patterns.get(subject, [lambda x: x])
-            
-            # Generate N variations of potential errors
-            for i, pattern in enumerate(patterns[:num_variations]):
+
+            # Define error types for different subjects
+            error_type_mapping = {
+                'mathématiques': ['calculation_error', 'logic_error', 'incomplete_answer'],
+                'français': ['spelling_error', 'grammar_error', 'conjugation_error'],
+                'math': ['calculation_error', 'logic_error', 'incomplete_answer'],
+                'french': ['spelling_error', 'grammar_error', 'conjugation_error'],
+                'science': ['concept_error', 'incomplete_answer', 'logic_error'],
+                'sciences': ['concept_error', 'incomplete_answer', 'logic_error'],
+                'histoire': ['fact_error', 'date_error', 'incomplete_answer'],
+                'history': ['fact_error', 'date_error', 'incomplete_answer'],
+                'géographie': ['location_error', 'fact_error', 'incomplete_answer'],
+                'geography': ['location_error', 'fact_error', 'incomplete_answer'],
+            }
+
+            error_types = error_type_mapping.get(subject, ['general_error', 'incomplete_answer', 'logic_error'])
+            patterns = error_patterns.get(subject, [lambda x: x + " (erreur)"])
+
+            # Generate variations for each error type
+            for i, error_type in enumerate(error_types[:num_variations]):
                 try:
-                    incorrect_answer = pattern(str(row['correct_answer']))
+                    # Create different types of errors
+                    if error_type == 'calculation_error':
+                        incorrect_answer = str(row['correct_answer']) + " (mauvais calcul)"
+                    elif error_type == 'spelling_error':
+                        incorrect_answer = str(row['correct_answer']).replace('é', 'e').replace('è', 'e')
+                    elif error_type == 'grammar_error':
+                        incorrect_answer = str(row['correct_answer']) + " (faute grammaire)"
+                    elif error_type == 'logic_error':
+                        incorrect_answer = "Je ne sais pas"
+                    elif error_type == 'incomplete_answer':
+                        incorrect_answer = str(row['correct_answer'])[:len(str(row['correct_answer']))//2] + "..."
+                    elif error_type == 'concept_error':
+                        incorrect_answer = "C'est faux"
+                    elif error_type == 'fact_error':
+                        incorrect_answer = str(row['correct_answer']) + " (erreur de fait)"
+                    elif error_type == 'date_error':
+                        incorrect_answer = str(row['correct_answer']).replace('2024', '2023')
+                    elif error_type == 'location_error':
+                        incorrect_answer = str(row['correct_answer']) + " (mauvais endroit)"
+                    else:
+                        incorrect_answer = str(row['correct_answer']) + f" ({error_type})"
+
                     augmented.append({
                         **row,
                         'student_answer': incorrect_answer,
                         'is_correct': False,
-                        'error_type': f'pattern_{i}',
+                        'error_type': error_type,
                         'synthetic': True,
                     })
-                except:
+                except Exception as e:
+                    self.logger.warning(f"Error generating variation for {error_type}: {e}")
                     pass
             
             # Add correct answer
@@ -165,7 +228,7 @@ class DatasetPreparer:
                 'synthetic': False,
             })
         
-        self.logger.info(f"✅ Generated {len(augmented)} augmented training samples")
+        self.logger.info(f"[OK] Generated {len(augmented)} augmented training samples")
         return pd.DataFrame(augmented)
     
     def create_splits(self, data: pd.DataFrame, 
@@ -193,7 +256,7 @@ class DatasetPreparer:
             random_state=42
         )
         
-        self.logger.info(f"✅ Train: {len(train)}, Val: {len(val)}, Test: {len(test)}")
+        self.logger.info(f"[OK] Train: {len(train)}, Val: {len(val)}, Test: {len(test)}")
         return train, val, test
     
     def _extract_answer_from_lesson(self, lesson: Lesson) -> str:
@@ -319,37 +382,70 @@ class ExerciseCorrectionTrainer:
         # Target: is_correct
         y = train_df['is_correct'].values
         
-        self.logger.info(f"✅ Feature matrix shape: {X.shape}, Class distribution: {np.bincount(y.astype(int))}")
+        self.logger.info(f"[OK] Feature matrix shape: {X.shape}, Class distribution: {np.bincount(y.astype(int))}")
         return X, y
     
+    def prepare_validation_data(self, val_df: pd.DataFrame) -> Tuple[np.ndarray, np.ndarray]:
+        """
+        Prepare validation data using already fitted feature engineer
+
+        Args:
+            val_df: Validation DataFrame
+
+        Returns:
+            (X_features, y_labels)
+        """
+        # Debug: check validation data
+        self.logger.info(f"Validation data shape: {val_df.shape}")
+        self.logger.info(f"Validation columns: {val_df.columns.tolist()}")
+
+        # Extract features from questions and answers (without fitting)
+        texts = val_df['question'] + " " + val_df['student_answer']
+        self.logger.info(f"Validation texts sample: {texts.iloc[0] if len(texts) > 0 else 'No texts'}")
+        X_text = self.feature_engineer.create_text_features(texts.tolist(), fit=False)
+
+        # Extract curriculum features
+        X_curriculum = self.feature_engineer.create_curriculum_features(val_df)
+
+        # Combine features
+        X = np.hstack([X_text, X_curriculum])
+
+        # Target: is_correct
+        y = val_df['is_correct'].values
+
+        self.logger.info(f"[OK] Validation feature matrix shape: {X.shape}, Class distribution: {np.bincount(y.astype(int))}")
+        return X, y
+
     def train(self, train_df: pd.DataFrame, val_df: pd.DataFrame) -> Dict[str, float]:
         """
         Train the correction model
-        
+
         Returns:
             Dictionary of validation metrics
         """
-        self.logger.info("🔄 Training Exercise Correction Model...")
-        
-        # Prepare data
+        self.logger.info("Training Exercise Correction Model...")
+
+        # Prepare training data (this fits the feature engineer)
         X_train, y_train = self.prepare_training_data(train_df)
-        X_val, y_val = self.prepare_training_data(val_df)
-        
+
+        # Prepare validation data (using fitted feature engineer)
+        X_val, y_val = self.prepare_validation_data(val_df)
+
         # Train
         self.model.fit(X_train, y_train)
-        
+
         # Evaluate
         y_pred = self.model.predict(X_val)
         y_proba = self.model.predict_proba(X_val)[:, 1]
-        
+
         metrics = {
             'accuracy': float(accuracy_score(y_val, y_pred)),
             'precision': float(precision_score(y_val, y_pred, zero_division=0)),
             'recall': float(recall_score(y_val, y_pred, zero_division=0)),
             'f1': float(f1_score(y_val, y_pred, zero_division=0)),
         }
-        
-        self.logger.info(f"✅ Validation Metrics: {metrics}")
+
+        self.logger.info(f"[OK] Validation Metrics: {metrics}")
         return metrics
     
     def predict(self, question: str, student_answer: str, metadata: Dict[str, Any]) -> Dict[str, Any]:
@@ -405,11 +501,11 @@ class ErrorAnalysisTrainer:
     
     def train(self, train_df: pd.DataFrame, val_df: pd.DataFrame) -> Dict[str, float]:
         """Train error classification model"""
-        self.logger.info("🔄 Training Error Analysis Model...")
+        self.logger.info("Training Error Analysis Model...")
         
         # Prepare data
         X_train, y_train = self._prepare_error_training_data(train_df)
-        X_val, y_val = self._prepare_error_training_data(val_df)
+        X_val, y_val = self.prepare_validation_data(val_df)
         
         # Train
         self.model.fit(X_train, y_train)
@@ -424,15 +520,30 @@ class ErrorAnalysisTrainer:
             'f1': float(f1_score(y_val, y_pred, average='weighted', zero_division=0)),
         }
         
-        self.logger.info(f"✅ Error Analysis Metrics: {metrics}")
+        self.logger.info(f"[OK] Error Analysis Metrics: {metrics}")
         return metrics
-    
+
+    def prepare_validation_data(self, val_df: pd.DataFrame) -> Tuple[np.ndarray, np.ndarray]:
+        """Prepare validation data using already fitted feature engineer"""
+        # Use fitted vectorizer for validation
+        X = self.feature_engineer.create_text_features(
+            (val_df['question'] + " " + val_df['student_answer']).tolist(),
+            fit=False
+        )
+
+        # Map error types to numeric labels
+        y = val_df.get('error_type', 'other').apply(
+            lambda x: self.error_types.index(x) if x in self.error_types else 5
+        ).values
+
+        return X, y
+
     def _prepare_error_training_data(self, df: pd.DataFrame) -> Tuple[np.ndarray, np.ndarray]:
         """Prepare features for error type classification"""
         # For now, use error_type column if available
-        X, _ = self.feature_engineer.create_text_features(
+        X = self.feature_engineer.create_text_features(
             (df['question'] + " " + df['student_answer']).tolist(),
-            fit=False
+            fit=True
         )
         
         # Map error types to numeric labels
@@ -495,11 +606,11 @@ class ModelPersistenceManager:
             f1_score=metrics.get('f1', 0),
             hyperparameters=training_config,
             trained_at=timezone.now(),
-            training_samples_count=training_config.get('train_samples', 0),
+            training_samples=training_config.get('train_samples', 0),
         )
         
-        self.logger.info(f"✅ Model saved: {model_path}")
-        self.logger.info(f"✅ Version record created: {ml_version.id}")
+        self.logger.info(f"[OK] Model saved: {model_path}")
+        self.logger.info(f"[OK] Version record created: {ml_version.id}")
         
         return ml_version
     
@@ -533,10 +644,10 @@ class TrainingOrchestrator:
         Returns:
             Training results for all models
         """
-        self.logger.info("🚀 Starting Complete ML Training Pipeline")
+        self.logger.info("[START] Starting Complete ML Training Pipeline")
         
         # ===== PHASE 1: DATA PREPARATION =====
-        self.logger.info("\n📊 PHASE 1: Data Preparation")
+        self.logger.info("\n[DATA] PHASE 1: Data Preparation")
         
         # Load curriculum exercises
         exercises_df = self.preparer.load_curriculum_exercises()
@@ -563,7 +674,7 @@ class TrainingOrchestrator:
         }
         
         # ===== PHASE 2: MODEL TRAINING =====
-        self.logger.info("\n🤖 PHASE 2: Model Training")
+        self.logger.info("\n[AI] PHASE 2: Model Training")
         
         # Train Correction Model
         self.logger.info("\n1️⃣ Training Correction Model...")
@@ -602,7 +713,7 @@ class TrainingOrchestrator:
         }
         
         # ===== PHASE 3: TESTING =====
-        self.logger.info("\n✅ PHASE 3: Testing on Test Set")
+        self.logger.info("\n[OK] PHASE 3: Testing on Test Set")
         
         X_test, y_test = correction_trainer.prepare_training_data(test_df)
         y_pred = correction_trainer.model.predict(X_test)
@@ -618,7 +729,7 @@ class TrainingOrchestrator:
         
         # ===== FINAL SUMMARY =====
         self.logger.info("\n" + "="*60)
-        self.logger.info("✅ TRAINING PIPELINE COMPLETED")
+        self.logger.info("[OK] TRAINING PIPELINE COMPLETED")
         self.logger.info("="*60)
         self.logger.info(f"Total samples: {len(training_data)}")
         self.logger.info(f"Correction Model Accuracy: {correction_metrics['accuracy']:.2%}")

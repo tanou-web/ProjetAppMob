@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-01-27T08:45:46.676987",
+  "models_trained": [
+    {
+      "model_type": "correction",
+      "version_id": 8,
+      "metrics": {
+        "accuracy": 0.9541284403669725,
+        "precision": 0.8823529411764706,
+        "recall": 0.967741935483871,
+        "f1": 0.9230769230769231
+      }
+    },
+    {
+      "model_type": "error_analysis",
+      "version_id": 9,
+      "metrics": {
+        "accuracy": 0.981651376146789,
+        "precision": 1.0,
+        "recall": 0.981651376146789,
+        "f1": 0.9906262465097726
+      }
+    }
+  ]
+}

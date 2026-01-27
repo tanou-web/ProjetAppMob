@@ -27,11 +27,25 @@ class SubjectViewSet(viewsets.ReadOnlyModelViewSet):
 class CourseViewSet(viewsets.ModelViewSet):
     """ViewSet for courses."""
     
-    queryset = Course.objects.filter(status='published')
+    ordering_fields = ['difficulty_level', 'created_at']
     permission_classes = [AllowAny]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['title', 'description', 'subject__name']
-    ordering_fields = ['difficulty_level', 'created_at']
+    
+    def get_queryset(self):
+        """Filter courses by user level if they are a student."""
+        queryset = Course.objects.filter(status='published')
+        user = self.request.user
+        recommended = self.request.query_params.get('recommended', 'false').lower() == 'true'
+        
+        # if recommended is true and user has a level defined, show only courses for that level
+        if recommended and user.is_authenticated and hasattr(user, 'level') and user.level:
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.info(f"Filtering courses for user {user.email} with level {user.level}")
+            queryset = queryset.filter(level=user.level)
+            
+        return queryset
     
     def get_serializer_class(self):
         if self.action == 'retrieve':

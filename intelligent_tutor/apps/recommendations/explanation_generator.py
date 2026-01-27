@@ -206,7 +206,8 @@ class ExplanationGenerator:
             parts.append(ExplanationGenerator._get_example(exercise))
             
         elif error_type == 'reading':
-            parts.append(f"{templates.get('intro', 'Lire l\'énoncé attentivement')}")
+            parts.append(templates.get('intro', "Lire l'énoncé attentivement"))
+
             
             parts.append(f"\n**L'énoncé dit:** {exercise.question}")
             parts.append(f"\n**Vous aviez compris:** {exercise_attempt.student_answer}")

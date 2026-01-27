@@ -3,11 +3,10 @@ Django management command to import courses from Faso Education website
 """
 
 from django.core.management.base import BaseCommand, CommandError
-from django.utils.text import slugify
 import json
 import logging
-from apps.courses.models import Course, Subject, Lesson
-from apps.exercises.models import Exercise, ExerciseCategory
+from apps.courses.models import Course, Subject
+from apps.exercises.models import  ExerciseCategory
 from apps.users.models import User
 
 logger = logging.getLogger(__name__)
@@ -85,18 +84,18 @@ class Command(BaseCommand):
 
         # Level mapping
         level_mapping = {
-            'primaire_cp': 'primary_1',
-            'primaire_ce1': 'primary_2',
-            'primaire_ce2': 'primary_3',
-            'primaire_cm1': 'primary_4',
-            'primaire_cm2': 'primary_5',
-            'postprimaire_6e': 'secondary_1',
-            'postprimaire_5e': 'secondary_2',
-            'postprimaire_4e': 'secondary_3',
-            'postprimaire_3e': 'secondary_4',
-            'secondaire_2nde': 'secondary_1',
-            'secondaire_1ere': 'secondary_2',
-            'secondaire_tle': 'secondary_4',
+            'primaire_cp': 'primary_cp1',
+            'primaire_ce1': 'primary_ce1',
+            'primaire_ce2': 'primary_ce2',
+            'primaire_cm1': 'primary_cm1',
+            'primaire_cm2': 'primary_cm2',
+            'postprimaire_6e': 'secondary_6eme',
+            'postprimaire_5e': 'secondary_5eme',
+            'postprimaire_4e': 'secondary_4eme',
+            'postprimaire_3e': 'secondary_3eme',
+            'secondaire_2nde': 'secondary_2nde',
+            'secondaire_1ere': 'secondary_1ere',
+            'secondaire_tle': 'secondary_tle',
         }
 
         # Import courses

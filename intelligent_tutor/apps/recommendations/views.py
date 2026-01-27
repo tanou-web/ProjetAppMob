@@ -385,8 +385,13 @@ class IntelligentRevisionItemViewSet(viewsets.ModelViewSet):
         revision_items = IntelligentRevisionEngine.create_revision_plan(request.user, limit=limit)
         serializer = self.get_serializer(revision_items, many=True)
         
+        all_items = self.get_queryset()
+        
         return Response({
-            'count': len(revision_items),
+            'total_items': all_items.count(),
+            'completed_items': all_items.filter(status='completed').count(),
+            'pending_items': all_items.filter(status='recommended').count(),
+            'high_priority_items': all_items.filter(priority_score__gt=0.7).count(),
             'items': serializer.data
         })
     

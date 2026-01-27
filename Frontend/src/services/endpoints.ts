@@ -16,27 +16,37 @@ import {
 // ============ AUTH ============
 export const authAPI = {
   login: async (email: string, password: string): Promise<AuthResponse> => {
-    const response = await apiClient.post('/token/', { email, password });
+    const response = await apiClient.post('token/', { email, password });
     return response.data;
   },
 
-  signup: async (email: string, password: string, firstName: string, lastName: string): Promise<User> => {
-    const response = await apiClient.post('/users/', {
+  signup: async (email: string, password: string, firstName: string, lastName: string, level: string, phone: string): Promise<User> => {
+    const response = await apiClient.post('users/', {
       email,
       password,
+      password_confirm: password, // Requis par le backend
       first_name: firstName,
       last_name: lastName,
+      level,
+      phone,
+    });
+    return response.data;
+  },
+
+  googleLogin: async (accessToken: string): Promise<AuthResponse> => {
+    const response = await apiClient.post('users/google_login/', {
+      access_token: accessToken,
     });
     return response.data;
   },
 
   me: async (): Promise<User> => {
-    const response = await apiClient.get('/users/me/');
+    const response = await apiClient.get('users/profile/');
     return response.data;
   },
 
   updateProfile: async (data: Partial<User>): Promise<User> => {
-    const response = await apiClient.patch('/users/me/', data);
+    const response = await apiClient.put('users/update_profile/', data);
     return response.data;
   },
 };
@@ -44,27 +54,27 @@ export const authAPI = {
 // ============ COURSES ============
 export const coursesAPI = {
   list: async (page = 1): Promise<PaginatedResponse<Course>> => {
-    const response = await apiClient.get('/courses/', { params: { page } });
+    const response = await apiClient.get('courses/courses/', { params: { page } });
     return response.data;
   },
 
   get: async (id: number): Promise<Course> => {
-    const response = await apiClient.get(`/courses/${id}/`);
+    const response = await apiClient.get(`courses/courses/${id}/`);
     return response.data;
   },
 
   enroll: async (courseId: number): Promise<any> => {
-    const response = await apiClient.post(`/courses/${courseId}/enroll/`);
+    const response = await apiClient.post(`courses/courses/${courseId}/enroll/`);
     return response.data;
   },
 
   unenroll: async (courseId: number): Promise<any> => {
-    const response = await apiClient.post(`/courses/${courseId}/unenroll/`);
+    const response = await apiClient.post(`courses/courses/${courseId}/unenroll/`);
     return response.data;
   },
 
   myEnrolled: async (page = 1): Promise<PaginatedResponse<Course>> => {
-    const response = await apiClient.get('/courses/my-courses/', { params: { page } });
+    const response = await apiClient.get('courses/courses/my_courses/', { params: { page } });
     return response.data;
   },
 };
@@ -72,24 +82,25 @@ export const coursesAPI = {
 // ============ EXERCISES ============
 export const exercisesAPI = {
   getByLesson: async (lessonId: number): Promise<Exercise[]> => {
-    const response = await apiClient.get(`/lessons/${lessonId}/exercises/`);
+    const response = await apiClient.get('exercises/exercises/', { params: { lesson_id: lessonId } });
     return response.data.results || response.data;
   },
 
   get: async (id: number): Promise<Exercise> => {
-    const response = await apiClient.get(`/exercises/${id}/`);
+    const response = await apiClient.get(`exercises/exercises/${id}/`);
     return response.data;
   },
 
   submit: async (exerciseId: number, studentAnswer: string): Promise<ExerciseAttempt> => {
-    const response = await apiClient.post(`/exercises/${exerciseId}/submit/`, {
+    const response = await apiClient.post('exercises/attempts/submit/', {
+      exercise: exerciseId,
       student_answer: studentAnswer,
     });
     return response.data;
   },
 
   getAttempts: async (exerciseId: number): Promise<ExerciseAttempt[]> => {
-    const response = await apiClient.get(`/exercises/${exerciseId}/attempts/`);
+    const response = await apiClient.get('exercises/attempts/', { params: { exercise: exerciseId } });
     return response.data.results || response.data;
   },
 };
@@ -97,22 +108,22 @@ export const exercisesAPI = {
 // ============ ERROR ANALYSIS ============
 export const errorAnalysisAPI = {
   byErrorType: async (): Promise<any> => {
-    const response = await apiClient.get('/error-analyses/by_error_type/');
+    const response = await apiClient.get('recommendations/error-analyses/by_error_type/');
     return response.data;
   },
 
   byConcept: async (): Promise<any> => {
-    const response = await apiClient.get('/error-analyses/by_concept/');
+    const response = await apiClient.get('recommendations/error-analyses/by_concept/');
     return response.data;
   },
 
   patterns: async (): Promise<any> => {
-    const response = await apiClient.get('/error-analyses/patterns/');
+    const response = await apiClient.get('recommendations/error-analyses/patterns/');
     return response.data;
   },
 
   report: async (): Promise<any> => {
-    const response = await apiClient.get('/error-analyses/report/');
+    const response = await apiClient.get('recommendations/error-analyses/report/');
     return response.data;
   },
 };
@@ -120,17 +131,17 @@ export const errorAnalysisAPI = {
 // ============ EXPLANATIONS ============
 export const explanationsAPI = {
   list: async (): Promise<SmartExplanation[]> => {
-    const response = await apiClient.get('/explanations/');
+    const response = await apiClient.get('recommendations/explanations/');
     return response.data.results || response.data;
   },
 
   markHelpful: async (id: number, helpful: boolean): Promise<any> => {
-    const response = await apiClient.post(`/explanations/${id}/mark_helpful/`, { was_helpful: helpful });
+    const response = await apiClient.post(`recommendations/explanations/${id}/mark_helpful/`, { was_helpful: helpful });
     return response.data;
   },
 
   rate: async (id: number, rating: number): Promise<any> => {
-    const response = await apiClient.post(`/explanations/${id}/rate/`, { rating });
+    const response = await apiClient.post(`recommendations/explanations/${id}/rate/`, { rating });
     return response.data;
   },
 };
@@ -138,72 +149,68 @@ export const explanationsAPI = {
 // ============ REVISION SYSTEM ============
 export const revisionAPI = {
   revisionPlan: async (): Promise<RevisionPlan> => {
-    const response = await apiClient.get('/revisions/revision_plan/');
+    const response = await apiClient.get('recommendations/revisions/revision_plan/');
     return response.data;
   },
 
   startSession: async (revisionId: number): Promise<any> => {
-    const response = await apiClient.post(`/revisions/${revisionId}/start_session/`);
+    const response = await apiClient.post(`recommendations/revisions/${revisionId}/start_session/`);
     return response.data;
   },
 
   completeSession: async (revisionId: number, masteryScore: number): Promise<any> => {
-    const response = await apiClient.post(`/revisions/${revisionId}/complete_session/`, {
+    const response = await apiClient.post(`recommendations/revisions/${revisionId}/complete_session/`, {
       mastery_score: masteryScore,
     });
     return response.data;
   },
 
   progress: async (): Promise<any> => {
-    const response = await apiClient.get('/revisions/progress/');
+    const response = await apiClient.get('recommendations/revisions/progress/');
     return response.data;
   },
 
   effectiveness: async (): Promise<any> => {
-    const response = await apiClient.get('/revisions/effectiveness/');
+    const response = await apiClient.get('recommendations/revisions/effectiveness/');
     return response.data;
   },
 
-  timing: async (revisionId?: number): Promise<any> => {
-    if (revisionId) {
-      const response = await apiClient.get(`/revisions/${revisionId}/timing/`);
-      return response.data;
-    } else {
-      const response = await apiClient.get('/revisions/timing/');
-      return response.data;
-    }
+  timing: async (concept?: string): Promise<any> => {
+    const response = await apiClient.get('recommendations/revisions/timing/', {
+      params: { concept }
+    });
+    return response.data;
   },
 };
 
 // ============ PROGRESS ============
 export const progressAPI = {
   get: async (): Promise<ProgressData> => {
-    const response = await apiClient.get('/progress/');
+    const response = await apiClient.get('progress/learning-paths/statistics/');
     return response.data;
   },
 
   bySubject: async (): Promise<any> => {
-    const response = await apiClient.get('/progress/by-subject/');
+    const response = await apiClient.get('progress/performance-analysis/insights/');
     return response.data;
   },
 
   byLevel: async (): Promise<any> => {
-    const response = await apiClient.get('/progress/by-level/');
+    // Note: this endpoint doesn't seem to exist in backend yet, mapping to latest analysis
+    const response = await apiClient.get('progress/performance-analysis/latest/');
     return response.data;
   },
 };
 
 // ============ RECOMMENDATIONS ============
 export const recommendationsAPI = {
-  predict: async (studentId: number, exerciseId: number): Promise<any> => {
-    const response = await apiClient.get('/recommendations/predict/', {
-      params: { student_id: studentId, exercise_id: exerciseId },
-    });
+  predict: async (data: any): Promise<any> => {
+    const response = await apiClient.post('recommendations/correction/', data);
     return response.data;
   },
 
   generate: async (): Promise<any> => {
-    const response = await apiClient.get('/recommendations/generate/');
+    const response = await apiClient.post('recommendations/engines/regenerate_recommendations/');
     return response.data;
   },
 };

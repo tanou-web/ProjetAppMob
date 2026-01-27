@@ -4,17 +4,24 @@ export interface User {
   email: string;
   first_name: string;
   last_name: string;
-  level: number;
+  level: string;
   is_active: boolean;
   created_at: string;
+}
+
+export interface Subject {
+  id: number;
+  name: string;
+  code: string;
+  description: string;
 }
 
 export interface Course {
   id: number;
   title: string;
   description: string;
-  subject: string;
-  level: number;
+  subject: Subject | string;
+  level: string;
   created_at: string;
   lessons: Lesson[];
 }

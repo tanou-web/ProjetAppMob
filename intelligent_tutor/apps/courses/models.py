@@ -24,7 +24,7 @@ class Subject(models.Model):
     name = models.CharField(max_length=100, unique=True)
     code = models.CharField(max_length=20, choices=SUBJECT_CHOICES, unique=True)
     description = models.TextField(blank=True)
-    icon = models.CharField(max_length=50, blank=True)
+    icon = models.ImageField(max_length=50, blank=True)
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -48,16 +48,19 @@ class Course(models.Model):
     )
     
     LEVEL_CHOICES = (
-        ('primary_1', 'Primaire 1'),
-        ('primary_2', 'Primaire 2'),
-        ('primary_3', 'Primaire 3'),
-        ('primary_4', 'Primaire 4'),
-        ('primary_5', 'Primaire 5'),
-        ('primary_6', 'Primaire 6'),
-        ('secondary_1', 'Secondaire 1'),
-        ('secondary_2', 'Secondaire 2'),
-        ('secondary_3', 'Secondaire 3'),
-        ('secondary_4', 'Secondaire 4'),
+        ('primary_cp1', 'CP1 (Primaire)'),
+        ('primary_cp2', 'CP2 (Primaire)'),
+        ('primary_ce1', 'CE1 (Primaire)'),
+        ('primary_ce2', 'CE2 (Primaire)'),
+        ('primary_cm1', 'CM1 (Primaire)'),
+        ('primary_cm2', 'CM2 (Primaire)'),
+        ('secondary_6eme', '6ème (Collège)'),
+        ('secondary_5eme', '5ème (Collège)'),
+        ('secondary_4eme', '4ème (Collège)'),
+        ('secondary_3eme', '3ème (Collège)'),
+        ('secondary_2nde', '2nde (Lycée)'),
+        ('secondary_1ere', '1ère (Lycée)'),
+        ('secondary_tle', 'Terminale (Lycée)'),
     )
     
     title = models.CharField(max_length=255)

@@ -13,6 +13,9 @@ from apps.users.serializers import (
 )
 
 
+import requests
+from rest_framework_simplejwt.tokens import RefreshToken
+
 class UserViewSet(viewsets.ModelViewSet):
     """ViewSet for user management."""
     
@@ -26,9 +29,53 @@ class UserViewSet(viewsets.ModelViewSet):
         return UserSerializer
     
     def get_permissions(self):
-        if self.action == 'create':
+        if self.action in ['create', 'google_login']:
             return [AllowAny()]
         return super().get_permissions()
+
+    @action(detail=False, methods=['post'], permission_classes=[AllowAny])
+    def google_login(self, request):
+        """Authentification via Google Token."""
+        token = request.data.get('access_token')
+        if not token:
+            return Response({'detail': 'Token manquant'}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Vérifier le token avec l'API Google
+        google_url = f"https://www.googleapis.com/oauth2/v3/userinfo?access_token={token}"
+        response = requests.get(google_url)
+        
+        if response.status_code != 200:
+            return Response({'detail': 'Token Google invalide ou expiré'}, status=status.HTTP_400_BAD_REQUEST)
+
+        user_info = response.json()
+        email = user_info.get('email')
+        first_name = user_info.get('given_name', '')
+        last_name = user_info.get('family_name', '')
+
+        if not email:
+            return Response({'detail': 'Email non fourni par Google'}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Chercher ou créer l'utilisateur
+        user, created = User.objects.get_or_create(
+            email=email,
+            defaults={
+                'username': email,
+                'first_name': first_name,
+                'last_name': last_name,
+                'is_active': True,
+                'role': 'student', # Par défaut
+            }
+        )
+
+        # Générer les tokens JWT
+        refresh = RefreshToken.for_user(user)
+        
+        return Response({
+            'access': str(refresh.access_token),
+            'refresh': str(refresh),
+            'user': UserSerializer(user).data,
+            'is_new_user': created
+        })
     
     @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
     def profile(self, request):

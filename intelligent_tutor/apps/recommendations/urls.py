@@ -4,6 +4,12 @@ URLs for Recommendations app.
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from apps.recommendations import views
+from apps.recommendations.prediction_api import (
+    CorrectionAPIView, 
+    ExerciseAnalysisAPIView, 
+    ModelStatusAPIView,
+    BulkCorrectionAPIView
+)
 
 router = DefaultRouter()
 router.register(r'', views.ContentRecommendationViewSet, basename='recommendation')
@@ -16,4 +22,11 @@ router.register(r'revisions', views.IntelligentRevisionItemViewSet, basename='re
 
 urlpatterns = [
     path('', include(router.urls)),
+    
+    # ML Prediction Endpoints
+    path('correction/', CorrectionAPIView.as_view(), name='correction'),
+    path('exercise-analysis/', ExerciseAnalysisAPIView.as_view(), name='exercise-analysis'),
+    path('bulk-correction/', BulkCorrectionAPIView.as_view(), name='bulk-correction'),
+    path('models/status/', ModelStatusAPIView.as_view(), name='model-status'),
 ]
+

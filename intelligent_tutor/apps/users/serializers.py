@@ -3,6 +3,7 @@ Serializers for Users app.
 """
 from rest_framework import serializers
 from django.contrib.auth import authenticate
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from apps.users.models import User, StudentProfile, TeacherProfile, Notification
 
 
@@ -34,7 +35,13 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     
     def validate(self, data):
         if data['password'] != data['password_confirm']:
-            raise serializers.ValidationError("Passwords do not match.")
+            raise serializers.ValidationError({"password": "Passwords do not match."})
+        
+        # Ensure level is provided for students
+        role = data.get('role', 'student')
+        if role == 'student' and not data.get('level'):
+            raise serializers.ValidationError({"level": "Le niveau est obligatoire pour les élèves."})
+            
         return data
     
     def create(self, validated_data):
@@ -90,3 +97,9 @@ class NotificationSerializer(serializers.ModelSerializer):
             'created_at', 'read_at'
         ]
         read_only_fields = ['id', 'created_at']
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        # On ajoute les données de l'utilisateur à la réponse
+        data['user'] = UserSerializer(self.user).data
+        return data

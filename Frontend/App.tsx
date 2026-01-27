@@ -2,16 +2,19 @@ import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, View, Text } from 'react-native';
 import { useAuthStore } from './src/store/authStore';
 
 // Screens
 import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import CoursesScreen from './src/screens/CoursesScreen';
+import CourseDetailScreen from './src/screens/CourseDetailScreen';
+import LessonDetailScreen from './src/screens/LessonDetailScreen';
 import ExerciseScreen from './src/screens/ExerciseScreen';
 import RevisionScreen from './src/screens/RevisionScreen';
 import ProgressScreen from './src/screens/ProgressScreen';
+import ChatScreen from './src/screens/ChatScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -36,6 +39,16 @@ function CoursesStack() {
         options={{ title: 'Mes Cours' }}
       />
       <Stack.Screen
+        name="CourseDetail"
+        component={CourseDetailScreen}
+        options={{ title: 'Détails du cours' }}
+      />
+      <Stack.Screen
+        name="LessonDetail"
+        component={LessonDetailScreen}
+        options={{ title: 'Contenu de la leçon' }}
+      />
+      <Stack.Screen
         name="Exercise"
         component={ExerciseScreen}
         options={{ title: 'Exercice' }}
@@ -58,6 +71,15 @@ function MainTabs() {
         },
       }}
     >
+      <Tab.Screen
+        name="AssistantTab"
+        component={ChatScreen}
+        options={{
+          title: 'Assistant',
+          tabBarLabel: 'Assistant',
+          tabBarIcon: ({ color }) => <Text style={{ fontSize: 20, color }}>💬</Text>,
+        }}
+      />
       <Tab.Screen
         name="CoursesTab"
         component={CoursesStack}
@@ -96,6 +118,8 @@ export default function App() {
     restoreToken();
   }, []);
 
+  console.log('App state - User:', user ? user.email : 'Non connecté', 'Loading:', isLoading);
+
   if (isLoading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -117,5 +141,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-import { Text } from 'react-native';

@@ -1,0 +1,1609 @@
+{
+  "primaire_cp": [],
+  "primaire_ce1": [
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "primaire_ce1",
+      "source": "fasoeducation.bf"
+    }
+  ],
+  "primaire_ce2": [
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "primaire_ce2",
+      "source": "fasoeducation.bf"
+    }
+  ],
+  "primaire_cm1": [
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "primaire_cm1",
+      "source": "fasoeducation.bf"
+    }
+  ],
+  "primaire_cm2": [
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "primaire_cm2",
+      "source": "fasoeducation.bf"
+    }
+  ],
+  "postprimaire_6e": [
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "postprimaire_6e",
+      "source": "fasoeducation.bf"
+    }
+  ],
+  "postprimaire_5e": [
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "postprimaire_5e",
+      "source": "fasoeducation.bf"
+    }
+  ],
+  "postprimaire_4e": [
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "postprimaire_4e",
+      "source": "fasoeducation.bf"
+    }
+  ],
+  "postprimaire_3e": [
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "postprimaire_3e",
+      "source": "fasoeducation.bf"
+    }
+  ],
+  "secondaire_2nde": [
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "secondaire_2nde",
+      "source": "fasoeducation.bf"
+    }
+  ],
+  "secondaire_1ere": [
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "secondaire_1ere",
+      "source": "fasoeducation.bf"
+    }
+  ],
+  "secondaire_tle": [
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : vocabulaire mathématiques",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p1.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 1 à 12",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p2.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Mathématiques CP1 : étude des nombres de 13 à 20",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-maths-cp1-p3.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Expression orale CP1 : des différentes parties du corps humain aux objets de la maison",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-api-cp1-exporale4.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Lecture CP1 : voyelles composées aux articulations",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp1/fiches-lecture-cp1-vcomposees-articulations.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p1.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 2",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p2.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches expression orale CP2 : partie 3",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-expression-orale-cp2-p3.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 0 à 49",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p1.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 50 à 90",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p2.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP2 : 91 à 100",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-cp2/fiches-api-maths-cp2-p3.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    },
+    {
+      "title": "Fiches de mathématiques CP1",
+      "url": "/espace-enseignants/fiches-aide-preparation/fiches-api-inclusives/fiches-api-inclusives-maths-cp1.html",
+      "level": "secondaire_tle",
+      "source": "fasoeducation.bf"
+    }
+  ]
+}

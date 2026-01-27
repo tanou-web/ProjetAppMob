@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   TextInput,
@@ -8,12 +8,49 @@ import {
   Alert,
   ActivityIndicator,
 } from 'react-native';
+import * as WebBrowser from 'expo-web-browser';
+import * as Google from 'expo-auth-session/providers/google';
+import { makeRedirectUri } from 'expo-auth-session';
 import { useAuthStore } from '../store/authStore';
+
+// Permet de fermer le navigateur après l'auth sur mobile
+WebBrowser.maybeCompleteAuthSession();
 
 export default function LoginScreen({ navigation }: any) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login, isLoading } = useAuthStore();
+  const { login, loginWithGoogle, isLoading } = useAuthStore();
+
+  // --- CONFIGURATION GOOGLE ---
+  const [request, response, promptAsync] = Google.useAuthRequest({
+    androidClientId: '623390760600-odktbsum3054pldp9tcdgm29unaicd1t.apps.googleusercontent.com',
+    webClientId: '435452247725-8lg2f27rhhj0u2nlsq89dfasnms3s3p9.apps.googleusercontent.com',
+  });
+
+  useEffect(() => {
+    if (request) {
+      console.log("URL de redirection générée :", request.redirectUri);
+    }
+  }, [request]);
+
+  useEffect(() => {
+    if (response?.type === 'success') {
+      const { authentication } = response;
+      if (authentication?.accessToken) {
+        handleGoogleLogin(authentication.accessToken);
+      }
+    }
+  }, [response]);
+
+  const handleGoogleLogin = async (token: string) => {
+    try {
+      await loginWithGoogle(token);
+      // La redirection vers l'accueil se fera automatiquement via le state 'user'
+    } catch (error) {
+      Alert.alert('Erreur', 'La connexion avec Google a échoué côté serveur.');
+    }
+  };
+  // ----------------------------
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -64,6 +101,15 @@ export default function LoginScreen({ navigation }: any) {
         )}
       </TouchableOpacity>
 
+      {/* BOUTON GOOGLE */}
+      <TouchableOpacity
+        style={styles.googleButton}
+        onPress={() => promptAsync()}
+        disabled={!request || isLoading}
+      >
+        <Text style={styles.googleButtonText}>G Continuer avec Google</Text>
+      </TouchableOpacity>
+
       <View style={styles.registerContainer}>
         <Text style={styles.registerText}>Pas encore inscrit ? </Text>
         <TouchableOpacity onPress={() => navigation.navigate('Register')}>
@@ -110,7 +156,21 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingVertical: 14,
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
+  },
+  googleButton: {
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    paddingVertical: 14,
+    alignItems: 'center',
+    marginTop: 15,
+    borderWidth: 1,
+    borderColor: '#ddd',
+  },
+  googleButtonText: {
+    color: '#2c3e50',
+    fontSize: 16,
+    fontWeight: '600',
   },
   buttonDisabled: {
     opacity: 0.6,

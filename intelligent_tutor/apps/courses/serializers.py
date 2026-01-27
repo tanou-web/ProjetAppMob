@@ -16,13 +16,15 @@ class SubjectSerializer(serializers.ModelSerializer):
 
 class LessonSerializer(serializers.ModelSerializer):
     """Serializer for lessons."""
+    from apps.exercises.serializers import ExerciseSerializer
+    exercises = ExerciseSerializer(many=True, read_only=True)
     
     class Meta:
         model = Lesson
         fields = [
             'id', 'course', 'title', 'description', 'content', 'order',
             'duration_minutes', 'video_url', 'resources', 'learning_outcomes',
-            'created_at', 'updated_at'
+            'exercises', 'created_at', 'updated_at'
         ]
         read_only_fields = ['id', 'created_at', 'updated_at']
 

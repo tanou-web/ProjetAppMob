@@ -21,9 +21,9 @@ class LearningPathAdmin(admin.ModelAdmin):
 @admin.register(LessonProgress)
 class LessonProgressAdmin(admin.ModelAdmin):
     """Admin for LessonProgress model."""
-    
+
     list_display = ['student', 'lesson', 'status', 'progress_percentage', 'exercises_correct']
-    list_filter = ['status', 'created_at']
+    list_filter = ['status', 'started_at']
     search_fields = ['student__email', 'lesson__title']
     readonly_fields = ['started_at', 'last_accessed', 'completed_at']
 

@@ -449,3 +449,45 @@ WARNING 2026-01-27 20:12:56,446 log 8176 5108 Unauthorized: /api/courses/courses
 WARNING 2026-01-27 20:13:57,194 log 8176 5108 Unauthorized: /api/courses/courses/my_courses/
 WARNING 2026-01-27 20:14:01,424 log 8176 5108 Unauthorized: /api/courses/courses/4/enroll/
 WARNING 2026-01-27 20:14:01,572 log 8176 5108 Unauthorized: /api/courses/courses/my_courses/
+INFO 2026-01-27 20:22:16,403 autoreload 8266 136485525254272 Watching for file changes with StatReloader
+INFO 2026-01-27 20:28:07,775 error_analysis 8266 136484481922752 Error analysis created for tanouahmadou043@gmail.com: conceptual in Introduction à Mathématiques CP1 : étude des nombres de 1 à 12
+INFO 2026-01-27 20:28:07,785 explanation_generator 8266 136484481922752 Smart explanation generated for tanouahmadou043@gmail.com: error_specific
+INFO 2026-01-27 20:28:28,308 revision_system 8266 136484481922752 Created revision plan for tanouahmadou043@gmail.com with 1 items
+INFO 2026-01-27 20:49:28,444 autoreload 8266 136485525254272 /home/tanou/Bur/projetWeb/intelligent_tutor/config/settings.py changed, reloading.
+INFO 2026-01-27 20:49:29,040 autoreload 14203 136842039300224 Watching for file changes with StatReloader
+INFO 2026-01-27 21:01:02,887 autoreload 14203 136842039300224 /home/tanou/Bur/projetWeb/intelligent_tutor/config/settings.py changed, reloading.
+INFO 2026-01-27 21:01:03,203 autoreload 15853 134772076454016 Watching for file changes with StatReloader
+INFO 2026-01-27 22:16:45,901 training_pipeline 34042 127720292032640 Loaded 33 exercises from curriculum
+INFO 2026-01-27 22:29:44,464 training_pipeline 35978 126864762699904 [START] Starting Complete ML Training Pipeline
+INFO 2026-01-27 22:29:44,464 training_pipeline 35978 126864762699904 
+[DATA] PHASE 1: Data Preparation
+INFO 2026-01-27 22:29:44,544 training_pipeline 35978 126864762699904 Loaded 171 exercises from curriculum
+INFO 2026-01-27 22:29:59,200 training 36091 126881135902848 Démarrage entraînement de tous les modèles...
+INFO 2026-01-27 22:29:59,200 training 36091 126881135902848 Démarrage entraînement modèle: gradient_boosting v2.0.0_gb
+ERROR 2026-01-27 22:29:59,230 training 36091 126881135902848 Erreur entraînement: Cannot resolve keyword 'created_at' into field. Choices are: error_analysis, exercise, exercise_id, feedback, graded_at, graded_by, graded_by_id, hints_used, id, is_correct, score, smart_explanations, started_at, status, student, student_answer, student_id, submitted_at, time_spent_seconds
+INFO 2026-01-27 22:29:59,235 training 36091 126881135902848 Démarrage entraînement modèle: random_forest v2.0.0_rf
+ERROR 2026-01-27 22:29:59,239 training 36091 126881135902848 Erreur entraînement: Cannot resolve keyword 'created_at' into field. Choices are: error_analysis, exercise, exercise_id, feedback, graded_at, graded_by, graded_by_id, hints_used, id, is_correct, score, smart_explanations, started_at, status, student, student_answer, student_id, submitted_at, time_spent_seconds
+INFO 2026-01-27 22:35:08,951 autoreload 37521 136864230617216 Watching for file changes with StatReloader
+INFO 2026-01-27 22:35:39,009 autoreload 37609 126891948040320 Watching for file changes with StatReloader
+INFO 2026-01-27 22:35:59,680 autoreload 37686 129370336891008 Watching for file changes with StatReloader
+WARNING 2026-01-27 22:36:14,778 log 37521 136863185630912 Unauthorized: /api/users/register/
+INFO 2026-01-27 22:36:35,242 autoreload 37884 139131426619520 Watching for file changes with StatReloader
+WARNING 2026-01-27 22:37:08,476 log 37521 136863185630912 Bad Request: /api/users/
+INFO 2026-01-27 22:38:06,410 autoreload 38211 137793392865408 Watching for file changes with StatReloader
+WARNING 2026-01-27 23:02:39,891 log 37521 136863185630912 Unauthorized: /api/courses/courses/my_courses/
+INFO 2026-01-27 23:03:26,063 revision_system 37521 136863185630912 Created revision plan for student1@example.com with 0 items
+INFO 2026-01-27 23:05:32,143 autoreload 38211 137793392865408 /home/tanou/Bur/projetWeb/intelligent_tutor/apps/courses/views.py changed, reloading.
+INFO 2026-01-27 23:05:32,218 autoreload 37521 136864230617216 /home/tanou/Bur/projetWeb/intelligent_tutor/apps/courses/views.py changed, reloading.
+INFO 2026-01-27 23:05:34,960 autoreload 54839 136793151918208 Watching for file changes with StatReloader
+INFO 2026-01-27 23:05:35,126 autoreload 54842 136952745836672 Watching for file changes with StatReloader
+INFO 2026-01-27 23:05:42,701 autoreload 54839 136793151918208 /home/tanou/Bur/projetWeb/intelligent_tutor/apps/courses/views.py changed, reloading.
+INFO 2026-01-27 23:05:43,050 autoreload 54842 136952745836672 /home/tanou/Bur/projetWeb/intelligent_tutor/apps/courses/views.py changed, reloading.
+INFO 2026-01-27 23:05:44,891 autoreload 54928 140402920976512 Watching for file changes with StatReloader
+INFO 2026-01-27 23:05:45,419 autoreload 54929 132135013843072 Watching for file changes with StatReloader
+INFO 2026-01-27 23:05:56,934 autoreload 54928 140402920976512 /home/tanou/Bur/projetWeb/intelligent_tutor/apps/courses/views.py changed, reloading.
+INFO 2026-01-27 23:05:57,304 autoreload 54929 132135013843072 /home/tanou/Bur/projetWeb/intelligent_tutor/apps/courses/views.py changed, reloading.
+INFO 2026-01-27 23:05:59,405 autoreload 55038 132510848442496 Watching for file changes with StatReloader
+INFO 2026-01-27 23:05:59,765 autoreload 55039 137126848991360 Watching for file changes with StatReloader
+WARNING 2026-01-27 23:09:21,961 log 55039 137125804635840 Forbidden: /api/courses/courses/my_courses/
+WARNING 2026-01-27 23:09:28,806 log 55039 137125804635840 Forbidden: /api/courses/courses/my_courses/
+WARNING 2026-01-27 23:11:29,181 log 55039 137125804635840 Forbidden: /api/courses/courses/my_courses/

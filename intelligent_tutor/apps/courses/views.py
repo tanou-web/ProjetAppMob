@@ -4,13 +4,28 @@ Views for Courses app.
 from rest_framework import viewsets, status, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny, BasePermission
 from django.utils import timezone
 from apps.courses.models import Subject, Course, Lesson, CourseEnrollment
+
+
+class IsAdminOrTeacher(BasePermission):
+    """Permission: Only admin or teacher can create/edit courses."""
+    
+    def has_permission(self, request, view):
+        if not request.user or not request.user.is_authenticated:
+            return False
+        return request.user.role in ['admin', 'teacher']
 from apps.courses.serializers import (
     SubjectSerializer, CourseListSerializer, CourseDetailSerializer,
     LessonSerializer, CourseEnrollmentSerializer
 )
+
+
+def get_courses_permission_classes():
+    """Return permission classes for course views based on action."""
+    # This will be used in get_permissions() method
+    return None
 
 
 class SubjectViewSet(viewsets.ReadOnlyModelViewSet):
@@ -25,12 +40,32 @@ class SubjectViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class CourseViewSet(viewsets.ModelViewSet):
-    """ViewSet for courses."""
+    """ViewSet for courses.
+    
+    Permissions:
+    - LIST, RETRIEVE: AllowAny (anyone can view published courses)
+    - CREATE, UPDATE, DELETE: IsAdminOrTeacher (only admin/teacher can modify)
+    """
     
     ordering_fields = ['difficulty_level', 'created_at']
-    permission_classes = [AllowAny]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['title', 'description', 'subject__name']
+    
+    def get_permissions(self):
+        """
+        Define permissions based on action:
+        - list, retrieve: AllowAny
+        - create, update, partial_update, destroy: IsAdminOrTeacher
+        """
+        if self.action in ['list', 'retrieve']:
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsAdminOrTeacher]
+        return [permission() for permission in permission_classes]
+    
+    def perform_create(self, serializer):
+        """Automatically assign the current user as creator."""
+        serializer.save(created_by=self.request.user)
     
     def get_queryset(self):
         """Filter courses by user level if they are a student."""

@@ -27,6 +27,7 @@ export const authAPI = {
       password_confirm: password, // Requis par le backend
       first_name: firstName,
       last_name: lastName,
+      role: 'student', // Par défaut, rôle étudiant
       level,
       phone,
     });

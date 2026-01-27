@@ -14,19 +14,19 @@ import {
 import { useAuthStore } from '../store/authStore';
 
 const LEVELS = [
-  { label: 'Primaire 1 (CP1)', value: 'primary_1' },
-  { label: 'Primaire 2 (CP2)', value: 'primary_2' },
-  { label: 'Primaire 3 (CE1)', value: 'primary_3' },
-  { label: 'Primaire 4 (CE2)', value: 'primary_4' },
-  { label: 'Primaire 5 (CM1)', value: 'primary_5' },
-  { label: 'Primaire 6 (CM2)', value: 'primary_6' },
-  { label: 'Secondaire 1 (6ème)', value: 'secondary_1' },
-  { label: 'Secondaire 2 (5ème)', value: 'secondary_2' },
-  { label: 'Secondaire 3 (4ème)', value: 'secondary_3' },
-  { label: 'Secondaire 4 (3ème)', value: 'secondary_4' },
-  { label: 'Lycée (Seconde)', value: 'lycee_2nde' },
-  { label: 'Lycée (Première)', value: 'lycee_1ere' },
-  { label: 'Lycée (Terminale)', value: 'lycee_tles' },
+  { label: 'Primaire 1 (CP1)', value: 'primary_cp1' },
+  { label: 'Primaire 2 (CP2)', value: 'primary_cp2' },
+  { label: 'Primaire 3 (CE1)', value: 'primary_ce1' },
+  { label: 'Primaire 4 (CE2)', value: 'primary_ce2' },
+  { label: 'Primaire 5 (CM1)', value: 'primary_cm1' },
+  { label: 'Primaire 6 (CM2)', value: 'primary_cm2' },
+  { label: 'Secondaire 1 (6ème)', value: 'secondary_6eme' },
+  { label: 'Secondaire 2 (5ème)', value: 'secondary_5eme' },
+  { label: 'Secondaire 3 (4ème)', value: 'secondary_4eme' },
+  { label: 'Secondaire 4 (3ème)', value: 'secondary_3eme' },
+  { label: 'Lycée (Seconde)', value: 'secondary_2nde' },
+  { label: 'Lycée (Première)', value: 'secondary_1ere' },
+  { label: 'Lycée (Terminale)', value: 'secondary_tle' },
 ];
 
 export default function RegisterScreen({ navigation }: any) {

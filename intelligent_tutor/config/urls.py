@@ -17,6 +17,11 @@ class MyTokenObtainPairView(TokenObtainPairView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.user
+        
+        # Refresh user from database to get latest data (e.g., level changes)
+        user.refresh_from_db()
+        print(f"[TOKEN_LOGIN] User {user.email} logging in with level: {user.level}")
+        
         data = serializer.validated_data
         data['user'] = UserSerializer(user).data
         return Response(data)

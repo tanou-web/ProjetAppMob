@@ -46,6 +46,29 @@ export default function LessonDetailScreen({ route, navigation }: any) {
         }
     };
 
+    const cleanContent = (html: string) => {
+        if (!html) return '<p>Pas de contenu pour cette leçon.</p>';
+
+        let processedHtml = html;
+
+        // 1. Remove "Source FASO" link if content is long enough
+        if (processedHtml.length > 500 && processedHtml.includes('Source FASO:')) {
+            processedHtml = processedHtml.replace(/<p><a href="[^"]*">Source FASO:.*?<\/a><\/p>/g, '')
+                .replace(/Source FASO:.*?<br\s*\/?>/g, '');
+        }
+
+        // 2. Remove "Javascript not supported" warning
+        // Pattern matches <p id="noJsWarn">...</p>
+        processedHtml = processedHtml.replace(/<p id="noJsWarn">.*?<\/p>/s, ''); // s flag for dotall
+        // Just in case it's a bit different
+        processedHtml = processedHtml.replace(/Attention, votre navigateur ne supporte pas le javascript.*?restreintes\./s, '');
+
+        // 3. Remove script tags (they don't run anyway, but cleaner)
+        processedHtml = processedHtml.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gm, "");
+
+        return processedHtml;
+    };
+
     return (
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -57,11 +80,54 @@ export default function LessonDetailScreen({ route, navigation }: any) {
                 <View style={styles.contentContainer}>
                     <RenderHtml
                         contentWidth={width - 40}
-                        source={{ html: lesson.content || '<p>Pas de contenu pour cette leçon.</p>' }}
+                        source={{ html: cleanContent(lesson.content) }}
                         tagsStyles={{
                             p: { color: '#2c3e50', fontSize: 16, lineHeight: 24, marginBottom: 15 },
-                            h1: { color: '#2c3e50', fontSize: 22, fontWeight: 'bold', marginBottom: 10 },
-                            h2: { color: '#2c3e50', fontSize: 20, fontWeight: '600', marginBottom: 10 },
+                            h1: { color: '#2c3e50', fontSize: 24, fontWeight: 'bold', marginBottom: 12, marginTop: 10 },
+                            h2: { color: '#34495e', fontSize: 20, fontWeight: '600', marginBottom: 10, marginTop: 15 },
+                            h3: { color: '#34495e', fontSize: 18, fontWeight: '600', marginBottom: 8 },
+                            ul: { marginBottom: 15 },
+                            li: { color: '#2c3e50', fontSize: 16, lineHeight: 22, marginBottom: 5 },
+                            hr: { marginVertical: 20, borderBottomWidth: 1, borderBottomColor: '#eee' },
+                        }}
+                        classesStyles={{
+                            'objBox': {
+                                backgroundColor: '#f0f7ff',
+                                padding: 15,
+                                borderRadius: 10,
+                                borderLeftWidth: 5,
+                                borderLeftColor: '#3498db',
+                                marginBottom: 20,
+                            },
+                            'objBox_ti': {
+                                color: '#2980b9',
+                                fontWeight: 'bold',
+                                fontSize: 18,
+                                marginBottom: 10,
+                            },
+                            'mainContent_ti': {
+                                fontSize: 22,
+                                color: '#2c3e50',
+                                fontWeight: 'bold',
+                                marginBottom: 15,
+                                borderBottomWidth: 2,
+                                borderBottomColor: '#27ae60',
+                                paddingBottom: 5,
+                            },
+                            'op_sTxt_p': {
+                                marginBottom: 12,
+                            },
+                            'op_sTxt_is_emp': {
+                                fontWeight: 'bold',
+                                color: '#e67e22',
+                            },
+                            'sw_child_navList': {
+                                backgroundColor: '#fdfcfe',
+                                padding: 10,
+                                borderRadius: 5,
+                                borderWidth: 1,
+                                borderColor: '#d1d8e0',
+                            }
                         }}
                     />
                 </View>

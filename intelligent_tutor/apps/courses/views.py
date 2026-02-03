@@ -59,6 +59,8 @@ class CourseViewSet(viewsets.ModelViewSet):
         """
         if self.action in ['list', 'retrieve']:
             permission_classes = [AllowAny]
+        elif self.action in ['enroll', 'my_courses', 'progress']:
+            permission_classes = [IsAuthenticated]
         else:
             permission_classes = [IsAdminOrTeacher]
         return [permission() for permission in permission_classes]
@@ -71,14 +73,21 @@ class CourseViewSet(viewsets.ModelViewSet):
         """Filter courses by user level if they are a student."""
         queryset = Course.objects.filter(status='published')
         user = self.request.user
-        recommended = self.request.query_params.get('recommended', 'false').lower() == 'true'
         
-        # if recommended is true and user has a level defined, show only courses for that level
-        if recommended and user.is_authenticated and hasattr(user, 'level') and user.level:
-            import logging
-            logger = logging.getLogger(__name__)
-            logger.info(f"Filtering courses for user {user.email} with level {user.level}")
-            queryset = queryset.filter(level=user.level)
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.warning(f"DEBUG: get_queryset user={user}, auth={user.is_authenticated}, role={getattr(user, 'role', 'N/A')}, level={getattr(user, 'level', 'N/A')}")
+
+        if user.is_authenticated and hasattr(user, 'role') and user.role == 'student' and user.level:
+            show_all = self.request.query_params.get('all_levels', 'false').lower() == 'true'
+            if not show_all:
+                queryset = queryset.filter(level=user.level)
+        
+        # Additional recommended filter
+        recommended = self.request.query_params.get('recommended', 'false').lower() == 'true'
+        if recommended and user.is_authenticated:
+            # Add specific recommendation logic here if needed
+            pass
             
         return queryset
     

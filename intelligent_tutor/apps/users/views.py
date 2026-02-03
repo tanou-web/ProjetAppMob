@@ -33,6 +33,13 @@ class UserViewSet(viewsets.ModelViewSet):
             return [AllowAny()]
         return super().get_permissions()
 
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
     @action(detail=False, methods=['post'], permission_classes=[AllowAny])
     def google_login(self, request):
         """Authentification via Google Token."""
@@ -88,10 +95,28 @@ class UserViewSet(viewsets.ModelViewSet):
     def update_profile(self, request):
         """Update current user profile."""
         user = request.user
+        old_level = user.level
+        print(f"[UPDATE_PROFILE] User: {user.email}, Current level: {old_level}")
+        print(f"[UPDATE_PROFILE] Request data: {request.data}")
+        
         serializer = self.get_serializer(user, data=request.data, partial=True)
         if serializer.is_valid():
-            serializer.save()
+            updated_user = serializer.save()
+            new_level = updated_user.level
+            
+            # If level changed, unenroll from all courses
+            if old_level != new_level:
+                from apps.courses.models import CourseEnrollment
+                enrollments = CourseEnrollment.objects.filter(student=updated_user)
+                enrollment_count = enrollments.count()
+                enrollments.delete()
+                print(f"[UPDATE_PROFILE] Level changed from {old_level} to {new_level}. Unenrolled from {enrollment_count} courses.")
+            
+            print(f"[UPDATE_PROFILE] Updated successfully. New level: {new_level}")
+            print(f"[UPDATE_PROFILE] Response data: {serializer.data}")
             return Response(serializer.data)
+        
+        print(f"[UPDATE_PROFILE] Validation errors: {serializer.errors}")
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])

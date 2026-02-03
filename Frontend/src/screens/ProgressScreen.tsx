@@ -6,13 +6,20 @@ import {
   ActivityIndicator,
   ScrollView,
   Dimensions,
+  TouchableOpacity,
 } from 'react-native';
+import LevelSelectionModal from '../components/LevelSelectionModal';
 import { progressAPI } from '../services/endpoints';
 import { ProgressData } from '../types';
+import { useCoursesStore } from '../store/coursesStore';
+import { useAuthStore } from '../store/authStore';
 
 export default function ProgressScreen() {
+  const { user, updateLevel, logout } = useAuthStore();
   const [progress, setProgress] = useState<ProgressData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLevelModalVisible, setLevelModalVisible] = useState(false);
+  const [isUpdatingLevel, setIsUpdatingLevel] = useState(false);
 
   useEffect(() => {
     fetchProgress();
@@ -27,6 +34,33 @@ export default function ProgressScreen() {
       console.error('Error fetching progress:', error);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleLevelUpdate = async (levelId: string) => {
+    try {
+      console.log('[LEVEL_UPDATE] Starting level update to:', levelId);
+      setIsUpdatingLevel(true);
+
+      await updateLevel(levelId);
+      console.log('[LEVEL_UPDATE] Update completed successfully');
+
+      setLevelModalVisible(false);
+
+      // Logout the user so they reconnect with their new level
+      alert('Niveau mis à jour ! Vous allez être déconnecté. Reconnectez-vous pour voir vos nouveaux cours.');
+
+      console.log('[LEVEL_UPDATE] Initiating logout in 1.5 seconds...');
+      // Logout after a short delay to let the user see the message
+      setTimeout(async () => {
+        console.log('[LEVEL_UPDATE] Logging out now...');
+        await useAuthStore.getState().logout();
+      }, 1500);
+    } catch (error) {
+      console.error('[LEVEL_UPDATE] Error during update:', error);
+      alert('Erreur lors de la mise à jour du niveau.');
+    } finally {
+      setIsUpdatingLevel(false);
     }
   };
 
@@ -51,111 +85,140 @@ export default function ProgressScreen() {
   const successRatePercentage = Math.round(progress.success_rate * 100);
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <Text style={styles.header}>Mon Progrès</Text>
+    <View style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Text style={styles.header}>Mon Progrès</Text>
 
-      {/* Card principale */}
-      <View style={styles.mainCard}>
-        <View style={styles.mainCardContent}>
-          <Text style={styles.mainCardLabel}>Score Global</Text>
-          <Text style={styles.mainCardScore}>{Math.round(progress.average_score)}%</Text>
-          <Text style={styles.mainCardSubtext}>basé sur {progress.completed_exercises} exercices</Text>
-        </View>
-        <View style={styles.scoreCircle}>
-          <Text style={styles.scoreText}>{successRatePercentage}%</Text>
-        </View>
-      </View>
+        {/* Change Level Button */}
+        <TouchableOpacity
+          style={[styles.changeLevelButton, { marginHorizontal: 15, marginTop: 10 }]}
+          onPress={() => setLevelModalVisible(true)}
+        >
+          <Text style={styles.changeLevelButtonText}>🏫 Changer de niveau (Classe)</Text>
+        </TouchableOpacity>
 
-      {/* Stats Grid */}
-      <View style={styles.statsGrid}>
-        <View style={[styles.statBox, styles.statBox1]}>
-          <Text style={styles.statIcon}>📝</Text>
-          <Text style={styles.statNumber}>{progress.total_exercises}</Text>
-          <Text style={styles.statName}>Exercices total</Text>
-        </View>
-
-        <View style={[styles.statBox, styles.statBox2]}>
-          <Text style={styles.statIcon}>✅</Text>
-          <Text style={styles.statNumber}>{progress.completed_exercises}</Text>
-          <Text style={styles.statName}>Complétés</Text>
+        {/* Card principale */}
+        <View style={styles.mainCard}>
+          <View style={styles.mainCardContent}>
+            <Text style={styles.mainCardLabel}>Score Global</Text>
+            <Text style={styles.mainCardScore}>{Math.round(progress.average_score)}%</Text>
+            <Text style={styles.mainCardSubtext}>basé sur {progress.completed_exercises} exercices</Text>
+          </View>
+          <View style={styles.scoreCircle}>
+            <Text style={styles.scoreText}>{successRatePercentage}%</Text>
+          </View>
         </View>
 
-        <View style={[styles.statBox, styles.statBox3]}>
-          <Text style={styles.statIcon}>⭐</Text>
-          <Text style={styles.statNumber}>{progress.total_points}</Text>
-          <Text style={styles.statName}>Points totaux</Text>
+        {/* Stats Grid */}
+        <View style={styles.statsGrid}>
+          <View style={[styles.statBox, styles.statBox1]}>
+            <Text style={styles.statIcon}>📝</Text>
+            <Text style={styles.statNumber}>{progress.total_exercises}</Text>
+            <Text style={styles.statName}>Exercices total</Text>
+          </View>
+
+          <View style={[styles.statBox, styles.statBox2]}>
+            <Text style={styles.statIcon}>✅</Text>
+            <Text style={styles.statNumber}>{progress.completed_exercises}</Text>
+            <Text style={styles.statName}>Complétés</Text>
+          </View>
+
+          <View style={[styles.statBox, styles.statBox3]}>
+            <Text style={styles.statIcon}>⭐</Text>
+            <Text style={styles.statNumber}>{progress.total_points}</Text>
+            <Text style={styles.statName}>Points totaux</Text>
+          </View>
+
+          <View style={[styles.statBox, styles.statBox4]}>
+            <Text style={styles.statIcon}>📚</Text>
+            <Text style={styles.statNumber}>{progress.courses_enrolled}</Text>
+            <Text style={styles.statName}>Cours inscrits</Text>
+          </View>
         </View>
 
-        <View style={[styles.statBox, styles.statBox4]}>
-          <Text style={styles.statIcon}>📚</Text>
-          <Text style={styles.statNumber}>{progress.courses_enrolled}</Text>
-          <Text style={styles.statName}>Cours inscrits</Text>
+        {/* Performance */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Performance</Text>
+
+          <View style={styles.performanceItem}>
+            <View style={styles.performanceContent}>
+              <Text style={styles.performanceLabel}>Taux de réussite</Text>
+              <View style={styles.progressBar}>
+                <View
+                  style={[styles.progressFill, { width: `${successRatePercentage}%` }]}
+                />
+              </View>
+            </View>
+            <Text style={styles.performanceValue}>{successRatePercentage}%</Text>
+          </View>
+
+          <View style={styles.performanceItem}>
+            <View style={styles.performanceContent}>
+              <Text style={styles.performanceLabel}>Score moyen par exercice</Text>
+              <Text style={styles.performanceSmall}>
+                {progress.total_exercises > 0
+                  ? (progress.total_points / progress.total_exercises).toFixed(1)
+                  : '0'}
+                pts/exercice
+              </Text>
+            </View>
+            <Text style={styles.performanceValue}>
+              {Math.round(progress.average_score)}%
+            </Text>
+          </View>
         </View>
-      </View>
 
-      {/* Performance */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Performance</Text>
-
-        <View style={styles.performanceItem}>
-          <View style={styles.performanceContent}>
-            <Text style={styles.performanceLabel}>Taux de réussite</Text>
-            <View style={styles.progressBar}>
-              <View
-                style={[styles.progressFill, { width: `${successRatePercentage}%` }]}
-              />
+        {/* Dernière activité */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Activité</Text>
+          <View style={styles.activityBox}>
+            <Text style={styles.activityIcon}>🕐</Text>
+            <View>
+              <Text style={styles.activityLabel}>Dernière activité</Text>
+              <Text style={styles.activityTime}>
+                {new Date(progress.last_activity).toLocaleDateString('fr-FR', {
+                  day: 'numeric',
+                  month: 'long',
+                  hour: '2-digit',
+                  minute: '2-digit',
+                })}
+              </Text>
             </View>
           </View>
-          <Text style={styles.performanceValue}>{successRatePercentage}%</Text>
         </View>
 
-        <View style={styles.performanceItem}>
-          <View style={styles.performanceContent}>
-            <Text style={styles.performanceLabel}>Score moyen par exercice</Text>
-            <Text style={styles.performanceSmall}>
-              {progress.total_exercises > 0
-                ? (progress.total_points / progress.total_exercises).toFixed(1)
-                : '0'}
-              pts/exercice
-            </Text>
-          </View>
-          <Text style={styles.performanceValue}>
-            {Math.round(progress.average_score)}%
+        {/* Motivational Message */}
+        <View style={styles.motivationBox}>
+          <Text style={styles.motivationEmoji}>🎯</Text>
+          <Text style={styles.motivationText}>
+            {successRatePercentage >= 80
+              ? 'Excellent travail! Continuez comme ça! 🚀'
+              : successRatePercentage >= 60
+                ? 'Bon progrès! Continuez vos efforts! 💪'
+                : 'Continuez votre travail, vous allez réussir! 💪'}
           </Text>
         </View>
-      </View>
 
-      {/* Dernière activité */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Activité</Text>
-        <View style={styles.activityBox}>
-          <Text style={styles.activityIcon}>🕐</Text>
-          <View>
-            <Text style={styles.activityLabel}>Dernière activité</Text>
-            <Text style={styles.activityTime}>
-              {new Date(progress.last_activity).toLocaleDateString('fr-FR', {
-                day: 'numeric',
-                month: 'long',
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
-            </Text>
-          </View>
-        </View>
-      </View>
+        {/* Logout Button */}
+        <TouchableOpacity
+          style={styles.logoutButton}
+          onPress={() => useAuthStore.getState().logout()}
+        >
+          <Text style={styles.logoutButtonText}>Se déconnecter</Text>
+        </TouchableOpacity>
 
-      {/* Motivational Message */}
-      <View style={styles.motivationBox}>
-        <Text style={styles.motivationEmoji}>🎯</Text>
-        <Text style={styles.motivationText}>
-          {successRatePercentage >= 80
-            ? 'Excellent travail! Continuez comme ça! 🚀'
-            : successRatePercentage >= 60
-            ? 'Bon progrès! Continuez vos efforts! 💪'
-            : 'Continuez votre travail, vous allez réussir! 💪'}
-        </Text>
-      </View>
-    </ScrollView>
+        {/* Padding for better scrolling */}
+        <View style={{ height: 40 }} />
+      </ScrollView>
+
+      <LevelSelectionModal
+        visible={isLevelModalVisible}
+        onClose={() => setLevelModalVisible(false)}
+        currentLevel={user?.level || ''}
+        onSelectLevel={handleLevelUpdate}
+        isLoading={isUpdatingLevel}
+      />
+    </View>
   );
 }
 
@@ -360,5 +423,36 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: '600',
     lineHeight: 20,
+  },
+  actionButtonsContainer: {
+    paddingHorizontal: 20,
+    marginBottom: 40,
+  },
+  changeLevelButton: {
+    backgroundColor: '#fff',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#3498db',
+    marginBottom: 15,
+  },
+  changeLevelButtonText: {
+    color: '#3498db',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  logoutButton: {
+    backgroundColor: '#fff',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#e74c3c',
+  },
+  logoutButtonText: {
+    color: '#e74c3c',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });

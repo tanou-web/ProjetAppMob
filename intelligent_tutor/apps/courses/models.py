@@ -58,9 +58,9 @@ class Course(models.Model):
         ('secondary_5eme', '5ème (Collège)'),
         ('secondary_4eme', '4ème (Collège)'),
         ('secondary_3eme', '3ème (Collège)'),
-        ('secondary_2nde', '2nde (Lycée)'),
-        ('secondary_1ere', '1ère (Lycée)'),
-        ('secondary_tle', 'Terminale (Lycée)'),
+        ('lycee_2nde', 'Lycée (Seconde)'),
+        ('lycee_1ere', 'Lycée (Première)'),
+        ('lycee_tles', 'Lycée (Terminale)'),
     )
     
     title = models.CharField(max_length=255)

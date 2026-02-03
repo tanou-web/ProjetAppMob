@@ -24,9 +24,9 @@ const LEVELS = [
   { label: 'Secondaire 2 (5ème)', value: 'secondary_5eme' },
   { label: 'Secondaire 3 (4ème)', value: 'secondary_4eme' },
   { label: 'Secondaire 4 (3ème)', value: 'secondary_3eme' },
-  { label: 'Lycée (Seconde)', value: 'secondary_2nde' },
-  { label: 'Lycée (Première)', value: 'secondary_1ere' },
-  { label: 'Lycée (Terminale)', value: 'secondary_tle' },
+  { label: 'Lycée (Seconde)', value: 'lycee_2nde' },
+  { label: 'Lycée (Première)', value: 'lycee_1ere' },
+  { label: 'Lycée (Terminale)', value: 'lycee_tles' },
 ];
 
 export default function RegisterScreen({ navigation }: any) {

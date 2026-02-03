@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="fr-fr" dir="ltr">
+<head>
+    <meta charset="utf-8">
+	<meta name="generator" content="Joomla! - Open Source Content Management">
+	<title>Erreur: 404</title>
+<link href="/images/accueil/images accueil/faviconok.png" rel="shortcut icon" type="image/png" sizes="any">
+	<link href="https://fonts.gstatic.com" rel="preconnect">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v7.0.0/css/all.css" rel="stylesheet">
+	<link href="/components/com_sppagebuilder/assets/css/color-switcher.css?13bea3cde590997c1094f9bba14d719a" rel="stylesheet">
+	<style>/* ===========================================
+   TOP BAR 
+=========================================== */
+#top-bars {
+    background: linear-gradient(to right,
+            #FF0000 0%,
+            /* Rouge - gauche */
+            #FF0000 33%,
+            /* Transition */
+            #FFD700 33%,
+            /* Jaune doré */
+            #FFD700 66%,
+            /* Transition */
+            #157804 66%,
+            /* Rouge */
+            #157804 100%
+            /* Rouge - droite */
+        );
+    background: linear-gradient(to right,
+            #FF0000,
+            #FFD700,
+            #157804);
+    /* Version simplifiée avec transition douce */
+
+    /* Pour assurer la lisibilité du texte dans la top bar */
+    color: white;
+    padding: 10px 20px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    border-bottom: #fff 2px solid;
+}
+
+
+/* ===========================================
+   BOUTONS HOVER
+=========================================== */
+.btn-primary:hover,
+.btn-backtohome:hover,
+.btn-prosandcons:hover {
+    --bs-btn-color: white;
+    --bs-btn-bg: #157804;
+    --bs-btn-border-color: #157804;
+}
+
+/* ===========================================
+   CARROUSEL
+=========================================== */
+.sppb-carousel-text>h2 {
+    /*text-shadow: 2px 2px 4px rgba(250, 250, 250, 0.8);*/
+    padding: 20px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.sppb-item.sppb-item-has-bg .sppb-carousel-item-inner>div {
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 200px;
+    padding: 20px;
+    vertical-align: center;
+    margin-top: 150px;
+}
+
+/* ===========================================
+   SECTION COMPOSANT
+=========================================== */
+.astroid-component-section {
+    padding: 0px;
+}
+
+/* ===========================================
+   HEADER
+=========================================== */
+.astroid-header-section header.astroid-header:not(.astroid-header-sticky) {
+    padding: 0px 0;
+}
+
+/* ===========================================
+   FORMULAIRES
+=========================================== */
+.form-control {
+    padding: 0.1rem 0.2rem;
+}
+
+/* ===========================================
+   BOUTON BACK TO TOP
+=========================================== */
+#astroid-backtotop:hover {
+    background: #157804;
+    padding: 15px;
+}
+
+/* ===========================================
+   FOOTER - LIENS
+=========================================== */
+/* Tous les liens dans la section footer */
+.astroid-footer-section a,
+.footer-section a,
+#fs-1528971627712 a {
+    /* Vos styles ici */
+    color: #157804 !important;
+    /* Exemple : votre vert */
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Au survol */
+.astroid-footer-section a:hover,
+.footer-section a:hover,
+#fs-1528971627712 a:hover {
+    color: #ffffff !important;
+    /* Exemple : votre jaune */
+}
+
+/* ===========================================
+   CORRECTION DE L'IMAGE PLEINE PAGE RESPONSIVE
+=========================================== */
+/* Cibler la section spécifique avec l'image */
+#section-id-2393f96f-ad6c-4b05-8e83-dc60ae691aff {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Image de fond - PAR DÉFAUT (desktop) */
+#section-id-2393f96f-ad6c-4b05-8e83-dc60ae691aff {
+    background-image: url("/joomla/images/2025/12/22/primaire.png") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+/* CORRECTION POUR TABLETTES (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    #section-id-2393f96f-ad6c-4b05-8e83-dc60ae691aff {
+        background-position: center center !important;
+        background-attachment: scroll !important;
+    }
+}
+
+/* CORRECTION POUR MOBILE (jusqu'à 768px) */
+@media (max-width: 768px) {
+    #section-id-2393f96f-ad6c-4b05-8e83-dc60ae691aff {
+        background-position: center center !important;
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        /* Forcer le centrage */
+    }
+    
+    /* S'assurer que le conteneur prend toute la largeur */
+    #section-id-2393f96f-ad6c-4b05-8e83-dc60ae691aff .sppb-container-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+/* CORRECTION POUR TRÈS PETITS ÉCRANS (jusqu'à 480px) */
+@media (max-width: 480px) {
+    #section-id-2393f96f-ad6c-4b05-8e83-dc60ae691aff {
+        background-position: center center !important;
+        background-size: cover !important;
+    }
+}
+
+/* ===========================================
+   BOUTONS AU CENTRE DE LA PAGE
+=========================================== */
+/* 1. Padding de 30px pour tous les boutons */
+#sppb-addon-7dd80508-5e27-4c02-bb5f-aa6ab36bd36a .sppb-btn {
+    padding: 40px !important;
+    margin: 10px !important;
+    /* Garder un peu d'espace entre les boutons */
+    font-weight: bold;
+}
+
+/* 2. Centrer verticalement le groupe de boutons */
+#sppb-addon-7dd80508-5e27-4c02-bb5f-aa6ab36bd36a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 100vh !important;
+    /* Prendre toute la hauteur de la section */
+}
+
+/* 3. Ajuster le conteneur des boutons */
+#sppb-addon-7dd80508-5e27-4c02-bb5f-aa6ab36bd36a .sppb-addon-content {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+/* 4. Ajuster l'espacement des boutons pour tablette */
+@media (max-width: 1024px) and (min-width: 769px) {
+    #sppb-addon-7dd80508-5e27-4c02-bb5f-aa6ab36bd36a .sppb-btn {
+        padding: 30px !important;
+        margin: 8px !important;
+        font-size: 0.9em !important;
+    }
+}
+
+/* 5. Ajuster l'espacement des boutons pour mobile */
+@media (max-width: 768px) {
+    #sppb-addon-7dd80508-5e27-4c02-bb5f-aa6ab36bd36a .sppb-btn {
+        padding: 20px !important;
+        margin: 5px !important;
+        font-size: 0.85em !important;
+    }
+
+    #sppb-addon-7dd80508-5e27-4c02-bb5f-aa6ab36bd36a .sppb-addon-content {
+        flex-direction: column !important;
+        padding: 10px !important;
+    }
+}
+
+/* ===========================================
+   TEXTE D'INTRODUCTION
+=========================================== */
+.liens {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* ===========================================
+   LISTE DES COURS - VERSION LISTE
+=========================================== */
+/* Conteneur de la liste */
+.liste-cours {
+    counter-reset: cours;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+/* Élément de liste */
+.liste-cours li {
+    counter-increment: cours;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Numéro + lien */
+.liste-cours li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #1a3c6e;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Numéro stylé */
+.liste-cours li a::before {
+    content: counter(cours);
+    background-color: #157804;
+    color: #fff;
+    font-weight: bold;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Couleurs alternées */
+.liste-cours li:nth-child(odd) {
+    background-color: #e6f2e4;
+}
+
+.liste-cours li:nth-child(even) {
+    background-color: #fff1d9;
+}
+
+/* Effet au survol */
+.liste-cours li:hover {
+    background-color: #fce0d8;
+}
+
+/* Accessibilité clavier */
+.liste-cours a:focus {
+    outline: 3px solid #EC3101;
+    outline-offset: 2px;
+}
+
+/* ===========================================
+   LISTE DES COURS - VERSION TABLEAU
+=========================================== */
+/* Style pour le tableau qui ressemble à la liste */
+.liste-cours-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+/* En-tête du tableau */
+.liste-cours-table thead th {
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: #1a3c6e;
+  border-bottom: 2px solid #157804;
+  background-color: transparent;
+}
+
+/* Colonne spécifique - Numéro */
+.liste-cours-table .col-numero {
+  width: 70px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* Colonne spécifique - Titre */
+.liste-cours-table .col-titre {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+/* Colonne spécifique - Fichier */
+.liste-cours-table .col-fichier {
+  width: 90px;
+  text-align: center;
+  padding: 12px 16px;
+}
+
+/* Lignes du corps */
+.liste-cours-table tbody tr {
+  background-color: #e6f2e4; /* Couleur pour les lignes impaires */
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.liste-cours-table tbody tr:nth-child(even) {
+  background-color: #fff1d9; /* Couleur pour les lignes paires */
+}
+
+/* Numéro stylé - CERCLÉ et CENTRÉ */
+.liste-cours-table .lesson-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #157804;
+  color: #fff;
+  font-weight: bold;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 15px;
+  line-height: 1;
+}
+
+/* Lien dans le titre */
+.liste-cours-table .col-titre a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #1a3c6e;
+  display: block;
+  padding: 8px 0;
+  line-height: 1.4;
+}
+
+.liste-cours-table .col-titre a:hover {
+  color: #EC3101;
+}
+
+/* Image de l'icône PowerPoint */
+.liste-cours-table .col-fichier img {
+  width: 36px;
+  height: 36px;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.2s ease;
+}
+
+.liste-cours-table .col-fichier img:hover {
+  transform: scale(1.1);
+}
+
+/* Lien de l'icône */
+.liste-cours-table .col-fichier a {
+  display: block;
+  text-decoration: none;
+}
+
+/* Effet au survol de la ligne entière */
+.liste-cours-table tbody tr:hover {
+  background-color: #fce0d8;
+}
+
+/* Bordures arrondies pour la première et dernière cellule de chaque ligne */
+.liste-cours-table tbody tr td:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.liste-cours-table tbody tr td:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+/* Alignement vertical centré pour toutes les cellules */
+.liste-cours-table td {
+  vertical-align: middle;
+  border: none;
+}
+
+/* Style responsive pour mobile */
+@media (max-width: 768px) {
+  .liste-cours-table {
+    border-spacing: 0 6px;
+  }
+  
+  .liste-cours-table thead {
+    display: none;
+  }
+  
+  .liste-cours-table tbody tr {
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    padding: 12px;
+  }
+  
+  .liste-cours-table tbody tr td {
+    display: block;
+    text-align: left;
+    padding: 8px 0;
+    width: 100% !important;
+  }
+  
+  .liste-cours-table .col-numero {
+    display: inline-block;
+    text-align: left;
+    margin-right: 15px;
+    width: auto;
+  }
+  
+  .liste-cours-table .col-titre {
+    display: inline-block;
+    padding: 0;
+    width: calc(100% - 120px);
+  }
+  
+  .liste-cours-table .col-fichier {
+    text-align: left;
+    padding: 8px 0 0 45px;
+    width: 100%;
+  }
+  
+  .liste-cours-table .lesson-number {
+    margin: 0;
+  }
+}
+
+/* ajout élimination des espaces gauche et droit */
+/* CORRECTION MINIMALE POUR ÉLIMINER LES ESPACES LATÉRAUX */
+
+/* 1. Identifier le conteneur qui crée les marges */
+#cs-1528971561366 .container {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* 2. La row qui peut avoir des gutters */
+#ar-1528971561366.astroid-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* 3. La colonne qui contient tout */
+#ac-1528971561366.astroid-column {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* 4. La section SP Page Builder spécifique */
+#section-id-2393f96f-ad6c-4b05-8e83-dc60ae691aff.sppb-section {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* 5. FORCER L'IMAGE À ÊTRE CENTRÉE SUR TOUS LES ÉCRANS */
+.sp-page-builder .page-content #section-id-2393f96f-ad6c-4b05-8e83-dc60ae691aff {
+    background-position: center center !important;
+}
+
+/* Onglets histoire-géographie */ 
+/* Solution sans Bootstrap */
+.nav-pills {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.nav-pills .nav-item {
+  margin-right: 5px;
+}
+
+.nav-pills .nav-link {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+}
+
+.nav-pills .nav-link.active {
+  background: white;
+  color: #157804;
+  font-weight: bold;
+  border-bottom: 2px solid #157804;
+}
+
+.tab-content .tab-pane {
+  display: none;
+  padding: 20px;
+  border: 1px solid #dee2e6;
+  border-top: none;
+}
+
+.tab-content .tab-pane.active {
+  display: block;
+}
+
+/* ajout du 1er/01/26 */
+/* Style pour les vidéos */
+.embed-responsive {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.embed-responsive iframe {
+  border: none;
+}
+
+figcaption {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 0 0 8px 8px;
+  margin-top: 0;
+}
+
+/* Adaptation pour les onglets multiples */
+.nav-pills {
+  flex-wrap: wrap;
+}
+
+.nav-pills .nav-item {
+  margin-bottom: 5px;
+}
+
+/* Pour les petits écrans */
+@media (max-width: 768px) {
+  .nav-pills .nav-link {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  
+  .col-lg-6 {
+    margin-bottom: 20px;
+  }
+}</style>
+<script src="/media/vendor/jquery/js/jquery.min.js?3.7.1"></script>
+	<script type="application/json" class="joomla-script-options new">{"system.paths":{"root":"","rootFull":"https:\/\/fasoeducation.bf\/","base":"","baseFull":"https:\/\/fasoeducation.bf\/"}}</script>
+	<script src="/media/system/js/core.min.js?a3d8f8"></script>
+	<script src="/media/vendor/bootstrap/js/alert.min.js?5.3.8" type="module"></script>
+	<script src="/media/astroid/js/script.min.js"></script>
+	<script src="/components/com_sppagebuilder/assets/js/color-switcher.js?13bea3cde590997c1094f9bba14d719a"></script>
+	<script>var TEMPLATE_HASH = "b335dfbf0ffc223e8565420c0402c839", ASTROID_COLOR_MODE ="light";</script>
+	<script>
+			const initColorMode = () => {
+				const colorVariableData = [];
+				const sppbColorVariablePrefix = "--sppb";
+				let activeColorMode = localStorage.getItem("sppbActiveColorMode") || "";
+				activeColorMode = "";
+				const modes = [];
+
+				if(!modes?.includes(activeColorMode)) {
+					activeColorMode = "";
+					localStorage.setItem("sppbActiveColorMode", activeColorMode);
+				}
+
+				document?.body?.setAttribute("data-sppb-color-mode", activeColorMode);
+
+				if (!localStorage.getItem("sppbActiveColorMode")) {
+					localStorage.setItem("sppbActiveColorMode", activeColorMode);
+				}
+
+				if (window.sppbColorVariables) {
+					const colorVariables = typeof(window.sppbColorVariables) === "string" ? JSON.parse(window.sppbColorVariables) : window.sppbColorVariables;
+
+					for (const colorVariable of colorVariables) {
+						const { path, value } = colorVariable;
+						const variable = String(path[0]).trim().toLowerCase().replaceAll(" ", "-");
+						const mode = path[1];
+						const variableName = `${sppbColorVariablePrefix}-${variable}`;
+
+						if (activeColorMode === mode) {
+							colorVariableData.push(`${variableName}: ${value}`);
+						}
+					}
+
+					document.documentElement.style.cssText += colorVariableData.join(";");
+				}
+			};
+
+			window.sppbColorVariables = [];
+			
+			initColorMode();
+
+			document.addEventListener("DOMContentLoaded", initColorMode);
+		</script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="HandheldFriendly" content="true" /><meta name="mobile-web-app-capable" content="YES" /><link href="/templates/astroid_template_two/css/custom.css?3.3.7" rel="stylesheet" type="text/css" /><link href="/media/templates/site/astroid_template_two/css/compiled-fa6ade08ad5099abbce8b5127db4533c.css?3.3.7" rel="stylesheet" type="text/css" />
+<link href="/media/templates/site/astroid_template_two/css/compiled-29b521f6a6cfcca886be62649876ad24.css?3.3.7" rel="stylesheet" type="text/css" />
+<script type="text/javascript">// Ajoutez ce script à la fin de votre page
+document.addEventListener('DOMContentLoaded', function () {
+    // Gestionnaire pour les onglets
+    const tabButtons = document.querySelectorAll('[data-bs-toggle="pill"]');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Récupère l'ID de la cible
+            const targetId = this.getAttribute('data-bs-target');
+            const targetTab = document.querySelector(targetId);
+
+            // Désactive tous les onglets
+            document.querySelectorAll('.tab-pane').forEach(tab => {
+                tab.classList.remove('show', 'active');
+            });
+
+            // Désactive tous les boutons
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Active l'onglet et le bouton courant
+            this.classList.add('active');
+            targetTab.classList.add('show', 'active');
+        });
+    });
+});
+
+// AJOUT ONGLETS
+// Fonction pour les onglets Curricula
+function showCurriculaTab(tabId, button) {
+	// Masquer tous les panneaux curricula
+	const curriculaPanes = document.querySelectorAll('.curricula-pane');
+	curriculaPanes.forEach(pane => {
+		pane.style.display = 'none';
+	});
+	
+	// Afficher le panneau sélectionné
+	const activePane = document.getElementById(tabId);
+	if (activePane) {
+		activePane.style.display = 'block';
+	}
+	
+	// Gérer les classes actives des boutons curricula
+	const curriculaButtons = button.parentNode.querySelectorAll('.nav-link');
+	curriculaButtons.forEach(btn => {
+		btn.classList.remove('active');
+	});
+	button.classList.add('active');
+}
+
+// Fonction pour les onglets Guides
+function showGuidesTab(tabId, button) {
+	// Masquer tous les panneaux guides
+	const guidesPanes = document.querySelectorAll('.guides-pane');
+	guidesPanes.forEach(pane => {
+		pane.style.display = 'none';
+	});
+	
+	// Afficher le panneau sélectionné
+	const activePane = document.getElementById(tabId);
+	if (activePane) {
+		activePane.style.display = 'block';
+	}
+	
+	// Gérer les classes actives des boutons guides
+	const guidesButtons = button.parentNode.querySelectorAll('.nav-link');
+	guidesButtons.forEach(btn => {
+		btn.classList.remove('active');
+	});
+	button.classList.add('active');
+}</script></head>
+<body class="astroid-framework error-page" >
+   <div class="container">
+      <div class="row">
+         <div class="col-12 text-center align-self-center">
+            Désolé, la page que vous voulez afficher n'est pas disponible.
+Revenez ultérieurement. Merci pour votre fédélité à Faso e-education.            <a class="btn btn-backtohome btn-lg" href="https://fasoeducation.bf/" role="button">Retour à l'accueil</a>
+         </div>
+      </div>
+               </div>
+   </body>
+</html>

@@ -169,8 +169,18 @@ export default function ChatScreen() {
             keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
         >
             <View style={styles.header}>
-                <Text style={styles.headerTitle}>Tuteur AI</Text>
-                <Text style={styles.headerSubtitle}>Toujours là pour t'aider</Text>
+                <View style={styles.headerContent}>
+                    <View>
+                        <Text style={styles.headerTitle}>Tuteur AI</Text>
+                        <Text style={styles.headerSubtitle}>Toujours là pour t'aider</Text>
+                    </View>
+                    <TouchableOpacity
+                        style={styles.headerLogoutButton}
+                        onPress={() => useAuthStore.getState().logout()}
+                    >
+                        <Text style={styles.headerLogoutText}>Quitter</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
 
             <FlatList
@@ -215,12 +225,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#f9f9f9',
     },
     header: {
-        padding: 20,
+        paddingHorizontal: 20,
+        paddingBottom: 15,
         backgroundColor: '#fff',
         borderBottomWidth: 1,
         borderBottomColor: '#eee',
-        alignItems: 'center',
         paddingTop: Platform.OS === 'ios' ? 50 : 20,
+    },
+    headerContent: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     headerTitle: {
         fontSize: 18,
@@ -231,6 +246,17 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#27ae60',
         fontWeight: '600',
+    },
+    headerLogoutButton: {
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        borderRadius: 15,
+        backgroundColor: '#fee2e2',
+    },
+    headerLogoutText: {
+        color: '#ef4444',
+        fontSize: 12,
+        fontWeight: 'bold',
     },
     messagesList: {
         padding: 15,

@@ -50,60 +50,72 @@ class DatasetPreparer:
     
     def load_curriculum_exercises(self) -> pd.DataFrame:
         """
-        Load exercises from curriculum and structure for training
-        
-        Returns:
-            DataFrame with columns:
-            - exercise_id, level, subject, question, correct_answer,
-              error_examples, explanation, difficulty, curriculum_ref
+        Load exercises from curriculum and structure for training.
+        Prioritizes the Exercise model if it contains data.
         """
+        from apps.exercises.models import Exercise
+        
         exercises = []
         
-        # Template for curriculum exercise
-        for course in Course.objects.filter(status='published'):
-            for lesson in course.lessons.all():
-                # Parse lesson content for exercises
-                exercise_data = {
-                    'exercise_id': f"ex_{course.id}_{lesson.id}",
-                    'level': course.level,
-                    'subject': course.subject.name,
-                    'question': lesson.title,
-                    'correct_answer': self._extract_answer_from_lesson(lesson),
-                    'explanation': lesson.content,
-                    'difficulty': course.difficulty_level,
-                    'curriculum_ref': f"{course.subject.name}_{course.level}",
-                    'learning_objectives': course.learning_objectives or [],
+        # 1. Try loading from real Exercise model first
+        real_exercises = Exercise.objects.select_related('lesson', 'lesson__course', 'lesson__course__subject').all()
+        
+        if real_exercises.exists():
+            for ex in real_exercises:
+                exercises.append({
+                    'exercise_id': f"ex_{ex.id}",
+                    'level': ex.lesson.course.level,
+                    'subject': ex.lesson.course.subject.name,
+                    'question': ex.question,
+                    'correct_answer': ex.correct_answer,
+                    'explanation': ex.explanation or ex.lesson.content,
+                    'difficulty': ex.get_difficulty_display() if hasattr(ex, 'get_difficulty_display') else ex.difficulty,
+                    'curriculum_ref': f"{ex.lesson.course.subject.name}_{ex.lesson.course.level}",
+                    'learning_objectives': ex.lesson.course.learning_objectives or [],
                     'context': 'burkina_faso',
-                }
-                exercises.append(exercise_data)
+                })
+        else:
+            # 2. Fallback to lesson-based extraction if no real exercises found
+            self.logger.info("No real Exercise objects found. Falling back to lesson content parsing...")
+            for course in Course.objects.filter(status='published'):
+                for lesson in course.lessons.all():
+                    exercises.append({
+                        'exercise_id': f"gen_{course.id}_{lesson.id}",
+                        'level': course.level,
+                        'subject': course.subject.name,
+                        'question': lesson.title,
+                        'correct_answer': self._extract_answer_from_lesson(lesson),
+                        'explanation': lesson.content,
+                        'difficulty': course.difficulty_level,
+                        'curriculum_ref': f"{course.subject.name}_{course.level}",
+                        'learning_objectives': course.learning_objectives or [],
+                        'context': 'burkina_faso',
+                    })
         
         self.dataset = pd.DataFrame(exercises)
         
-        # Fallback if no exercises found (for testing/dev)
+        # 3. Final fallback for dev demonstration
         if len(self.dataset) == 0:
-            self.logger.warning("No exercises found in DB. Generating dummy data for training demonstration...")
+            self.logger.warning("No data found in DB. Generating dummy data for training demonstration...")
+            # ... (dummy data generation remains the same)
             dummy_exercises = []
             subjects = ['math', 'french', 'science', 'history', 'geography']
-            levels = ['primary_cp1', 'primary_cp2', 'primary_p3', 'primary_p4', 'primary_p5', 'primary_p6']
-            
+            levels = ['primary_cp1', 'primary_cp2', 'lycee_tles']
             for i in range(50):
                 subj = subjects[i % len(subjects)]
                 lvl = levels[i % len(levels)]
                 dummy_exercises.append({
                     'exercise_id': f"dummy_{i}",
-                    'level': lvl,
-                    'subject': subj,
+                    'level': lvl, 'subject': subj,
                     'question': f"Question dummy {i} for {subj}",
                     'correct_answer': f"Answer {i}",
-                    'explanation': f"Explanation for dummy {i}",
-                    'difficulty': 'medium',
-                    'curriculum_ref': f"{subj}_{lvl}",
-                    'learning_objectives': ['dummy_objective'],
-                    'context': 'burkina_faso',
+                    'explanation': f"Explanation {i}",
+                    'difficulty': 'medium', 'curriculum_ref': f"{subj}_{lvl}",
+                    'learning_objectives': [], 'context': 'burkina_faso'
                 })
             self.dataset = pd.DataFrame(dummy_exercises)
 
-        self.logger.info(f"Loaded {len(self.dataset)} exercises from curriculum")
+        self.logger.info(f"Loaded {len(self.dataset)} exercises for training pipeline")
         return self.dataset
     
     def load_student_answers(self) -> pd.DataFrame:
@@ -113,20 +125,20 @@ class DatasetPreparer:
         Returns:
             DataFrame with student response data for supervised learning
         """
-        from apps.exercises.models import Exercise, StudentAnswer
+        from apps.exercises.models import Exercise, ExerciseAttempt
         
         answers_data = []
         
-        for answer in StudentAnswer.objects.select_related('exercise', 'student').all():
+        for answer in ExerciseAttempt.objects.select_related('exercise', 'student').all():
             answers_data.append({
                 'answer_id': answer.id,
                 'exercise_id': answer.exercise.id,
                 'student_id': answer.student.id,
-                'student_answer': answer.text,
+                'student_answer': answer.student_answer,
                 'is_correct': answer.is_correct,
-                'teacher_feedback': answer.teacher_feedback,
-                'errors_detected': answer.error_analysis,
-                'timestamp': answer.created_at,
+                'teacher_feedback': answer.feedback,
+                'errors_detected': None, # Not currently tracked in ExerciseAttempt
+                'timestamp': answer.started_at,
                 'learning_style': answer.student.learning_style if hasattr(answer.student, 'learning_style') else None,
             })
         
@@ -241,18 +253,18 @@ class DatasetPreparer:
         Returns:
             Tuple of (train_df, val_df, test_df)
         """
-        # Stratify by level to ensure representation
+        # Stratify by level to ensure representation - disabled for small/unbalanced datasets
         train, temp = train_test_split(
             data, 
             test_size=(1-train_ratio),
-            stratify=data['level'] if 'level' in data.columns else None,
+            stratify=None,
             random_state=42
         )
         
         val, test = train_test_split(
             temp,
             test_size=test_ratio/(val_ratio+test_ratio),
-            stratify=temp['level'] if 'level' in temp.columns else None,
+            stratify=None,
             random_state=42
         )
         
@@ -596,7 +608,7 @@ class ModelPersistenceManager:
         # Create database record
         ml_version = MLModelVersion.objects.create(
             model_type=model_type,
-            version=f"{model_type}_{timestamp}",
+            version=timestamp[-8:],  # Ultra safe length (HHMMSS)
             status='training_complete',
             model_path=str(model_path),
             scaler_path=str(scaler_path),
@@ -715,7 +727,7 @@ class TrainingOrchestrator:
         # ===== PHASE 3: TESTING =====
         self.logger.info("\n[OK] PHASE 3: Testing on Test Set")
         
-        X_test, y_test = correction_trainer.prepare_training_data(test_df)
+        X_test, y_test = correction_trainer.prepare_validation_data(test_df)
         y_pred = correction_trainer.model.predict(X_test)
         
         test_metrics = {

@@ -11,6 +11,7 @@ interface AuthStore extends AuthState {
   logout: () => Promise<void>;
   restoreToken: () => Promise<void>;
   updateUser: (user: User) => void;
+  updateLevel: (level: string) => Promise<void>;
   setLoading: (loading: boolean) => void;
 }
 
@@ -121,6 +122,30 @@ export const useAuthStore = create<AuthStore>((set) => ({
   updateUser: (user: User) => {
     set({ user });
     AsyncStorage.setItem('user', JSON.stringify(user));
+  },
+
+  updateLevel: async (level: string) => {
+    try {
+      console.log('[AUTH_STORE] updateLevel called with level:', level);
+      set({ isLoading: true });
+
+      const response = await authAPI.updateProfile({ level });
+      console.log('[AUTH_STORE] API response:', response);
+
+      // Update local state and storage
+      const updatedUser = { ...response };
+      console.log('[AUTH_STORE] Setting updated user in state:', updatedUser);
+      set({ user: updatedUser, isLoading: false });
+
+      await AsyncStorage.setItem('user', JSON.stringify(updatedUser));
+      console.log('[AUTH_STORE] User saved to AsyncStorage');
+
+      console.log('[AUTH_STORE] Level updated successfully to:', level);
+    } catch (error) {
+      console.error('[AUTH_STORE] Error updating level:', error);
+      set({ isLoading: false });
+      throw error;
+    }
   },
 
   setLoading: (loading: boolean) => {

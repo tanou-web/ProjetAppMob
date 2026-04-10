@@ -15,6 +15,8 @@ from apps.progress.serializers import (
     AchievementSerializer, StudentAchievementSerializer,
     PerformanceAnalysisSerializer
 )
+from services.ai_service import AIService
+
 
 
 class LearningPathViewSet(viewsets.ReadOnlyModelViewSet):
@@ -39,12 +41,77 @@ class LearningPathViewSet(viewsets.ReadOnlyModelViewSet):
         path, created = LearningPath.objects.get_or_create(student=request.user)
         
         # Calculate actual metrics
+        # Calculate actual total exercises in enrolled courses for a realistic progress bar
+        from apps.exercises.models import Exercise
         from apps.courses.models import CourseEnrollment
-        active_enrollments = CourseEnrollment.objects.filter(student=request.user, status='enrolled').count()
         
-        total_exercises = path.exercises_completed + 5 # illustrative total
+        enrolled_course_ids = CourseEnrollment.objects.filter(
+            student=request.user, 
+            status='enrolled'
+        ).values_list('course_id', flat=True)
+        active_enrollments = enrolled_course_ids.count()
+        
+        # Count all exercises in all lessons of enrolled courses
+        total_exercises_available = Exercise.objects.filter(
+            lesson__course_id__in=enrolled_course_ids
+        ).count()
+        
+        # Use available exercises as denominator, with completed as minimum
+        total_exercises = max(path.exercises_completed, total_exercises_available)
+        
         success_rate = (path.average_score / 100) if path.exercises_completed > 0 else 0
         
+        # Calculate subject-specific scores for AI analysis
+        from apps.exercises.models import ExerciseAttempt
+        recent_attempts = ExerciseAttempt.objects.filter(student=request.user).order_by('-submitted_at')[:20]
+        
+        subject_scores = {}
+        # Simple aggregation for AI context
+        for attempt in recent_attempts:
+            # Ensure subject is a string name
+            subj_obj = getattr(attempt.exercise, 'subject', None)
+            subj_name = subj_obj.name if subj_obj and hasattr(subj_obj, 'name') else "Général"
+            
+            if subj_name not in subject_scores:
+                subject_scores[subj_name] = []
+            subject_scores[subj_name].append(attempt.score)
+        
+        # Calculate averages with string keys
+        final_subject_scores = {}
+        for name, scores in subject_scores.items():
+            final_subject_scores[name] = sum(scores) / len(scores)
+        
+        # Override with clean dict
+        subject_scores = final_subject_scores
+
+        # AI assessment of "Real Level"
+        ai_assessment = AIService.assess_student_level(
+            student_name=f"{request.user.first_name} {request.user.last_name}",
+            current_level=request.user.level or "CP1",
+            statistics={
+                'avg_score': path.average_score,
+                'total_exercises': path.exercises_completed,
+                'study_time_hours': path.total_study_time_seconds / 3600
+            },
+            subject_scores=subject_scores,
+            recent_performance=[{'score': a.score, 'topic': a.exercise.topic} for a in recent_attempts[:10]]
+        )
+
+        # Save assessment to PerformanceAnalysis for later use in recommendations
+        try:
+            PerformanceAnalysis.objects.create(
+                student=request.user,
+                overall_score=path.average_score,
+                subjects_scores=subject_scores,
+                strengths=ai_assessment.get('strengths', []),
+                weaknesses=ai_assessment.get('weaknesses', []),
+                recommendations=[ai_assessment.get('explanation', '')],
+                suggested_focus_areas=ai_assessment.get('focus_areas', []),
+                improvement_trends={'real_level': ai_assessment.get('real_level'), 'status': ai_assessment.get('status')}
+            )
+        except Exception as e:
+            logger.error(f"Failed to save performance analysis: {str(e)}")
+
         stats = {
             'total_exercises': total_exercises,
             'completed_exercises': path.exercises_completed,
@@ -55,6 +122,7 @@ class LearningPathViewSet(viewsets.ReadOnlyModelViewSet):
             'last_activity': path.updated_at.isoformat(),
             'total_study_time_hours': path.total_study_time_seconds / 3600,
             'learning_streak': path.learning_streak_days,
+            'real_level_assessment': ai_assessment
         }
         
         return Response(stats)

@@ -37,7 +37,7 @@ let authStore = {
 // Créer l'instance API
 const apiClient: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 10000,
+  timeout: 60000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -78,9 +78,14 @@ apiClient.interceptors.response.use(
 
           originalRequest.headers.Authorization = `Bearer ${access}`;
           return apiClient(originalRequest);
+        } else {
+          // No refresh token, logout
+          const { useAuthStore } = await import('../store/authStore');
+          await useAuthStore.getState().logout();
         }
       } catch (refreshError) {
-        await clearAuth();
+        const { useAuthStore } = await import('../store/authStore');
+        await useAuthStore.getState().logout();
         return Promise.reject(refreshError);
       }
     }

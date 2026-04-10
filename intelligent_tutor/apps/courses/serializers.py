@@ -14,8 +14,24 @@ class SubjectSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_at', 'updated_at']
 
 
+class LessonListSerializer(serializers.ModelSerializer):
+    """Serializer for lesson summary (list view)."""
+    exercises_count = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = Lesson
+        fields = [
+            'id', 'course', 'title', 'description', 'order',
+            'duration_minutes', 'exercises_count', 'created_at', 'updated_at'
+        ]
+        read_only_fields = ['id', 'created_at', 'updated_at']
+
+    def get_exercises_count(self, obj):
+        return obj.exercises.count()
+
+
 class LessonSerializer(serializers.ModelSerializer):
-    """Serializer for lessons."""
+    """Serializer for lessons (full detail)."""
     from apps.exercises.serializers import ExerciseSerializer
     exercises = ExerciseSerializer(many=True, read_only=True)
     
@@ -52,7 +68,7 @@ class CourseDetailSerializer(serializers.ModelSerializer):
     """Serializer for course detail view."""
     
     subject = SubjectSerializer(read_only=True)
-    lessons = LessonSerializer(many=True, read_only=True)
+    lessons = LessonListSerializer(many=True, read_only=True)
     created_by_user = serializers.StringRelatedField(source='created_by', read_only=True)
     
     class Meta:
@@ -68,7 +84,7 @@ class CourseDetailSerializer(serializers.ModelSerializer):
 class CourseEnrollmentSerializer(serializers.ModelSerializer):
     """Serializer for course enrollments."""
     
-    course = CourseDetailSerializer(read_only=True)
+    course = CourseListSerializer(read_only=True)
     student_email = serializers.StringRelatedField(source='student', read_only=True)
     
     class Meta:

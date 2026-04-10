@@ -68,8 +68,8 @@ export default function CourseDetailScreen({ route, navigation }: any) {
                 <Text style={styles.lessonDesc} numberOfLines={1}>
                     {item.description || "Consulter le contenu de la leçon"}
                 </Text>
-                {item.exercises && item.exercises.length > 0 && (
-                    <Text style={styles.exerciseBadge}>📖 Contenu + 📝 {item.exercises.length} exercice(s)</Text>
+                {item.exercises_count > 0 && (
+                    <Text style={styles.exerciseBadge}>📖 Contenu + 📝 {item.exercises_count} exercice(s)</Text>
                 )}
             </View>
             <Text style={styles.arrow}>→</Text>

@@ -10,11 +10,13 @@ import {
 } from 'react-native';
 import { useCoursesStore } from '../store/coursesStore';
 import { useFocusEffect } from '@react-navigation/native';
+import { coursesAPI } from '../services/endpoints';
 
 export default function CoursesScreen({ navigation }: any) {
-  const { courses, isLoading, fetchCourses, fetchAllCourses, enrollInCourse } = useCoursesStore();
+  const { courses, myCourses, isLoading, error, fetchCourses, fetchAllCourses, enrollInCourse } = useCoursesStore();
   const [refreshing, setRefreshing] = useState(false);
   const [filter, setFilter] = useState<'my' | 'all'>('my');
+  const [enrolledCourseIds, setEnrolledCourseIds] = useState<number[]>([]);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -27,6 +29,15 @@ export default function CoursesScreen({ navigation }: any) {
       await fetchCourses();
     } else {
       await fetchAllCourses();
+      // On récupère aussi les cours auxquels l'utilisateur est déjà inscrit
+      // pour afficher un indicateur dans le catalogue
+      try {
+        const response = await coursesAPI.myEnrolled();
+        const results = response.results || (Array.isArray(response) ? response : []);
+        setEnrolledCourseIds(results.map((e: any) => e.course.id));
+      } catch (err) {
+        console.error("Erreur lors de la récupération des cours inscrits:", err);
+      }
     }
   };
 
@@ -37,9 +48,7 @@ export default function CoursesScreen({ navigation }: any) {
   };
 
   const handleCoursePress = (courseId: number) => {
-    if (filter === 'my') {
-      navigation.navigate('CourseDetail', { courseId });
-    }
+    navigation.navigate('CourseDetail', { courseId });
   };
 
   const handleEnroll = async (id: number) => {
@@ -49,20 +58,26 @@ export default function CoursesScreen({ navigation }: any) {
 
   const renderCourse = ({ item }: any) => {
     // Si c'est un objet d'inscription (mes cours), les données sont dans item.course
+    // Si c'est un objet d'inscription (mes cours), les données sont dans item.course
     const courseData = filter === 'my' ? item.course : item;
 
-    if (!courseData) return null;
+    // Sécurité supplémentaire si les données ne correspondent pas au filtre (chargement en cours)
+    if (!courseData || (filter === 'my' && !item.course) || (filter === 'all' && item.course)) {
+      return null;
+    }
 
     const subjectName = typeof courseData.subject === 'object'
       ? courseData.subject.name
       : (courseData.subject || 'Général');
+
+    const isEnrolled = filter === 'my' || enrolledCourseIds.includes(courseData.id);
 
     return (
       <View style={styles.courseCard}>
         <TouchableOpacity
           style={styles.courseContent}
           onPress={() => handleCoursePress(courseData.id)}
-          activeOpacity={filter === 'my' ? 0.7 : 1}
+          activeOpacity={0.7}
         >
           <Text style={styles.courseTitle}>{courseData.title}</Text>
           <Text style={styles.courseDescription} numberOfLines={2}>
@@ -74,8 +89,10 @@ export default function CoursesScreen({ navigation }: any) {
           </View>
         </TouchableOpacity>
 
-        {filter === 'my' ? (
-          <Text style={styles.arrow}>→</Text>
+        {isEnrolled ? (
+          <TouchableOpacity onPress={() => handleCoursePress(courseData.id)}>
+            <Text style={styles.arrow}>{filter === 'my' ? '→' : 'Inscrit'}</Text>
+          </TouchableOpacity>
         ) : (
           <TouchableOpacity
             style={styles.enrollButton}
@@ -88,6 +105,17 @@ export default function CoursesScreen({ navigation }: any) {
     );
   };
 
+  if (error) {
+    return (
+      <View style={styles.centerContainer}>
+        <Text style={styles.errorText}>⚠️ {error}</Text>
+        <TouchableOpacity style={styles.retryButton} onPress={loadData}>
+          <Text style={styles.retryButtonText}>Réessayer</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
   if (isLoading && courses.length === 0) {
     return (
       <View style={styles.centerContainer}>
@@ -96,6 +124,63 @@ export default function CoursesScreen({ navigation }: any) {
       </View>
     );
   }
+
+  // Debug logs
+  console.log('[CoursesScreen] Rendering. Filter:', filter);
+  console.log('[CoursesScreen] State:', {
+    coursesCount: courses?.length,
+    myCoursesCount: myCourses?.length,
+    isLoading,
+    error
+  });
+
+  const dataToDisplay = (filter === 'my' ? myCourses : courses) || [];
+
+  // Groupement par matière pour le catalogue
+  const getGroupedData = () => {
+    try {
+      if (filter === 'my') return dataToDisplay;
+
+      const groups: { [key: string]: any[] } = {};
+
+      // Safety check
+      if (!Array.isArray(dataToDisplay)) {
+        console.error('[CoursesScreen] dataToDisplay is not an array:', dataToDisplay);
+        return [];
+      }
+
+      dataToDisplay.forEach(item => {
+        if (!item) return;
+        const subject = typeof item.subject === 'object' ? item.subject?.name : (item.subject || 'Autres');
+        if (!groups[subject]) groups[subject] = [];
+        groups[subject].push(item);
+      });
+
+      const flattened: any[] = [];
+      Object.keys(groups).sort().forEach(subject => {
+        flattened.push({ isHeader: true, title: subject });
+        flattened.push(...groups[subject]);
+      });
+      return flattened;
+    } catch (e) {
+      console.error('[CoursesScreen] Error in getGroupedData:', e);
+      return [];
+    }
+  };
+
+  const finalData = getGroupedData();
+
+  const renderItem = ({ item }: any) => {
+    if (!item) return null;
+    if (item.isHeader) {
+      return (
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionHeaderText}>{item.title}</Text>
+        </View>
+      );
+    }
+    return renderCourse({ item });
+  };
 
   return (
     <View style={styles.container}>
@@ -117,7 +202,12 @@ export default function CoursesScreen({ navigation }: any) {
         </View>
       </View>
 
-      {courses.length === 0 ? (
+      {isLoading && dataToDisplay.length === 0 ? (
+        <View style={styles.centerContainer}>
+          <ActivityIndicator size="large" color="#3498db" />
+          <Text style={styles.loadingText}>Chargement des cours...</Text>
+        </View>
+      ) : dataToDisplay.length === 0 ? (
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>Aucun cours trouvé</Text>
           <Text style={styles.emptySubtext}>
@@ -131,9 +221,10 @@ export default function CoursesScreen({ navigation }: any) {
         </View>
       ) : (
         <FlatList
-          data={courses}
-          renderItem={renderCourse}
-          keyExtractor={(item) => item.id.toString()}
+          data={finalData}
+          extraData={filter}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => item.isHeader ? `header-${item.title}` : `${filter}-${item.id || index}`}
           refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />}
           contentContainerStyle={styles.list}
         />
@@ -161,6 +252,23 @@ const styles = StyleSheet.create({
   loadingText: {
     marginTop: 10,
     color: '#7f8c8d',
+  },
+  errorText: {
+    color: '#e74c3c',
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 20,
+    paddingHorizontal: 20,
+  },
+  retryButton: {
+    backgroundColor: '#3498db',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+  },
+  retryButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
   header: {
     fontSize: 24,
@@ -193,8 +301,24 @@ const styles = StyleSheet.create({
   },
   list: {
     paddingHorizontal: 15,
-    paddingTop: 15,
+    paddingTop: 10,
     paddingBottom: 20,
+  },
+  sectionHeader: {
+    backgroundColor: '#f5f5f5',
+    paddingVertical: 10,
+    paddingHorizontal: 5,
+    marginTop: 10,
+    marginBottom: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  sectionHeaderText: {
+    fontSize: 16,
+    fontWeight: '800',
+    color: '#34495e',
+    textTransform: 'uppercase',
+    letterSpacing: 1,
   },
   courseCard: {
     backgroundColor: '#fff',

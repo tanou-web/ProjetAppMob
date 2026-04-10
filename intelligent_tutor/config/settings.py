@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'apps.exercises',
     'apps.progress',
     'apps.recommendations',
-
+    'apps.ai',  # AI Services with Gemini API
 ]
 
 MIDDLEWARE = [
@@ -195,3 +195,6 @@ LOGGING = {
 # Create logs directory if it doesn't exist
 LOG_DIR = BASE_DIR / 'logs'
 LOG_DIR.mkdir(exist_ok=True)
+
+# AI Configuration
+GEMINI_API_KEY = config('GEMINI_API_KEY', default='AIzaSyApI5_cx0upITSG_bp-TKXMs4nCp2QxHUQ')

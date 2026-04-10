@@ -18,7 +18,7 @@ class IsAdminOrTeacher(BasePermission):
         return request.user.role in ['admin', 'teacher']
 from apps.courses.serializers import (
     SubjectSerializer, CourseListSerializer, CourseDetailSerializer,
-    LessonSerializer, CourseEnrollmentSerializer
+    LessonSerializer, LessonListSerializer, CourseEnrollmentSerializer
 )
 
 
@@ -74,10 +74,6 @@ class CourseViewSet(viewsets.ModelViewSet):
         queryset = Course.objects.filter(status='published')
         user = self.request.user
         
-        import logging
-        logger = logging.getLogger(__name__)
-        logger.warning(f"DEBUG: get_queryset user={user}, auth={user.is_authenticated}, role={getattr(user, 'role', 'N/A')}, level={getattr(user, 'level', 'N/A')}")
-
         if user.is_authenticated and hasattr(user, 'role') and user.role == 'student' and user.level:
             show_all = self.request.query_params.get('all_levels', 'false').lower() == 'true'
             if not show_all:
@@ -150,7 +146,10 @@ class CourseViewSet(viewsets.ModelViewSet):
 class LessonViewSet(viewsets.ReadOnlyModelViewSet):
     """ViewSet for lessons."""
     
-    serializer_class = LessonSerializer
+    def get_serializer_class(self):
+        if self.action == 'retrieve':
+            return LessonSerializer
+        return LessonListSerializer
     permission_classes = [AllowAny]
     filter_backends = [filters.OrderingFilter]
     ordering_fields = ['order', 'created_at']

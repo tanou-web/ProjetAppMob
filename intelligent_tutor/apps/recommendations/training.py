@@ -48,7 +48,7 @@ class DataPreparation:
         
         # Récupérer les tentatives d'exercices
         attempts = ExerciseAttempt.objects.filter(
-            created_at__gte=cutoff_date
+            started_at__gte=cutoff_date
         ).select_related('student', 'exercise__lesson__course')
         
         if attempts.count() < min_samples:
@@ -98,12 +98,12 @@ class DataPreparation:
             # Récupérer les stats de l'étudiant
             previous_attempts = ExerciseAttempt.objects.filter(
                 student=student,
-                created_at__lt=attempt.created_at
+                started_at__lt=attempt.started_at
             ).count()
             
             correct_attempts = ExerciseAttempt.objects.filter(
                 student=student,
-                created_at__lt=attempt.created_at,
+                started_at__lt=attempt.started_at,
                 is_correct=True
             ).count()
             
@@ -150,10 +150,12 @@ class DataPreparation:
         """Préparer et normaliser les features"""
         # Séparer features et target
         target_col = 'score'
-        feature_cols = [col for col in df.columns if col != target_col]
         
-        X = df[feature_cols].fillna(0)
-        y = df[target_col]
+        # Encodage des variables catégorielles (difficulty, exercise_type)
+        df_encoded = pd.get_dummies(df, columns=['exercise_difficulty', 'exercise_type'], drop_first=True)
+        
+        y = df_encoded[target_col]
+        X = df_encoded.drop(columns=[target_col]).fillna(0)
         
         # Normaliser
         scaler = StandardScaler()

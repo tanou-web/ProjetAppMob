@@ -113,6 +113,12 @@ export interface ProgressData {
   total_points: number;
   courses_enrolled: number;
   last_activity: string;
+  real_level_assessment?: {
+    real_level: string;
+    status: 'advance' | 'on_track' | 'behind';
+    explanation: string;
+    confidence: number;
+  };
 }
 
 export interface AuthResponse {
@@ -141,4 +147,20 @@ export interface PaginatedResponse<T> {
   next: string | null;
   previous: string | null;
   results: T[];
+}
+
+export interface ContentRecommendation {
+  id: number;
+  student_email: string;
+  content_type: 'course' | 'lesson' | 'exercise' | 'resource';
+  content_id: number;
+  content_title: string;
+  confidence_score: number;
+  reason: string;
+  recommendation_factors: any;
+  is_viewed: boolean;
+  is_accepted: boolean;
+  user_rating?: number;
+  created_at: string;
+  viewed_at?: string;
 }

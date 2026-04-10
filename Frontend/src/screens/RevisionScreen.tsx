@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
   Text,
@@ -6,17 +7,21 @@ import {
   ActivityIndicator,
   ScrollView,
   FlatList,
+  TouchableOpacity,
 } from 'react-native';
 import { revisionAPI } from '../services/endpoints';
 import { RevisionPlan } from '../types';
 
 export default function RevisionScreen() {
+  const navigation = useNavigation<any>();
   const [revisionPlan, setRevisionPlan] = useState<RevisionPlan | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    fetchRevisionPlan();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      fetchRevisionPlan();
+    }, [])
+  );
 
   const fetchRevisionPlan = async () => {
     try {
@@ -44,8 +49,23 @@ export default function RevisionScreen() {
       <View style={styles.container}>
         <Text style={styles.header}>Plan de Révision</Text>
         <View style={styles.emptyContainer}>
-          <Text style={styles.emptyText}>✨ Aucune révision nécessaire</Text>
-          <Text style={styles.emptySubtext}>Continuez vos exercices!</Text>
+          <Text style={styles.emoji}>🎉</Text>
+          <Text style={styles.emptyText}>Tout est à jour !</Text>
+          <Text style={styles.emptySubtext}>Aucune révision urgente n'est nécessaire.</Text>
+
+          <TouchableOpacity
+            style={styles.actionButton}
+            onPress={() => navigation.navigate('CoursesTab')}
+          >
+            <Text style={styles.actionButtonText}>📚 Découvrir les cours</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.secondaryButton}
+            onPress={fetchRevisionPlan}
+          >
+            <Text style={styles.secondaryButtonText}>🔄 Actualiser</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -346,5 +366,37 @@ const styles = StyleSheet.create({
   emptySubtext: {
     fontSize: 14,
     color: '#95a5a6',
+  },
+  actionButton: {
+    backgroundColor: '#3498db',
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    borderRadius: 25,
+    marginTop: 30,
+    width: '70%',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+  actionButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  secondaryButton: {
+    marginTop: 20,
+    padding: 10,
+  },
+  secondaryButtonText: {
+    color: '#3498db',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  emoji: {
+    fontSize: 60,
+    marginBottom: 20,
   },
 });

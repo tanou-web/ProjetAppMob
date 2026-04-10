@@ -87,20 +87,82 @@ export default function ProgressScreen() {
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Text style={styles.header}>Mon Progrès</Text>
+        {/* Header with Refresh */}
+        <View style={styles.headerRow}>
+          <Text style={styles.header}>Mon Progrès</Text>
+          <TouchableOpacity
+            style={styles.refreshButton}
+            onPress={fetchProgress}
+            disabled={isLoading}
+          >
+            <Text style={styles.refreshButtonText}>{isLoading ? '...' : '🔄 Actualiser'}</Text>
+          </TouchableOpacity>
+        </View>
 
         {/* Change Level Button */}
         <TouchableOpacity
-          style={[styles.changeLevelButton, { marginHorizontal: 15, marginTop: 10 }]}
+          style={[styles.changeLevelButton, { marginHorizontal: 15, marginBottom: 15 }]}
           onPress={() => setLevelModalVisible(true)}
         >
           <Text style={styles.changeLevelButtonText}>🏫 Changer de niveau (Classe)</Text>
         </TouchableOpacity>
 
+        {/* AI Real Level Card */}
+        {progress.real_level_assessment && (
+          <View style={styles.aiLevelCard}>
+            <View style={styles.aiLevelHeader}>
+              <View style={styles.aiLevelTitleContainer}>
+                <Text style={styles.aiLevelEmoji}>🤖</Text>
+                <View>
+                  <Text style={styles.aiLevelTitle}>Évaluation IA: Niveau Réel</Text>
+                  <Text style={styles.aiLevelValue}>
+                    {progress.real_level_assessment.real_level}
+                  </Text>
+                </View>
+              </View>
+              <View style={[
+                styles.statusBadge,
+                progress.real_level_assessment.status === 'advance' ? styles.statusAdvance :
+                  progress.real_level_assessment.status === 'behind' ? styles.statusBehind :
+                    styles.statusOnTrack
+              ]}>
+                <Text style={styles.statusText}>
+                  {progress.real_level_assessment.status === 'advance' ? 'En Avance' :
+                    progress.real_level_assessment.status === 'behind' ? 'À Renforcer' :
+                      'Dans la moyenne'}
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.aiLevelContent}>
+              <Text style={styles.aiLevelExplanation}>
+                {progress.real_level_assessment.explanation}
+              </Text>
+
+              <View style={styles.confidenceContainer}>
+                <View style={styles.confidenceHeader}>
+                  <Text style={styles.confidenceLabel}>Fiabilité de l'analyse</Text>
+                  <Text style={styles.confidenceValue}>{Math.round(progress.real_level_assessment.confidence * 100)}%</Text>
+                </View>
+                <View style={styles.confidenceBar}>
+                  <View style={[
+                    styles.confidenceFill,
+                    {
+                      width: `${progress.real_level_assessment.confidence * 100}%`,
+                      backgroundColor: progress.real_level_assessment.confidence > 0.8 ? '#27ae60' :
+                        progress.real_level_assessment.confidence > 0.5 ? '#f39c12' : '#e74c3c'
+                    }
+                  ]} />
+                </View>
+              </View>
+            </View>
+          </View>
+        )}
+
         {/* Card principale */}
         <View style={styles.mainCard}>
           <View style={styles.mainCardContent}>
-            <Text style={styles.mainCardLabel}>Score Global</Text>
+            <Text style={styles.mainCardLabel}>Performance Globale</Text>
             <Text style={styles.mainCardScore}>{Math.round(progress.average_score)}%</Text>
             <Text style={styles.mainCardSubtext}>basé sur {progress.completed_exercises} exercices</Text>
           </View>
@@ -441,6 +503,123 @@ const styles = StyleSheet.create({
     color: '#3498db',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  aiLevelCard: {
+    marginHorizontal: 15,
+    marginTop: 15,
+    marginBottom: 20,
+    backgroundColor: '#fff',
+    borderRadius: 15,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    borderLeftWidth: 5,
+    borderLeftColor: '#9b59b6',
+  },
+  aiLevelHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  aiLevelEmoji: {
+    fontSize: 32,
+    marginRight: 12,
+  },
+  aiLevelTitle: {
+    fontSize: 12,
+    color: '#7f8c8d',
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+  },
+  aiLevelValue: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#2c3e50',
+  },
+  statusBadge: {
+    marginLeft: 'auto',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 12,
+  },
+  statusAdvance: {
+    backgroundColor: '#d4edda',
+  },
+  statusOnTrack: {
+    backgroundColor: '#cce5ff',
+  },
+  statusBehind: {
+    backgroundColor: '#f8d7da',
+  },
+  statusText: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    color: '#34495e',
+  },
+  aiLevelExplanation: {
+    fontSize: 14,
+    color: '#34495e',
+    lineHeight: 20,
+    fontStyle: 'italic',
+    marginBottom: 15,
+  },
+  confidenceContainer: {
+    marginTop: 5,
+  },
+  confidenceLabel: {
+    fontSize: 10,
+    color: '#95a5a6',
+    marginBottom: 5,
+  },
+  confidenceBar: {
+    height: 6,
+    backgroundColor: '#ecf0f1',
+    borderRadius: 3,
+    marginTop: 5,
+  },
+  confidenceFill: {
+    height: '100%',
+    borderRadius: 3,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginRight: 15,
+  },
+  refreshButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 15,
+    backgroundColor: '#e8f4f8',
+    borderWidth: 1,
+    borderColor: '#3498db',
+  },
+  refreshButtonText: {
+    fontSize: 12,
+    color: '#3498db',
+    fontWeight: 'bold',
+  },
+  aiLevelTitleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  aiLevelContent: {
+    marginTop: 10,
+  },
+  confidenceHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 5,
+  },
+  confidenceValue: {
+    fontSize: 11,
+    fontWeight: 'bold',
+    color: '#2c3e50',
   },
   logoutButton: {
     backgroundColor: '#fff',

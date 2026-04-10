@@ -162,15 +162,19 @@ class DatasetPreparer:
                 lambda x: x.replace('+', '-'),  # Wrong operator
                 lambda x: str(int(x) + 1) if x.isdigit() else x,  # Off by one
                 lambda x: x + " et quelques",  # Vague answer
+                lambda x: str(int(x) * 2) if x.isdigit() else x, # Scaling error
             ],
             'french': [
                 lambda x: x.lower(),  # Case error
-                lambda x: x.replace('é', 'e'),  # Accent error
+                lambda x: x.replace('é', 'e').replace('è', 'e').replace('ê', 'e'),  # Accent error
                 lambda x: x[:-1] if len(x) > 1 else x,  # Missing letter
+                lambda x: x + 's' if not x.endswith('s') else x[:-1], # Plural error
+                lambda x: x.replace('qu', 'k'), # Phonetic error
             ],
             'science': [
                 lambda x: x.replace('l\'', 'le '),  # Article error
                 lambda x: "Je ne sais pas",  # Incomplete answer
+                lambda x: "C'est " + x if "est" not in x else x, # Syntax error
             ]
         }
         
@@ -285,7 +289,18 @@ class FeatureEngineer:
     """Creates features for ML models"""
     
     def __init__(self):
-        self.vectorizer = TfidfVectorizer(max_features=100, ngram_range=(1, 2))
+        # Increased features and added basic French stop words
+        french_stop_words = [
+            'le', 'la', 'les', 'de', 'du', 'des', 'et', 'en', 'un', 'une', 
+            'que', 'qui', 'dans', 'sur', 'ce', 'cette', 'ces', 'est', 'sont', 
+            'il', 'elle', 'on', 'nous', 'vous', 'ils', 'elles', 'pour', 'avec',
+            'pas', 'plus', 'un', 'une', 'tout', 'tous', 'fait', 'faire'
+        ]
+        self.vectorizer = TfidfVectorizer(
+            max_features=500, 
+            ngram_range=(1, 2),
+            stop_words=french_stop_words
+        )
         self.scaler = StandardScaler()
         self.logger = logging.getLogger(self.__class__.__name__)
     
@@ -362,8 +377,8 @@ class ExerciseCorrectionTrainer:
     
     def __init__(self):
         self.model = RandomForestClassifier(
-            n_estimators=100,
-            max_depth=15,
+            n_estimators=250, # Boosted from 100
+            max_depth=25,     # Increased from 15
             random_state=42,
             n_jobs=-1,
             class_weight='balanced'
@@ -493,9 +508,9 @@ class ErrorAnalysisTrainer:
     
     def __init__(self):
         self.model = GradientBoostingClassifier(
-            n_estimators=100,
+            n_estimators=150, # Boosted from 100
             learning_rate=0.1,
-            max_depth=5,
+            max_depth=6,       # Increased from 5
             random_state=42
         )
         self.feature_engineer = FeatureEngineer()

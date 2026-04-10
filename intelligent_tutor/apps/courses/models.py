@@ -145,6 +145,7 @@ class CourseEnrollment(models.Model):
         unique_together = ('student', 'course')
         verbose_name = 'Inscription au cours'
         verbose_name_plural = 'Inscriptions au cours'
+        ordering = ['-enrolled_at']
     
     def __str__(self):
         return f"{self.student.email} - {self.course.title}"

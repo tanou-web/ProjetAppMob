@@ -1,6 +1,7 @@
 import apiClient from './api';
 import {
   User,
+  Lesson,
   Course,
   Exercise,
   ExerciseAttempt,
@@ -11,6 +12,7 @@ import {
   ProgressData,
   AuthResponse,
   PaginatedResponse,
+  ContentRecommendation,
 } from '../types';
 
 // ============ AUTH ============
@@ -74,8 +76,16 @@ export const coursesAPI = {
     return response.data;
   },
 
-  myEnrolled: async (page = 1): Promise<PaginatedResponse<Course>> => {
+  myEnrolled: async (page = 1): Promise<PaginatedResponse<any>> => {
     const response = await apiClient.get('courses/courses/my_courses/', { params: { page } });
+    return response.data;
+  },
+};
+
+// ============ LESSONS ============
+export const lessonsAPI = {
+  get: async (id: number): Promise<Lesson> => {
+    const response = await apiClient.get(`courses/lessons/${id}/`);
     return response.data;
   },
 };
@@ -92,17 +102,38 @@ export const exercisesAPI = {
     return response.data;
   },
 
-  submit: async (exerciseId: number, studentAnswer: string): Promise<ExerciseAttempt> => {
+  submit: async (exerciseId: number, answer: string): Promise<any> => {
     const response = await apiClient.post('exercises/attempts/submit/', {
       exercise: exerciseId,
-      student_answer: studentAnswer,
+      student_answer: answer,
     });
+    return response.data;
+  },
+
+  // Get adaptive exercises based on student performance
+  getAdaptive: async (): Promise<any> => {
+    const response = await apiClient.get('exercises/attempts/adaptive/');
+    return response.data;
+  },
+
+  // Get lessons and exercises to review (score < 60%)
+  getToReview: async (): Promise<any> => {
+    const response = await apiClient.get('exercises/attempts/to_review/');
     return response.data;
   },
 
   getAttempts: async (exerciseId: number): Promise<ExerciseAttempt[]> => {
     const response = await apiClient.get('exercises/attempts/', { params: { exercise: exerciseId } });
     return response.data.results || response.data;
+  },
+
+  submitInteractive: async (lessonId: number, activityType: string, results: any[]): Promise<any> => {
+    const response = await apiClient.post('exercises/attempts/submit-interactive/', {
+      lesson_id: lessonId,
+      activity_type: activityType,
+      results: results,
+    });
+    return response.data;
   },
 };
 
@@ -214,4 +245,63 @@ export const recommendationsAPI = {
     const response = await apiClient.post('recommendations/engines/regenerate_recommendations/');
     return response.data;
   },
+
+  pending: async (): Promise<PaginatedResponse<ContentRecommendation>> => {
+    const response = await apiClient.get('recommendations/pending/');
+    return response.data;
+  },
+};
+
+// ============ AI SERVICES ============
+export const aiAPI = {
+  chat: async (message: string, subject?: string, lessonId?: number, conversationHistory?: any[]): Promise<any> => {
+    const response = await apiClient.post('ai/chat/', {
+      message,
+      subject,
+      lesson_id: lessonId,
+      conversation_history: conversationHistory,
+    });
+    return response.data;
+  },
+
+  analyzeError: async (attemptId: number): Promise<any> => {
+    const response = await apiClient.post('ai/analyze_error/', {
+      attempt_id: attemptId,
+    });
+    return response.data;
+  },
+
+  parentReport: async (period: 'week' | 'month' | 'all' = 'month'): Promise<any> => {
+    const response = await apiClient.get(`ai/parent_report/?period=${period}`);
+    return response.data;
+  },
+
+  suggestExercises: async (subject?: string): Promise<any> => {
+    const url = subject ? `ai/suggest_exercises/?subject=${subject}` : 'ai/suggest_exercises/';
+    const response = await apiClient.get(url);
+    return response.data;
+  },
+
+  status: async (): Promise<any> => {
+    const response = await apiClient.get('ai/status/');
+    return response.data;
+  },
+
+  visionCorrection: async (imageB64: string, exerciseId?: number): Promise<any> => {
+    const response = await apiClient.post('ai/vision-correction/', {
+      image: imageB64,
+      exercise_id: exerciseId,
+    });
+    return response.data;
+  },
+
+  lessonAudio: async (text: string): Promise<any> => {
+    const response = await apiClient.post('ai/lesson_audio/', { text });
+    return response.data;
+  },
+};
+
+// Export base URL for direct use
+export const endpoints = {
+  base: 'http://localhost:8000/api',
 };

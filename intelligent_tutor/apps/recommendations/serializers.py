@@ -17,7 +17,7 @@ class ContentRecommendationSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContentRecommendation
         fields = [
-            'id', 'student_email', 'content_type', 'content_title',
+            'id', 'student_email', 'content_type', 'content_id', 'content_title',
             'confidence_score', 'reason', 'recommendation_factors',
             'is_viewed', 'is_accepted', 'user_rating', 'created_at',
             'viewed_at'

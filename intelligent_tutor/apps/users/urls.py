@@ -12,5 +12,6 @@ router.register(r'teacher-profiles', views.TeacherProfileViewSet, basename='teac
 router.register(r'notifications', views.NotificationViewSet, basename='notification')
 
 urlpatterns = [
+    path('health/', views.health_check, name='health_check'),
     path('', include(router.urls)),
 ]

@@ -35,8 +35,39 @@ urlpatterns = [
     path('api/exercises/', include('apps.exercises.urls')),
     path('api/progress/', include('apps.progress.urls')),
     path('api/recommendations/', include('apps.recommendations.urls')),
+    path('api/', include('apps.ai.urls')),  # AI endpoints
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+from django.http import HttpResponse
+
+def root_view(request):
+    html = """
+    <html>
+        <head>
+            <title>Intelligent Tutor Backend</title>
+            <style>
+                body { font-family: sans-serif; text-align: center; padding-top: 50px; }
+                .container { max-width: 600px; margin: 0 auto; }
+                h1 { color: #2c3e50; }
+                p { color: #7f8c8d; }
+                a { display: inline-block; background-color: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+                a:hover { background-color: #2980b9; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>✅ Backend is Running!</h1>
+                <p>This is the API server. To use the application, please visit the Frontend.</p>
+                <a href="http://localhost:8081">Go to App (Frontend)</a>
+                <p style="font-size: 0.8em; margin-top: 40px;">If the link doesn't work, ensure you have started the frontend with <code>npx expo start</code>.</p>
+            </div>
+        </body>
+    </html>
+    """
+    return HttpResponse(html)
+
+urlpatterns.append(path('', root_view))

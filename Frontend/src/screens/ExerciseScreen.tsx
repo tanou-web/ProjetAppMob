@@ -13,14 +13,55 @@ import { useCoursesStore } from '../store/coursesStore';
 
 export default function ExerciseScreen({ route, navigation }: any) {
   const { exerciseId } = route.params;
-  const { currentExercise, currentAttempt, isLoading, selectExercise, submitAnswer } =
+  const { currentExercise, currentAttempt, isLoading, selectExercise, submitAnswer, correctExerciseByVision } =
     useCoursesStore();
   const [answer, setAnswer] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [isScanning, setIsScanning] = useState(false);
 
   useEffect(() => {
     selectExercise(exerciseId);
   }, [exerciseId]);
+
+  const handleScan = async () => {
+    try {
+      const ImagePicker = require('expo-image-picker');
+      const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
+
+      if (permissionResult.granted === false) {
+        Alert.alert('Permission requise', 'Accès à la caméra requis pour scanner l\'exercice.');
+        return;
+      }
+
+      const result = await ImagePicker.launchCameraAsync({
+        allowsEditing: true,
+        quality: 0.8,
+        base64: true,
+      });
+
+      if (!result.canceled && result.assets && result.assets[0].base64) {
+        setIsScanning(true);
+        const visionResult = await correctExerciseByVision(exerciseId, result.assets[0].base64);
+
+        if (visionResult.extracted_text) {
+          setAnswer(visionResult.extracted_text);
+          Alert.alert(
+            'Texte extrait',
+            `L'IA a lu : "${visionResult.extracted_text}". Veux-tu soumettre cette réponse ?`,
+            [
+              { text: 'Modifier', style: 'cancel' },
+              { text: 'Soumettre', onPress: () => submitAnswer(exerciseId, visionResult.extracted_text).then(() => setSubmitted(true)) }
+            ]
+          );
+        }
+        setIsScanning(false);
+      }
+    } catch (error) {
+      console.error('Scan error:', error);
+      Alert.alert('Erreur', 'Impossible de scanner l\'exercice pour le moment.');
+      setIsScanning(false);
+    }
+  };
 
   const handleSubmit = async () => {
     if (!answer.trim()) {
@@ -32,7 +73,7 @@ export default function ExerciseScreen({ route, navigation }: any) {
     setSubmitted(true);
   };
 
-  if (isLoading && !currentExercise) {
+  if ((isLoading || isScanning) && !currentExercise) {
     return (
       <View style={styles.centerContainer}>
         <ActivityIndicator size="large" color="#3498db" />
@@ -71,24 +112,30 @@ export default function ExerciseScreen({ route, navigation }: any) {
         {/* Zone de réponse */}
         {!submitted ? (
           <>
-            <Text style={styles.label}>Votre réponse:</Text>
+            <View style={styles.labelRow}>
+              <Text style={styles.label}>Votre réponse:</Text>
+              <TouchableOpacity style={styles.scanButton} onPress={handleScan} disabled={isScanning}>
+                <Text style={styles.scanButtonText}>📸 Scanner mon cahier</Text>
+              </TouchableOpacity>
+            </View>
+
             <TextInput
               style={styles.answerInput}
-              placeholder="Entrez votre réponse ici..."
+              placeholder="Entrez votre réponse ici ou utilisez le scanner..."
               value={answer}
               onChangeText={setAnswer}
-              editable={!isLoading}
+              editable={!isLoading && !isScanning}
               multiline
               numberOfLines={4}
               textAlignVertical="top"
             />
 
             <TouchableOpacity
-              style={[styles.button, isLoading && styles.buttonDisabled]}
+              style={[styles.button, (isLoading || isScanning) && styles.buttonDisabled]}
               onPress={handleSubmit}
-              disabled={isLoading}
+              disabled={isLoading || isScanning}
             >
-              {isLoading ? (
+              {(isLoading || isScanning) ? (
                 <ActivityIndicator color="#fff" />
               ) : (
                 <Text style={styles.buttonText}>Soumettre</Text>
@@ -192,11 +239,27 @@ const styles = StyleSheet.create({
     color: '#2c3e50',
     lineHeight: 20,
   },
+  labelRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
   label: {
     fontSize: 14,
     fontWeight: '600',
     color: '#2c3e50',
-    marginBottom: 10,
+  },
+  scanButton: {
+    backgroundColor: '#9b59b6',
+    borderRadius: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  scanButtonText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: '600',
   },
   answerInput: {
     backgroundColor: '#fff',

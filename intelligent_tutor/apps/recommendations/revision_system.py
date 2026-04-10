@@ -124,8 +124,9 @@ class IntelligentRevisionEngine:
         if revision_item.related_exercises:
             return revision_item.related_exercises
         
-        # Chercher les exercices liés au concept
+        # Chercher les exercices liés au concept ET au niveau de l'élève
         exercises = Exercise.objects.filter(
+            Q(lesson__course__level=revision_item.student.level),
             Q(lesson__title__icontains=revision_item.concept) |
             Q(title__icontains=revision_item.concept) |
             Q(description__icontains=revision_item.concept)
@@ -145,10 +146,11 @@ class IntelligentRevisionEngine:
         if revision_item.related_lessons:
             return revision_item.related_lessons
         
-        # Chercher les leçons liées
+        # Chercher les leçons liées au niveau de l'élève
         lessons = Lesson.objects.filter(
+            course__level=revision_item.student.level,
             title__icontains=revision_item.concept.split()[0]
-        ).values('id', 'title', 'course__name')[:limit]
+        ).values('id', 'title', 'course__title')[:limit]
         
         lesson_list = list(lessons)
         

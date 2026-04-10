@@ -10,6 +10,8 @@ from apps.courses.models import Course, Lesson
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import StandardScaler
+from services.ml_service import MLService
+from services.ai_service import AIService
 
 
 def generate_recommendations(user, limit=5):
@@ -134,6 +136,19 @@ def analyze_user_performance(user):
     
     performance['recent_attempts'] = recent_attempts.count()
     
+    # Use MLService for difficulty prediction if enough data
+    if performance['recent_attempts'] >= 5:
+        predicted_difficulty, confidence = MLService.predict_recommendation([
+            performance['average_score'], 
+            performance['recent_attempts'],
+            performance['completion_rate']
+        ])
+        performance['suggested_difficulty'] = predicted_difficulty
+        performance['difficulty_confidence'] = confidence
+    else:
+        performance['suggested_difficulty'] = 2 # Default easy
+        performance['difficulty_confidence'] = 0.5
+        
     return performance
 
 
@@ -143,9 +158,9 @@ def recommend_for_weaknesses(user, weaknesses, engine):
     recommendations = []
     
     for weakness in weaknesses:
-        # Find courses in weak subject
         courses = Course.objects.filter(
             subject__name=weakness,
+            level=user.level,
             status='published'
         ).exclude(
             enrollments__student=user
@@ -169,9 +184,10 @@ def recommend_by_learning_style(user, learning_style, engine):
     
     recommendations = []
     
-    # Find lessons that match learning style preferences
+    # Find lessons that match learning style preferences and user level
     all_lessons = Lesson.objects.filter(
-        course__status='published'
+        course__status='published',
+        course__level=user.level
     ).exclude(
         progress_records__student=user
     )[:5]
